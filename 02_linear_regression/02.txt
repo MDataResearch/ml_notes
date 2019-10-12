@@ -1,8 +1,0 @@
-
-learning process:
-
-training set => learning algorithm => h (hypothesis 假设)
-
-size of house => h (hypothesis 假设) => estimated prize
-
-y = h(x) = θ1 * x
