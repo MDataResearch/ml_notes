@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
 \usepackage{makeidx}
 \usepackage{hyperref}
 
@@ -7,6 +7,15 @@
 \author{Haotian Chen}
 \date{}
 
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\makeatletter
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 \makeindex
 
 
@@ -39,7 +48,7 @@ outputs.
 
 \noindent In supervised learning, each example is a 
 pair consisting of an input object (typically a vector) 
-and a desired output value (also called thesupervisory signal).
+and a desired output value (also called the supervisory signal).
 
 \subsubsection{Regression}
 
@@ -49,13 +58,31 @@ variable (often called the `outcome variable') and one
 or more independent variables (often called `predictors', 
 `covariates', or `features').
 
+\bigskip
+
+\noindent \textbf{Training(Learning) Process:}
+
+\noindent \textit{observed data(training set)} $\rightarrow$ \textit{learning algorithm} $\rightarrow$ \textit{h(hypothesis)}
+
+\noindent \textit{hypothesis:} 假设
+
+\bigskip
+
+\noindent \textbf{Predicting Process:}
+
+\noindent \textit{independent variable} $\rightarrow$ \textit{h(hypothesis)} $\rightarrow$ \textit{dependent variable}
+
+\paragraph{Linear Regression}
+
+wiki
+
 \subsubsection{Classification}
 
 Classification is the problem of identifying to which 
 of a set of categories (sub-populations) a new observation 
 belongs, on the basis of a training set of data containing 
 observations (or instances) whose category membership is known.
-       
+
 \subsection{Unsupervised Learning}
 
 Unsupervised learning algorithms take a set of data that 
@@ -64,7 +91,7 @@ grouping or clustering of data points.
 
 \bigskip
 
-\noindent Draw inferences from datasets consisting of input 
+\noindent Draw inferences from data sets consisting of input 
 data without labeled responses.
 
 \subsection{Reinforcement learning}
