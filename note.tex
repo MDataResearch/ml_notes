@@ -2,6 +2,7 @@
 \usepackage{xeCJK}
 \usepackage{makeidx}
 \usepackage{hyperref}
+\usepackage{amsmath}
 
 \title{Machine Learning Notes}
 \author{Haotian Chen}
@@ -74,7 +75,80 @@ or more independent variables (often called `predictors',
 
 \paragraph{Linear Regression}
 
-wiki
+Given a data set \(\{y_i, x_{i1}, ..., x_{ip}\}_{i=1}^n\) of n statistical units, a linear regression model assumes that the relationship between the dependent variable \textbf{y} and the p-vector of regressors \textbf{x} is linear.
+
+\[\textbf{y} = X\boldsymbol{\beta} + \boldsymbol{\epsilon}\]
+
+\noindent where
+
+\bigskip
+
+\(
+\textbf{y} = 
+\begin{bmatrix}
+y_1\\
+y_2\\
+\vdots\\
+y_n
+\end{bmatrix}
+,
+X = 
+\begin{bmatrix}
+\textbf{x}_1^T\\
+\textbf{x}_2^T\\
+\vdots\\
+\textbf{x}_n^T
+\end{bmatrix} = 
+\begin{bmatrix}
+1 & x_{11} & \dots & x_{1p}\\
+1 & x_{21} & \dots & x_{2p}\\
+\vdots & \vdots & \ddots & \vdots\\
+1 & x_{n1} & \dots & x_{np}
+\end{bmatrix}
+,
+\boldsymbol{\beta} = 
+\begin{bmatrix}
+\beta_0\\
+\beta_1\\
+\vdots\\
+\beta_p
+\end{bmatrix}
+,
+\boldsymbol{\epsilon} = 
+\begin{bmatrix}
+\epsilon_1\\
+\epsilon_2\\
+\vdots\\
+\epsilon_n
+\end{bmatrix}
+\)
+
+\bigskip
+
+\noindent \(\textbf{y}\) is a vector of observed values \(y_{i}\ (i=1,\ldots ,n)\) of the variable called the regressand, endogenous variable, response variable, measured variable, criterion variable, or dependent variable.
+
+\bigskip
+
+\noindent \(X\) may be seen as a matrix of row-vectors \(x_{i}\) or of n-dimensional column-vectors \(X_{j}\), which are known as regressors, exogenous variables, explanatory variables, covariates, input variables, predictor variables, or independent variables. Usually a constant is included as one of the regressors. In particular, \(x_{i0} = 1\) for \(i = 1, \dots, n\). The corresponding element of \(\beta\) is called the intercept. 
+
+\bigskip
+
+\noindent \(\boldsymbol{\beta}\) is a \((p + 1)\)-dimensional parameter vector, where \(\beta_{0}\) is the intercept term (if one is included in the model—otherwise \(\boldsymbol{\beta}\) is p-dimensional). Its elements are known as effects or regression coefficients (although the latter term is sometimes reserved for the estimated effects).
+
+\bigskip
+
+\noindent \(\boldsymbol{\epsilon}\) is a vector of values \(\epsilon_{i}\). This part of the model is called the error term, disturbance term, or sometimes noise (in contrast with the "signal" provided by the rest of the model).
+
+\bigskip
+
+\noindent \textbf{Linear Regression With One Variable}
+
+\bigskip
+
+\noindent hypothesis:
+\[y = h_{\theta}(x) = \theta_0 + \theta_1x\]
+\noindent training data:
+\[(x_i, y_y)\:for\:i = 1, \dots, n\]
 
 \subsubsection{Classification}
 
