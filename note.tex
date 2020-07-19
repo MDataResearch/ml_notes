@@ -148,7 +148,11 @@ X =
 \noindent hypothesis:
 \[y = h_{\theta}(x) = \theta_0 + \theta_1x\]
 \noindent training data:
-\[(x_i, y_i)\:for\:i = 1, \dots, m\]
+\[(x^{(i)}, y^{(i)})\:for\:i = 1, \dots, m\]
+\noindent cost function:
+\[J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i = 1}^m\ (h_{\theta}(x^{(i)}) - y^{(i)})^2\]
+\noindent goal:
+\[\underset{\theta_0, \theta_1}{\text{minimize}} \: J(\theta_0, \theta_1)\]
 
 \subsubsection{Classification}
 
