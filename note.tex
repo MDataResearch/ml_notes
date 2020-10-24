@@ -15,6 +15,12 @@
                                      {\normalfont\normalsize\bfseries}}
 \makeatletter
 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+}
+
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 \makeindex
@@ -73,7 +79,7 @@ or more independent variables (often called `predictors',
 
 \noindent \textit{independent variable} $\rightarrow$ \textit{h(hypothesis)} $\rightarrow$ \textit{dependent variable}
 
-\paragraph{Linear Regression}
+\paragraph{Linear Regression(from \href{https://en.wikipedia.org/wiki/Linear_regression\#:~:text=In\%20statistics\%2C\%20linear\%20regression\%20is,is\%20called\%20simple\%20linear\%20regression.}{Wikipedia})}
 
 Given a data set \(\{y_i, x_{i1}, ..., x_{ip}\}_{i=1}^n\) of n statistical units, a linear regression model assumes that the relationship between the dependent variable \textbf{y} and the p-vector of regressors \textbf{x} is linear.
 
@@ -159,18 +165,50 @@ X =
 
 \[A^T_{ij} = A_{ji}\]
 
-\noindent \textbf{Linear Regression With One Variable}
+\paragraph{Linear Regression Learning (from \href{https://www.coursera.org/learn/machine-learning}{Machine Learning course})}
 
-\bigskip
+\noindent For convenience reasons, define \(x_0 = 1\)
+
+\[
+\textbf{x} = 
+\begin{bmatrix}
+x_0\\
+x_1\\
+\vdots\\
+x_n
+\end{bmatrix}
+,
+\boldsymbol{\theta} = 
+\begin{bmatrix}
+\theta_0\\
+\theta_1\\
+\vdots\\
+\theta_n
+\end{bmatrix}
+\]
 
 \noindent hypothesis:
-\[y = h_{\theta}(x) = \theta_0 + \theta_1x\]
+
+\[\textbf{y} = h_{\theta}(\textbf{x}) = \boldsymbol{\theta}^T \textbf{x} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n\]
+
 \noindent training data:
-\[(x^{(i)}, y^{(i)})\:for\:i = 1, \dots, m\]
+
+\[(\textbf{x}^{(i)}, \textbf{y}^{(i)})\:for\:i = 1, \dots, m\]
+
 \noindent cost function:
-\[J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i = 1}^m\ (h_{\theta}(x^{(i)}) - y^{(i)})^2\]
+
+\[J(\boldsymbol{\theta}) = \frac{1}{2m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2\]
+
 \noindent goal:
-\[\underset{\theta_0, \theta_1}{\text{minimize}} \: J(\theta_0, \theta_1)\]
+
+\[\underset{\boldsymbol{\theta}}{\text{minimize}} \: J(\boldsymbol{\theta})\]
+
+\noindent gradient descent:
+
+\noindent repeat until convergence \{
+\[\boldsymbol{\theta}_j =: \boldsymbol{\theta}_j - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j\]
+\centerline{simultaneously update \(\boldsymbol{\theta}_j\) for \(j = 0, \dots, n\)}
+\}
 
 \subsubsection{Classification}
 
