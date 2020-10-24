@@ -210,6 +210,18 @@ x_n
 \centerline{simultaneously update \(\boldsymbol{\theta}_j\) for \(j = 0, \dots, n\)}
 \}
 
+\bigskip
+
+\noindent feature scaling:
+
+\noindent The range of all features should be normalized so that each feature contributes approximately proportionately to the result. Also it helps gradient descent converge much faster.
+
+\bigskip
+
+\noindent mean normalization: (don't apply to \(x_0\))
+
+\[\textbf{x}_i = \frac{\textbf{x}_i - mean(\textbf{x}_i)}{max(\textbf{x}_i) - min(\textbf{x}_i)}\]
+
 \subsubsection{Classification}
 
 Classification is the problem of identifying to which 
