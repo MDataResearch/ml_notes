@@ -206,7 +206,7 @@ x_n
 \noindent gradient descent:
 
 \noindent repeat until convergence \{
-\[\boldsymbol{\theta}_j =: \boldsymbol{\theta}_j - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j\]
+\[\boldsymbol{\theta}_j =: \boldsymbol{\theta}_j - \alpha \frac{\partial}{\partial \boldsymbol{\theta}_j} J(\boldsymbol{\theta}) = \boldsymbol{\theta}_j - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j\]
 \centerline{simultaneously update \(\boldsymbol{\theta}_j\) for \(j = 0, \dots, n\)}
 \}
 
