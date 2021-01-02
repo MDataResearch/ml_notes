@@ -213,6 +213,15 @@ x_n
 
 \bigskip
 
+\noindent vectorized implementation:
+
+\noindent repeat until convergence \{
+\[\boldsymbol{\theta} =: \boldsymbol{\theta} - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}\]
+\}
+
+\bigskip
+
+
 \noindent batch:
 
 \noindent Each step of gradient descent uses all the training examples.
