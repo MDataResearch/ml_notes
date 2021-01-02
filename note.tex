@@ -3,6 +3,7 @@
 \usepackage{makeidx}
 \usepackage{hyperref}
 \usepackage{amsmath}
+\usepackage{xcolor}
 
 \title{Machine Learning Notes}
 \author{Haotian Chen}
@@ -253,6 +254,60 @@ x_n
 
 \[h_{\theta}(x) = \theta_0 + \theta_1 \times area + \theta_2 \times area^2\]
 \[h_{\theta}(x) = \theta_0 + \theta_1 \times area + \theta_2 \times \sqrt{area}\]
+
+\paragraph{Normal Equation}
+
+\noindent Let:
+
+\[
+\textbf{X} = 
+\begin{bmatrix}
+(\textbf{x}^{(1)})^T\\
+(\textbf{x}^{(2)})^T\\
+\vdots\\
+(\textbf{x}^{(m)})^T
+\end{bmatrix}
+,
+\textbf{Y} = 
+\begin{bmatrix}
+\textbf{y}^{(1)}\\
+\textbf{y}^{(2)}\\
+\vdots\\
+\textbf{y}^{(m)}
+\end{bmatrix}
+\]
+
+\noindent Calculate best \(\boldsymbol{\theta}\): \textcolor{orange}{ * math stuff needed for following part}
+
+\[
+\boldsymbol{\theta} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}
+\]
+
+\noindent If \(\textbf{X}^T\textbf{X}\) is noninvertible, the common causes might be having:
+
+\noindent 1. Redundant features, where two features are very closely related (i.e. they are linearly dependent)
+
+\noindent 2. Too many features (e.g. \(m \leq n\)). In this case, delete some features or use "regularization".
+
+\bigskip
+
+\noindent \textbf{Gradient Descent} vs \textbf{Normal Equation}:
+
+\begin{center}
+\begin{tabular}{ | c | c | } 
+\hline
+\textbf{Gradient Descent} & \textbf{Normal Equation} \\ 
+\hline
+Need to choose \alpha & No need to choose \alpha \\ 
+\hline
+Needs many iterations & No need to iterate \\ 
+\hline
+\[O(kn^2)\] & \[O(n^3)\]. Need to calculate \[(\textbf{X}^T\textbf{X})^{-1}\] \\ 
+\hline
+Works well when n is large & Slow if n is very large \\ 
+\hline
+\end{tabular}
+\end{center}
 
 \subsubsection{Classification}
 
