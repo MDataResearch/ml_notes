@@ -1,1 +1,3 @@
 mypy==0.790
+jupyter==1.0.0
+numpy==1.19.5
