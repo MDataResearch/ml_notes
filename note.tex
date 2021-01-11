@@ -232,9 +232,21 @@ x_n
 
 \noindent The range of all features should be normalized so that each feature contributes approximately proportionately to the result. Also it helps gradient descent converge much faster.
 
+\bigskip
+
 \noindent mean normalization: (don't apply to \(x_0\))
 
 \[\textbf{x}_i = \frac{\textbf{x}_i - mean(\textbf{x}_i)}{max(\textbf{x}_i) - min(\textbf{x}_i)}\]
+
+\bigskip
+
+\noindent standardization: (don't apply to \(x_0\))
+
+\noindent Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance.
+
+\[\textbf{x}_i = \frac{\textbf{x}_i - mean(\textbf{x}_i)}{std(\textbf{x}_i)}\]
+
+\[std(\textbf{x}_i) = \sqrt{ \frac{1}{m} \sum_{j = 1}^m (\textbf{x}^{(j)}_i - mean(\textbf{x}_i))^2}\]
 
 \noindent learning rate \(\alpha\):
 
