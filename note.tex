@@ -289,7 +289,7 @@ x_n
 (\textbf{x}^{(m)})^T
 \end{bmatrix}
 ,
-\textbf{Y} = 
+\textbf{y} = 
 \begin{bmatrix}
 \textbf{y}^{(1)}\\
 \textbf{y}^{(2)}\\
@@ -301,7 +301,7 @@ x_n
 \noindent Calculate best \(\boldsymbol{\theta}\): \textcolor{orange}{ * math stuff needed for following part}
 
 \[
-\boldsymbol{\theta} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}
+\boldsymbol{\theta} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \]
 
 \noindent If \(\textbf{X}^T\textbf{X}\) is noninvertible, the common causes might be having:
@@ -329,6 +329,12 @@ Works well when n is large & Slow if n is very large \\
 \hline
 \end{tabular}
 \end{center}
+
+\bigskip
+
+\noindent vectorized cost function: \textcolor{orange}{ * math stuff needed for following part}
+
+\[J(\boldsymbol{\theta}) = \frac{1}{2m} (\textbf{X}\boldsymbol{\theta} - \textbf{y})^T(\textbf{X}\boldsymbol{\theta} - \textbf{y})\]
 
 \subsubsection{Classification}
 
