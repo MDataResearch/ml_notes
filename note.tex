@@ -399,6 +399,27 @@ h_{\boldsymbol(\theta)} (\textbf{x})
 
 \[P(\textbf{y} = 1 | \textbf{x} ; \boldsymbol{\theta}) + P(\textbf{y} = 0 | \textbf{x} ; \boldsymbol{\theta}) = 1\]
 
+\noindent \textbf{Decision Boundary:}
+
+\noindent In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
+
+\[h_{\boldsymbol{\theta}} (\textbf{x}) \geq 0.5 \rightarrow \textbf{y} = 1\]
+\[h_{\boldsymbol{\theta}} (\textbf{x}) < 0.5 \rightarrow \textbf{y} = 0\]
+
+\noindent Decision is made when:
+
+\[g(\boldsymbol{\theta}^T \textbf{x}) \geq 0.5, \text{ when } \boldsymbol{\theta}^T \textbf{x} \geq 0\]
+\[g(\boldsymbol{\theta}^T \textbf{x}) < 0.5, \text{ when } \boldsymbol{\theta}^T \textbf{x} < 0\]
+
+\noindent Now we get:
+
+\[\boldsymbol{\theta}^T \textbf{x} \geq 0 \rightarrow \textbf{y} = 1\]
+\[\boldsymbol{\theta}^T \textbf{x} < 0 \rightarrow \textbf{y} = 0\]
+
+\noindent The decision boundary is the line that separates the area where \(\textbf{y} = 0\) and where \(\textbf{y} = 1\):
+
+\[\boldsymbol{\theta}^T \textbf{x} = 0\]
+
 \printindex
 
 \end{document}
