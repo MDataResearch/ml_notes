@@ -373,6 +373,32 @@ Works well when n is large & Slow if n is very large \\
 
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} (\textbf{X}\boldsymbol{\theta} - \textbf{y})^T(\textbf{X}\boldsymbol{\theta} - \textbf{y})\]
 
+\subsection{Logistic Regression}
+
+\noindent \textbf{Sigmoid Function:} (Logistic Function)
+
+\noindent Maps any real number from \((-\infty, +\infty)\) to the \((0, 1)\) interval.
+
+\[g(z) = \frac{1}{1 + e^{-z}}\]
+
+\noindent \textbf{Hypothesis:}
+
+\[
+h_{\boldsymbol{\theta}}(\textbf{x}) 
+= g(\boldsymbol{\theta}^T \textbf{x})
+= \frac{1}{1 + e^{-\boldsymbol{\theta}^T \textbf{x}}}
+\]
+
+\noindent \(h_{\boldsymbol{\theta}}(\textbf{x})\) will give us the probability that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1.
+
+\[
+h_{\boldsymbol(\theta)} (\textbf{x}) 
+= P(\textbf{y} = 1 | \textbf{x} ; \boldsymbol{\theta})
+= 1 - P(\textbf{y} = 0 | \textbf{x} ; \boldsymbol{\theta})
+\]
+
+\[P(\textbf{y} = 1 | \textbf{x} ; \boldsymbol{\theta}) + P(\textbf{y} = 0 | \textbf{x} ; \boldsymbol{\theta}) = 1\]
+
 \printindex
 
 \end{document}
