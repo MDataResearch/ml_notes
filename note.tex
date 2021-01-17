@@ -180,7 +180,7 @@ X =
 
 \bigskip
 
-\noindent identity matrix \(I\)(or \(I_{n \times n}\)):
+\noindent \textbf{identity matrix} \(I\)(or \(I_{n \times n}\)):
 
 \[A \cdot I = I \cdot A = A\]
 
@@ -195,11 +195,11 @@ I =
 \end{bmatrix}
 \]
 
-\noindent inverse matrix \(A^{-1}\): If \(A\) is an \(m \times m\) matrix, and if it has an inverse,
+\noindent \textbf{inverse matrix} \(A^{-1}\): If \(A\) is an \(m \times m\) matrix, and if it has an inverse,
 
 \[A \cdot A^{-1} = A^{-1} \cdot A = I\]
 
-\noindent transpose matrix \(A^{T}\): Let \(A\) be an \(m \times n\) matrix. Then \(A^T\) is an \(n \times m\) matrix,
+\noindent \textbf{transpose matrix} \(A^{T}\): Let \(A\) be an \(m \times n\) matrix. Then \(A^T\) is an \(n \times m\) matrix,
 
 \[A^T_{ij} = A_{ji}\]
 
@@ -225,15 +225,15 @@ x_n
 \end{bmatrix}
 \]
 
-\noindent hypothesis:
+\noindent \textbf{hypothesis}:
 
 \[\textbf{y} = h_{\theta}(\textbf{x}) = \boldsymbol{\theta}^T \textbf{x} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n\]
 
-\noindent training data:
+\noindent \textbf{training data}:
 
 \[(\textbf{x}^{(i)}, \textbf{y}^{(i)})\:for\:i = 1, \dots, m\]
 
-\noindent cost function:
+\noindent \textbf{cost function}:
 
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2\]
 
@@ -241,7 +241,7 @@ x_n
 
 \[\underset{\boldsymbol{\theta}}{\text{minimize}} \: J(\boldsymbol{\theta})\]
 
-\noindent gradient descent:
+\noindent \textbf{gradient descent}:
 
 \noindent repeat until convergence \{
 \[\boldsymbol{\theta}_j =: \boldsymbol{\theta}_j - \alpha \frac{\partial}{\partial \boldsymbol{\theta}_j} J(\boldsymbol{\theta}) = \boldsymbol{\theta}_j - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j\]
@@ -250,7 +250,7 @@ x_n
 
 \bigskip
 
-\noindent vectorized implementation:
+\noindent \textbf{vectorized implementation}:
 
 \noindent repeat until convergence \{
 \[\boldsymbol{\theta} =: \boldsymbol{\theta} - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}\]
@@ -259,25 +259,25 @@ x_n
 \bigskip
 
 
-\noindent batch:
+\noindent \textbf{batch}:
 
 \noindent Each step of gradient descent uses all the training examples.
 
 \bigskip
 
-\noindent feature scaling:
+\noindent \textbf{Feature scaling}:
 
 \noindent The range of all features should be normalized so that each feature contributes approximately proportionately to the result. Also it helps gradient descent converge much faster.
 
 \bigskip
 
-\noindent mean normalization: (don't apply to \(x_0\))
+\noindent \textbf{mean normalization}: (don't apply to \(x_0\))
 
 \[\textbf{x}_i = \frac{\textbf{x}_i - mean(\textbf{x}_i)}{max(\textbf{x}_i) - min(\textbf{x}_i)}\]
 
 \bigskip
 
-\noindent standardization: (don't apply to \(x_0\))
+\noindent \textbf{standardization}: (don't apply to \(x_0\)) \textcolor{orange}{ * math stuff needed for following part}
 
 \noindent Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance.
 
@@ -285,7 +285,7 @@ x_n
 
 \[std(\textbf{x}_i) = \sqrt{ \frac{1}{m} \sum_{j = 1}^m (\textbf{x}^{(j)}_i - mean(\textbf{x}_i))^2}\]
 
-\noindent learning rate \(\alpha\):
+\noindent \textbf{learning rate} \(\alpha\):
 
 \noindent If \(\alpha\) is too small: slow convergence.
 
@@ -295,7 +295,7 @@ x_n
 
 \[\alpha = \dots, 0.001, \dots, 0.01, \dots, 0.1, \dots\]
 
-\noindent feature choosing:
+\noindent \textbf{Feature choosing}:
 
 \noindent Choose the right features to fit the data set.
 
@@ -304,7 +304,7 @@ x_n
 \[h_{\theta}(x) = \theta_0 + \theta_1 \times frontage + \theta_2 \times depth\]
 \[h_{\theta}(x) = \theta_0 + \theta_1 \times area\]
 
-\noindent polynomial regression:
+\noindent \textbf{polynomial regression}:
 
 \noindent Use the polynomial model with the machinery of multivariant linear regression.
 
@@ -369,19 +369,19 @@ Works well when n is large & Slow if n is very large \\
 
 \bigskip
 
-\noindent vectorized cost function: \textcolor{orange}{ * math stuff needed for following part}
+\noindent \textbf{Vectorized Cost Function}: \textcolor{orange}{ * math stuff needed for following part}
 
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} (\textbf{X}\boldsymbol{\theta} - \textbf{y})^T(\textbf{X}\boldsymbol{\theta} - \textbf{y})\]
 
 \subsection{Logistic Regression}
 
-\noindent \textbf{Sigmoid Function:} (Logistic Function)
+\noindent \textbf{sigmoid function:} (Logistic Function)
 
 \noindent Maps any real number from \((-\infty, +\infty)\) to the \((0, 1)\) interval.
 
 \[g(z) = \frac{1}{1 + e^{-z}}\]
 
-\noindent \textbf{Hypothesis:}
+\noindent \textbf{hypothesis:}
 
 \[
 h_{\boldsymbol{\theta}}(\textbf{x}) 
@@ -399,7 +399,7 @@ h_{\boldsymbol(\theta)} (\textbf{x})
 
 \[P(\textbf{y} = 1 | \textbf{x} ; \boldsymbol{\theta}) + P(\textbf{y} = 0 | \textbf{x} ; \boldsymbol{\theta}) = 1\]
 
-\noindent \textbf{Decision Boundary:}
+\noindent \textbf{decision boundary:}
 
 \noindent In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
 
