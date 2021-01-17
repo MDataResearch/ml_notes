@@ -80,7 +80,33 @@ or more independent variables (often called `predictors',
 
 \noindent \textit{independent variable} $\rightarrow$ \textit{h(hypothesis)} $\rightarrow$ \textit{dependent variable}
 
-\paragraph{Linear Regression(from \href{https://en.wikipedia.org/wiki/Linear_regression\#:~:text=In\%20statistics\%2C\%20linear\%20regression\%20is,is\%20called\%20simple\%20linear\%20regression.}{Wikipedia})}
+\subsubsection{Classification}
+
+Classification is the problem of identifying to which 
+of a set of categories (sub-populations) a new observation 
+belongs, on the basis of a training set of data containing 
+observations (or instances) whose category membership is known.
+
+\subsection{Unsupervised Learning}
+
+Unsupervised learning algorithms take a set of data that 
+contains only inputs, and find structure in the data, like 
+grouping or clustering of data points.
+
+\bigskip
+
+\noindent Draw inferences from data sets consisting of input 
+data without labeled responses.
+
+\subsection{Reinforcement learning}
+       
+Reinforcement learning is an area of machine learning concerned 
+with how software agents ought to take actions in an environment 
+so as to maximize some notion of cumulative reward.
+
+\section{Regression}
+
+\subsection{Linear Regression(from \href{https://en.wikipedia.org/wiki/Linear_regression\#:~:text=In\%20statistics\%2C\%20linear\%20regression\%20is,is\%20called\%20simple\%20linear\%20regression.}{Wikipedia})}
 
 Given a data set \(\{y_i, x_{i1}, ..., x_{ip}\}_{i=1}^n\) of n statistical units, a linear regression model assumes that the relationship between the dependent variable \textbf{y} and the p-vector of regressors \textbf{x} is linear.
 
@@ -158,6 +184,17 @@ X =
 
 \[A \cdot I = I \cdot A = A\]
 
+\[
+I = 
+\begin{bmatrix}
+1 & 0 & \dots & 0 & 0\\
+0 & 1 & \dots & 0 & 0\\
+\vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & \dots & 1 & 0\\
+0 & 0 & \dots & 0 & 1
+\end{bmatrix}
+\]
+
 \noindent inverse matrix \(A^{-1}\): If \(A\) is an \(m \times m\) matrix, and if it has an inverse,
 
 \[A \cdot A^{-1} = A^{-1} \cdot A = I\]
@@ -166,7 +203,7 @@ X =
 
 \[A^T_{ij} = A_{ji}\]
 
-\paragraph{Linear Regression Learning (from \href{https://www.coursera.org/learn/machine-learning}{Machine Learning course})}
+\subsubsection{Linear Regression Learning (from \href{https://www.coursera.org/learn/machine-learning}{Machine Learning course})}
 
 \noindent For convenience reasons, define \(x_0 = 1\)
 
@@ -276,7 +313,7 @@ x_n
 \[h_{\theta}(x) = \theta_0 + \theta_1 \times area + \theta_2 \times area^2\]
 \[h_{\theta}(x) = \theta_0 + \theta_1 \times area + \theta_2 \times \sqrt{area}\]
 
-\paragraph{Normal Equation}
+\subsubsection{Normal Equation}
 
 \noindent Let:
 
@@ -335,30 +372,6 @@ Works well when n is large & Slow if n is very large \\
 \noindent vectorized cost function: \textcolor{orange}{ * math stuff needed for following part}
 
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} (\textbf{X}\boldsymbol{\theta} - \textbf{y})^T(\textbf{X}\boldsymbol{\theta} - \textbf{y})\]
-
-\subsubsection{Classification}
-
-Classification is the problem of identifying to which 
-of a set of categories (sub-populations) a new observation 
-belongs, on the basis of a training set of data containing 
-observations (or instances) whose category membership is known.
-
-\subsection{Unsupervised Learning}
-
-Unsupervised learning algorithms take a set of data that 
-contains only inputs, and find structure in the data, like 
-grouping or clustering of data points.
-
-\bigskip
-
-\noindent Draw inferences from data sets consisting of input 
-data without labeled responses.
-
-\subsection{Reinforcement learning}
-       
-Reinforcement learning is an area of machine learning concerned 
-with how software agents ought to take actions in an environment 
-so as to maximize some notion of cumulative reward.
 
 \printindex
 
