@@ -111,7 +111,6 @@ so as to maximize some notion of cumulative reward.
 Given a data set \(\{y_i, x_{i1}, ..., x_{ip}\}_{i=1}^n\) of n statistical units, a linear regression model assumes that the relationship between the dependent variable \textbf{y} and the p-vector of regressors \textbf{x} is linear.
 
 \[y_i = \beta_0 + \beta_{1}x_{i1} + \dots + \beta_{p}x_{ip} + \epsilon_i, \: i = 1, \dots, n\]
-
 \[\textbf{y} = X\boldsymbol{\beta} + \boldsymbol{\epsilon}\]
 
 \noindent where
@@ -195,18 +194,15 @@ I =
 \end{bmatrix}
 \]
 
-\noindent \textbf{inverse matrix} \(A^{-1}\): If \(A\) is an \(m \times m\) matrix, and if it has an inverse,
-
+\noindent \textbf{inverse matrix} \(A^{-1}\): If \(A\) is an \(m \times m\) matrix, and if it has an inverse.
 \[A \cdot A^{-1} = A^{-1} \cdot A = I\]
 
-\noindent \textbf{transpose matrix} \(A^{T}\): Let \(A\) be an \(m \times n\) matrix. Then \(A^T\) is an \(n \times m\) matrix,
-
+\noindent \textbf{transpose matrix} \(A^{T}\): Let \(A\) be an \(m \times n\) matrix. Then \(A^T\) is an \(n \times m\) matrix.
 \[A^T_{ij} = A_{ji}\]
 
 \subsubsection{Linear Regression Learning (from \href{https://www.coursera.org/learn/machine-learning}{Machine Learning course})}
 
 \noindent For convenience reasons, define \(x_0 = 1\)
-
 \[
 \textbf{x} = 
 \begin{bmatrix}
@@ -226,19 +222,15 @@ x_n
 \]
 
 \noindent \textbf{hypothesis}:
-
 \[\textbf{y} = h_{\theta}(\textbf{x}) = \boldsymbol{\theta}^T \textbf{x} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n\]
 
 \noindent \textbf{training data}:
-
 \[(\textbf{x}^{(i)}, \textbf{y}^{(i)})\:for\:i = 1, \dots, m\]
 
 \noindent \textbf{cost function}:
-
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2\]
 
 \noindent goal:
-
 \[\underset{\boldsymbol{\theta}}{\text{minimize}} \: J(\boldsymbol{\theta})\]
 
 \noindent \textbf{gradient descent}:
@@ -257,7 +249,6 @@ x_n
 \}
 
 \bigskip
-
 
 \noindent \textbf{batch}:
 
@@ -367,8 +358,6 @@ Works well when n is large & Slow if n is very large \\
 \end{tabular}
 \end{center}
 
-\bigskip
-
 \noindent \textbf{Vectorized Cost Function}: \textcolor{orange}{ * math stuff needed for this part}
 
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} (\textbf{X}\boldsymbol{\theta} - \textbf{y})^T(\textbf{X}\boldsymbol{\theta} - \textbf{y})\]
@@ -378,11 +367,9 @@ Works well when n is large & Slow if n is very large \\
 \noindent \textbf{sigmoid function:} (Logistic Function)
 
 \noindent Maps any real number from \((-\infty, +\infty)\) to the \((0, 1)\) interval.
-
 \[g(z) = \frac{1}{1 + e^{-z}}\]
 
 \noindent \textbf{hypothesis:}
-
 \[
 h_{\boldsymbol{\theta}}(\textbf{x}) 
 = g(\boldsymbol{\theta}^T \textbf{x})
@@ -396,7 +383,6 @@ h_{\boldsymbol(\theta)} (\textbf{x})
 = P(\textbf{y} = 1 | \textbf{x} ; \boldsymbol{\theta})
 = 1 - P(\textbf{y} = 0 | \textbf{x} ; \boldsymbol{\theta})
 \]
-
 \[P(\textbf{y} = 1 | \textbf{x} ; \boldsymbol{\theta}) + P(\textbf{y} = 0 | \textbf{x} ; \boldsymbol{\theta}) = 1\]
 
 \noindent \textbf{decision boundary:}
@@ -434,13 +420,11 @@ Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) = 0 \text{ if }
 h_{\boldsymbol{\theta}}(\textbf{x}) = \textbf{y}, \text{ at } h_{\boldsymbol{\theta}}(\textbf{x}) = \textbf{y} = 0 \text{ and } 
 h_{\boldsymbol{\theta}}(\textbf{x}) = \textbf{y} = 1
 \]
-
 \[
 Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) \rightarrow +\infty
 \text{ if } \textbf{y} = 0 \text{ and }
 h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 1
 \]
-
 \[
 Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) \rightarrow +\infty
 \text{ if } \textbf{y} = 1 \text{ and }
