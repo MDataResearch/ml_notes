@@ -277,7 +277,7 @@ x_n
 
 \bigskip
 
-\noindent \textbf{standardization}: (don't apply to \(x_0\)) \textcolor{orange}{ * math stuff needed for following part}
+\noindent \textbf{standardization}: (don't apply to \(x_0\)) \textcolor{orange}{ * math stuff needed for this part}
 
 \noindent Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance.
 
@@ -335,7 +335,7 @@ x_n
 \end{bmatrix}
 \]
 
-\noindent Calculate best \(\boldsymbol{\theta}\): \textcolor{orange}{ * math stuff needed for following part}
+\noindent Calculate best \(\boldsymbol{\theta}\): \textcolor{orange}{ * math stuff needed for this part}
 
 \[
 \boldsymbol{\theta} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
@@ -369,7 +369,7 @@ Works well when n is large & Slow if n is very large \\
 
 \bigskip
 
-\noindent \textbf{Vectorized Cost Function}: \textcolor{orange}{ * math stuff needed for following part}
+\noindent \textbf{Vectorized Cost Function}: \textcolor{orange}{ * math stuff needed for this part}
 
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} (\textbf{X}\boldsymbol{\theta} - \textbf{y})^T(\textbf{X}\boldsymbol{\theta} - \textbf{y})\]
 
@@ -419,6 +419,33 @@ h_{\boldsymbol(\theta)} (\textbf{x})
 \noindent The decision boundary is the line that separates the area where \(\textbf{y} = 0\) and where \(\textbf{y} = 1\):
 
 \[\boldsymbol{\theta}^T \textbf{x} = 0\]
+
+\noindent \textbf{cost function:}
+
+\noindent If we use the the same cost function that we use for linear regression for logistic regression, the cost function will have many local optima. It will not be a convex function. Instead, we construct logistic regression cost function as follows:
+
+\[J(\boldsymbol{\theta}) = \frac{1}{m} \sum_{i = 1}^m Cost(h_{\boldsymbol{\theta}}(\textbf{x}^{(i)}), \textbf{y}^{(i)})\]
+\[Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) = -log(h_{\boldsymbol{\theta}}(\textbf{x})), \text{ if } y = 1\]
+\[Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) = -log(1 - h_{\boldsymbol{\theta}}(\textbf{x})), \text{ if } y = 0\]
+
+\noindent We can find it guarantees that \(J(\boldsymbol{\theta})\) is convex for logistic regression: \textcolor{orange}{ * math stuff needed for this part}
+\[
+Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) = 0 \text{ if }
+h_{\boldsymbol{\theta}}(\textbf{x}) = \textbf{y}, \text{ at } h_{\boldsymbol{\theta}}(\textbf{x}) = \textbf{y} = 0 \text{ and } 
+h_{\boldsymbol{\theta}}(\textbf{x}) = \textbf{y} = 1
+\]
+
+\[
+Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) \rightarrow +\infty
+\text{ if } \textbf{y} = 0 \text{ and }
+h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 1
+\]
+
+\[
+Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) \rightarrow +\infty
+\text{ if } \textbf{y} = 1 \text{ and }
+h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
+\]
 
 \printindex
 
