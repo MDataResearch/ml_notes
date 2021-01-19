@@ -403,7 +403,6 @@ h_{\boldsymbol(\theta)} (\textbf{x})
 \[\boldsymbol{\theta}^T \textbf{x} < 0 \rightarrow \textbf{y} = 0\]
 
 \noindent The decision boundary is the line that separates the area where \(\textbf{y} = 0\) and where \(\textbf{y} = 1\):
-
 \[\boldsymbol{\theta}^T \textbf{x} = 0\]
 
 \noindent \textbf{cost function:}
@@ -430,6 +429,17 @@ Cost(h_{\boldsymbol{\theta}}(\textbf{x}), \textbf{y}) \rightarrow +\infty
 \text{ if } \textbf{y} = 1 \text{ and }
 h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 \]
+
+\noindent We can compress our cost function's two conditional cases into one case:
+\[Cost(h_{\boldsymbol{\theta}} (\textbf{x}), \textbf{y}) 
+= - \textbf{y} log(h_{\boldsymbol{\theta}} (\textbf{x})) - (1 - \textbf{y}) log(1 - h_{\boldsymbol{\theta}} (\textbf{x}))\]
+
+\noindent \textbf{simplified cost function:}
+\[J(\boldsymbol{\theta}) = - \frac{1}{m} \sum_{i = 1}^{m} [\textbf{y}^{(i)} log(h_{\boldsymbol{\theta}} (\textbf{x}^{(i)})) + (1 - \textbf{y}^{(i)}) log(1 - h_{\boldsymbol{\theta}} (\textbf{x}^{(i)}))]\]
+
+\noindent \textbf{vectorized cost function:}
+\[h = g(\textbf{X}\boldsymbol{\theta})\]
+\[J(\boldsymbol{\theta}) = \frac{1}{m} (- \textbf{y}^T log(h) - (1 - \textbf{y})^T log(1 - h))\]
 
 \printindex
 
