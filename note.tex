@@ -441,6 +441,21 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 \[h = g(\textbf{X}\boldsymbol{\theta})\]
 \[J(\boldsymbol{\theta}) = \frac{1}{m} (- \textbf{y}^T log(h) - (1 - \textbf{y})^T log(1 - h))\]
 
+\noindent \textbf{gradient descent:}
+
+\noindent repeat until convergence \{
+\[\boldsymbol{\theta}_j =: \boldsymbol{\theta}_j - \alpha \frac{\partial}{\partial \boldsymbol{\theta}_j} J(\boldsymbol{\theta}) = \boldsymbol{\theta}_j - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j\]
+\centerline{simultaneously update \(\boldsymbol{\theta}_j\) for \(j = 0, \dots, n\)}
+\}
+
+\bigskip
+
+\noindent \textbf{vectorized implementation}:
+
+\noindent repeat until convergence \{
+\[\boldsymbol{\theta} =: \boldsymbol{\theta} - \alpha \frac{1}{m} \textbf{X}^T (g(\textbf{X}\boldsymbol{\theta}) - \textbf{y})\]
+\}
+
 \printindex
 
 \end{document}
