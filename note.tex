@@ -470,6 +470,25 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 	\item ...
 \end{itemize}
 
+\bigskip
+
+\noindent \textbf{multiclass classification}:
+
+\noindent Instead of \(y = \{0, 1\}\), we will expand our definition so that \(y = \{0, 1, ..., n\}\). Then we divide our problem into n+1 binary classification problems, by constructing n + 1 hypothesis functions; in each one, we choose one class and then lump all the others into a single second class, then predict the probability that \(y\) is a member of the chosen class.
+
+\bigskip
+
+\noindent To summarize: 
+
+\noindent Train a logistic regression classifier \(h_{\boldsymbol{\theta}}^{(i)}(\textbf{x})\) for each class to predict the probability that \(y = i\). On a new input \(\textbf{x}\), to make a prediction, pick the class \(i\) that maximizes \(h_{\boldsymbol{\theta}} ^{(i)}(\textbf{x})\).
+
+\[y \in \{0, 1 ... n\}\] 
+\[h_{\boldsymbol{\theta}}^{(0)}(\textbf{x}) = P(y = 0 | \textbf{x} ; \boldsymbol{\theta})\]
+\[h_{\boldsymbol{\theta}}^{(1)}(\textbf{x}) = P(y = 1 | \textbf{x} ; \boldsymbol{\theta})\]
+\[\cdots\]
+\[h_{\boldsymbol{\theta}}^{(n)}(\textbf{x}) = P(y = n | \textbf{x} ; \boldsymbol{\theta})\] 
+\[\text{prediction} = \max_i(h_{\boldsymbol{\theta}}^{(i)}(\textbf{x}))\]
+
 \printindex
 
 \end{document}
