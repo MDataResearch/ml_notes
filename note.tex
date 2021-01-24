@@ -463,11 +463,11 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 \noindent With the same cost function, we can choose different optimization method to optimize \(\boldsymbol{\theta}\): \textcolor{orange}{ * math stuff needed for this part}
 
 \begin{itemize}
-	\item gradient descent
-	\item conjugate gradient
-	\item BFGS
-	\item L-BFGS
-	\item ...
+\item gradient descent
+\item conjugate gradient
+\item BFGS
+\item L-BFGS
+\item ...
 \end{itemize}
 
 \bigskip
@@ -488,6 +488,43 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 \[\cdots\]
 \[h_{\boldsymbol{\theta}}^{(n)}(\textbf{x}) = P(y = n | \textbf{x} ; \boldsymbol{\theta})\] 
 \[\text{prediction} = \max_i(h_{\boldsymbol{\theta}}^{(i)}(\textbf{x}))\]
+
+\subsection{Overfitting Problem}
+
+\noindent \textbf{underfitting}:
+
+\noindent High bias, which means hypothesis fits training data poorly, is usually caused by a function that is too simple or using too few features. 
+
+\bigskip
+
+\noindent \textbf{overfitting}:
+
+\noindent High variance, which means hypothesis fits training data well, but does not generalize well to predict new data. It is usually caused by a complicated function with too many features.
+
+\bigskip
+
+\noindent \textbf{address overfitting}:
+
+\begin{enumerate}
+\item Reduce the number of features:
+\begin{itemize}
+\item Manually select which features to keep.
+\item Use a model selection algorithm (studied later in the course).
+\end{itemize}
+\item Regularization:
+\begin{itemize}
+\item Keep all the features, but reduce the magnitude of parameters \(\boldsymbol{\theta}_j\).
+\item Regularization works well when we have a lot of slightly useful features.
+\end{itemize}
+\end{enumerate}
+
+\noindent \textbf{regularized cost function}:
+
+\noindent We can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated. 
+
+\[J(\boldsymbol{\theta}) = \frac{1}{2m} (\sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2 + \lambda \sum_{j = 1}^n \boldsymbol{\theta}_j^2)\]
+
+\noindent Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If \(\lambda\) is too small, it would be hard to see a difference. If \(\lambda\) is too large, it may smooth out the function too much and cause underfitting.
 
 \printindex
 
