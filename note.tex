@@ -518,6 +518,8 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 \end{itemize}
 \end{enumerate}
 
+\subsubsection{Linear Regression Regularization}
+
 \noindent \textbf{regularized cost function}:
 
 \noindent We can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated. 
@@ -525,6 +527,53 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 \[J(\boldsymbol{\theta}) = \frac{1}{2m} (\sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2 + \lambda \sum_{j = 1}^n \boldsymbol{\theta}_j^2)\]
 
 \noindent Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If \(\lambda\) is too small, it would be hard to see a difference. If \(\lambda\) is too large, it may smooth out the function too much and cause underfitting.
+
+\bigskip
+
+\noindent \textbf{regularized gradient descent}:
+
+\noindent repeat until convergence \{
+\[\boldsymbol{\theta}_0 =: \boldsymbol{\theta}_0 - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_0\]
+\begin{equation*}
+\begin{split}
+\boldsymbol{\theta}_j & = \boldsymbol{\theta}_j - \alpha ((\frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j) + \frac{\lambda}{m} \boldsymbol{\theta}_j) \\
+ & = \boldsymbol{\theta}_j (1 - \alpha \frac{\lambda}{m}) - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j
+\end{split}
+\end{equation*}
+
+\centerline{simultaneously update \(\boldsymbol{\theta}_0\) and \(\boldsymbol{\theta}_j\) for \(j = 1, \dots, n\)}
+\}
+
+\bigskip
+
+\noindent The first term in the above equation, \(1 - \alpha \frac{\lambda}{m}\) will always be less than 1. Intuitively you can see it as reducing the value of \(\boldsymbol{\theta}_j\) by some amount on every update.
+
+\bigskip
+
+\noindent \textbf{regularized normal equation}: \textcolor{orange}{ * math stuff needed for this part}
+
+\[
+\boldsymbol{\theta} = (\textbf{X}^T\textbf{X} + \lambda \textbf{L})^{-1}\textbf{X}^T\textbf{y}
+\]
+
+\[
+\textbf{L} = 
+\begin{bmatrix}
+0 & 0 & \dots & 0 & 0\\
+0 & 1 & \dots & 0 & 0\\
+\vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & \dots & 1 & 0\\
+0 & 0 & \dots & 0 & 1
+\end{bmatrix}
+\]
+
+\bigskip
+
+\noindent \textbf{L} has a dimension of \((n + 1) \times (n + 1)\). Intuitively, this is the identity matrix (though we are not including \(\textbf{x}_0\) ), multiplied with a single real number \(\lambda\).
+
+\bigskip
+
+\noindent Recall that if \(m < n\), then \(\textbf{X}^T\textbf{X}\) is non-invertible. However, when we add the term \(\lambda \textbf{L}\), the term \(\textbf{X}^T\textbf{X} + \lambda \textbf{L}\) becomes invertible.
 
 \printindex
 
