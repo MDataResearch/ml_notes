@@ -524,7 +524,7 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 
 \noindent We can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated. 
 
-\[J(\boldsymbol{\theta}) = \frac{1}{2m} (\sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2 + \lambda \sum_{j = 1}^n \boldsymbol{\theta}_j^2)\]
+\[J(\boldsymbol{\theta}) = \frac{1}{2m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)})^2 + \frac{\lambda}{2m} \sum_{j = 1}^n \boldsymbol{\theta}_j^2\]
 
 \noindent Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If \(\lambda\) is too small, it would be hard to see a difference. If \(\lambda\) is too large, it may smooth out the function too much and cause underfitting.
 
