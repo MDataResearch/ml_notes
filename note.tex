@@ -575,6 +575,26 @@ h_{\boldsymbol{\theta}}(\textbf{x}) \rightarrow 0
 
 \noindent Recall that if \(m < n\), then \(\textbf{X}^T\textbf{X}\) is non-invertible. However, when we add the term \(\lambda \textbf{L}\), the term \(\textbf{X}^T\textbf{X} + \lambda \textbf{L}\) becomes invertible.
 
+\subsubsection{Logistic Regression Regularization}
+
+\noindent \textbf{regularized cost function}:
+
+\[J(\boldsymbol{\theta}) = - \frac{1}{m} \sum_{i = 1}^{m} [\textbf{y}^{(i)} log(h_{\boldsymbol{\theta}} (\textbf{x}^{(i)})) + (1 - \textbf{y}^{(i)}) log(1 - h_{\boldsymbol{\theta}} (\textbf{x}^{(i)}))] + \frac{\lambda}{2m} \sum_{j = 1}^n \boldsymbol{\theta}_j^2\]
+
+\noindent \textbf{regularized gradient descent}:
+
+\noindent repeat until convergence \{
+\[\boldsymbol{\theta}_0 =: \boldsymbol{\theta}_0 - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_0\]
+\begin{equation*}
+\begin{split}
+\boldsymbol{\theta}_j & = \boldsymbol{\theta}_j - \alpha ((\frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j) + \frac{\lambda}{m} \boldsymbol{\theta}_j) \\
+ & = \boldsymbol{\theta}_j (1 - \alpha \frac{\lambda}{m}) - \alpha \frac{1}{m} \sum_{i = 1}^m (h_{\theta}(\textbf{x}^{(i)}) - \textbf{y}^{(i)}) \textbf{x}^{(i)}_j
+\end{split}
+\end{equation*}
+
+\centerline{simultaneously update \(\boldsymbol{\theta}_0\) and \(\boldsymbol{\theta}_j\) for \(j = 1, \dots, n\)}
+\}
+
 \printindex
 
 \end{document}
