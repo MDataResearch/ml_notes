@@ -599,10 +599,11 @@ L =
 
 \section{Neural Network}
 
+\subsection{Basic Structure}
+
 \begin{center}
 \includegraphics[scale=0.4]{./images/neural_network.jpg}
 \end{center}
-
 \[a_i^{(j)} = \text{"activation" of unit i in layer j}\]
 \[\Theta^{(j)} = \text{matrix of weights (edges) from layer j to j + 1}\]
 
@@ -616,6 +617,22 @@ L =
 \bigskip
 
 \noindent If network has \(s_j\) units in layer \(j\), \(s_{j + 1}\) units in layer \(j + 1\), then \(\Theta_j\) will be of dimension \(s_{j + 1} \times (s_j + 1)\).
+
+\subsection{Generalized Model}
+
+\noindent For a neural network that has:
+
+\[L = \text{total number of layers in the network}\]
+\[s_l = \text{number of units (not counting bias unit) in layer } l\]
+\[K = \text{number of output units/classes}\]
+
+\noindent assume \(a^{(1)} = x, a^{(L)} = y\), let:
+
+\[z^{(l)} = \Theta^{(l - 1)} a^{(l - 1)}\]
+\[a^{(l)} = g(z^{(l)})\]
+\[h_\Theta(x) = a^{(L)} = g(z^{(L)})\]
+
+\noindent Notice that bias units (\(a_0^{(l)} = 1\)) are considered as input only when calculating the next layer. They are not included in the output generated from previous layer.
 
 \printindex
 
