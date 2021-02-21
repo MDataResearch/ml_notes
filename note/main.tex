@@ -474,7 +474,7 @@ h_{\theta}(x) \rightarrow 0
 
 \bigskip
 
-\noindent \textbf{multiclass classification}:
+\noindent \textbf{multiclass classification: (one vs all)}
 
 \noindent Instead of \(y = \{0, 1\}\), we will expand our definition so that \(y = \{0, 1, ..., n\}\). Then we divide our problem into n+1 binary classification problems, by constructing n + 1 hypothesis functions; in each one, we choose one class and then lump all the others into a single second class, then predict the probability that \(y\) is a member of the chosen class.
 
@@ -624,7 +624,7 @@ L =
 \includegraphics[scale=0.3]{./images/neural_network_simple_applications.jpg}
 \end{center}
 
-\subsection{Generalized Model}
+\subsection{Generalized Model (one vs all)}
 
 \begin{center}
 \includegraphics[scale=0.4]{./images/neural_network_generalized.jpg}
