@@ -227,10 +227,11 @@ x_n
 \[(x^{(i)}, y^{(i)})\:for\:i = 1, \dots, m\]
 
 \noindent \textbf{cost function}:
-\[J(\theta) = \frac{1}{2m} \sum_{i = 1}^m (h_{\theta}(x^{(i)}) - y^{(i)})^2\]
 
-\noindent goal:
-\[\underset{\theta}{\text{minimize}} \: J(\theta)\]
+\noindent convex: second derivative (hessian matrix) is non-negative definite.
+
+\noindent goal: \(\underset{\theta}{\text{minimize}} \: J(\theta)\)
+\[J(\theta) = \frac{1}{2m} \sum_{i = 1}^m (h_{\theta}(x^{(i)}) - y^{(i)})^2\]
 
 \noindent \textbf{gradient descent}:
 
