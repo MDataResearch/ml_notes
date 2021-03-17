@@ -250,9 +250,15 @@ x_n
 
 \bigskip
 
-\noindent \textbf{batch}:
+\noindent \textbf{batch size}:
 
-\noindent Each step of gradient descent uses all the training examples.
+\noindent The number of training samples to use in a training action.
+
+\bigskip
+
+\noindent \textbf{epoch}:
+
+\noindent The number of times of training which uses all the training samples.
 
 \bigskip
 
@@ -647,6 +653,32 @@ L =
 \noindent \textbf{regularized cost function:}
 \[J(\Theta) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{\Theta} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{\Theta}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 1}^{L - 1} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (\Theta_{j, i}^{(l)})^{2}\]
 
+\subsection{Backpropagation}
+
+\noindent To train the model, we need to update \(\Theta\) for each epoch: (gradient decent)
+
+\[\Theta := \Theta - \alpha  \frac{\partial}{\partial \Theta} J(\Theta)\]
+
+\noindent We can see \(\frac{\partial}{\partial \Theta} J(\Theta)\) is hard to get directly. And there is an easier way to calculate \(\frac{\partial}{\partial \Theta^{(l)}} J(\Theta^{(l)})\) for each layer \(l\) in \(1 \leq l \leq L - 1\):
+
+\begin{equation*}
+\begin{split}
+\frac{\partial}{\partial \Theta^{(l)}} J(\Theta^{(l)})
+& = \frac{\partial}{\partial z^{(l + 1)}} J(\Theta^{(l)}) \cdot \frac{\partial}{\partial \Theta^{(l)}} z^{(l + 1)} \\
+& = \frac{\partial}{\partial z^{(l + 1)}} J(\Theta^{(l)}) \cdot (a^{(l)})^T
+\end{split}
+\end{equation*}
+
+\noindent for \(1 \leq l \leq L - 1\): (to be fixed)
+
+\begin{equation*}
+\begin{split}
+\frac{\partial}{\partial z^{(l)}} J(\Theta^{(l)})
+& = \frac{\partial}{\partial z^{(l + 1)}} J(\Theta^{(l)}) \cdot \frac{\partial}{\partial a^{(l)}} z^{(l + 1)} \cdot \frac{\partial}{\partial z^{(l)}} a^{(l)} \\
+& = \frac{\partial}{\partial z^{(l + 1)}} J(\Theta^{(l)}) \cdot (\Theta^{(l)})^T \cdot g'(z^{(l)}) \\
+& = \frac{\partial}{\partial z^{(l + 1)}} J(\Theta^{(l)}) \cdot (\Theta^{(l)})^T \cdot a^{(l)} \cdot (1 - a^{(l)})
+\end{split}
+\end{equation*}
 
 \printindex
 
