@@ -2,6 +2,7 @@
 \usepackage{makeidx}
 \usepackage{hyperref}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{xcolor}
 \usepackage{graphicx}
 
@@ -652,6 +653,87 @@ L =
 
 \noindent \textbf{regularized cost function:}
 \[J(\Theta) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{\Theta} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{\Theta}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 1}^{L - 1} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (\Theta_{j, i}^{(l)})^{2}\]
+
+\subsection{Backpropagation Preliminary}
+\noindent \textbf{matrix calculus:} see \href{https://en.wikipedia.org/wiki/Matrix_calculus}{Wikipedia}
+
+\noindent \textbf{chaine rule:}
+
+\noindent Suppose the variable \(J\) depends on the variables \(\theta_1, \dots, \theta_p\) via the intermediate variable \(z_1, \dots, z_k\).
+
+\[z_j = z_j(\theta_1, \dots, \theta_p), \forall j \in \{1, \dots, k\} \]
+\[J = J(z_1, \dots, z_k)\]
+
+\noindent Expand \(J\), we can find:
+
+\[\frac{\partial J}{\partial \theta_i} = \sum_{j = 1}^{k} \frac{\partial J}{\partial z_j} \frac{\partial z_j}{\partial \theta_i}, \forall i \in \{1, \dots, p\}\]
+
+\noindent \textbf{chain rule derivation for matrix:}
+
+\noindent Suppose \(J\) is a real-valued output variable, \(z \in \mathbb{R}^m\) is the intermediate variable and \(\Theta \in \mathbb{R}^{m \times d}\), \(a \in \mathbb{R}^d\) are the input variables. Suppose they satisfy:
+
+\[z = \Theta a\]
+\[J = J(z)\]
+
+\noindent Then we can get:
+
+\[
+\frac{\partial J}{\partial a} = 
+\begin{bmatrix}
+\frac{\partial J}{\partial a_1}\\
+\vdots\\
+\frac{\partial J}{\partial a_d}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\sum_{j = 1}^m \frac{\partial J}{\partial z_j} \frac{z_j}{a_1}\\
+\vdots\\
+\sum_{j = 1}^m \frac{\partial J}{\partial z_j} \frac{z_j}{a_d}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{\partial z_1}{\partial a_1} & \dots & \frac{\partial z_m}{\partial a_1}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial z_1}{\partial a_d} & \dots & \frac{\partial z_m}{\partial a_d}
+\end{bmatrix}
+\begin{bmatrix}
+\frac{\partial J}{\partial z_1}\\
+\vdots\\
+\frac{\partial J}{\partial z_m}
+\end{bmatrix}
+= \frac{\partial z}{\partial a} \frac{\partial J}{\partial z}
+= \Theta^T \frac{\partial J}{\partial z}
+\]
+
+\[
+\frac{\partial J}{\partial \Theta_{ij}} = \sum_{k = 1}^m \frac{\partial J}{\partial z_k} \frac{\partial z_k}{\partial \Theta_{ij}} = \frac{\partial J}{\partial z_i} \frac{\partial z_i}{\partial \Theta_{ij}} = \frac{\partial J}{\partial z_i} a_j
+\]
+
+\[
+\frac{\partial J}{\partial \Theta} = 
+\begin{bmatrix}
+\frac{\partial J}{\partial z_1}\\
+\vdots\\
+\frac{\partial J}{\partial z_m}
+\end{bmatrix}
+\begin{bmatrix}
+a_1 & \dots & a_d
+\end{bmatrix}
+= \frac{\partial J}{\partial z} a^T
+\]
+
+\noindent \textbf{element-wise chain rule:}
+
+\noindent Assume \(z, a \in \mathbb{R}^d\):
+
+\[a = \sigma(z) \text{, where \(\sigma\) is an element-wise activation}\]
+\[J = J(a)\]
+
+\noindent Then we have:
+
+\[\frac{\partial J}{\partial z} = \frac{\partial J}{\partial a} \odot \sigma'(z)\]
+
+\noindent Where \(\sigma'\) is the element-wise derivative of the activation function \(\sigma\).
 
 \subsection{Backpropagation}
 
