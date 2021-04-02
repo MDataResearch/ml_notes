@@ -794,7 +794,34 @@ a_1 & \dots & a_d
 
 \noindent \textbf{backpropagation algorithm:} (compute \(\frac{\partial}{\partial \Theta} J(\Theta)\))
 
-\noindent traing set: \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\)
+\noindent training set: \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\)
+
+\noindent set \(\Delta_{ij}^{(l)} = 0, l \in \{1, \dots, L - 1\}\)
+
+\noindent repeat until convergence \{
+
+\noindent \hspace{.5cm} for \(q \in \{1, \dots, m\}\):
+
+\noindent \hspace{1cm} forward propagation: compute \(a^{(l)}\) for \(l \in \{2, \dots, L\}\)
+
+\noindent \hspace{1cm} compute \(\delta^{(L)} = a^{(L)} - y^{(q)}\)
+
+\noindent \hspace{1cm} for \(l \in \{L - 1, \dots, 2\}\):
+
+\noindent \hspace{1.5cm} compute \(\delta^{(l)} = (\Theta^{(l)})^T \delta^{(l + 1)} \odot (a^{(l)} \odot (1 - a^{(l)}))\)
+
+\noindent \hspace{1cm} for \(l \in \{1, \dots, L - 1\}\):
+
+\noindent \hspace{1.5cm} compute \(\Delta^{(l)} := \Delta^{(l)} + \delta^{(l + 1)}(a^{(l)})^{(T)}\)
+
+\noindent \hspace{.5cm} compute \(\frac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)} = 
+\begin{cases}
+    \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)}, & \text{if } j \neq 0 \\
+    \frac{1}{m} \Delta_{ij}^{(l)},              & \text{if } j = 0
+\end{cases}
+\)
+
+\noindent \}
 
 \printindex
 
