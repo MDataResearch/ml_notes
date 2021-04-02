@@ -814,10 +814,19 @@ a_1 & \dots & a_d
 
 \noindent compute \(\frac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)} = 
 \begin{cases}
-    \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)}, & \text{if } j \neq 0 \\
-    \frac{1}{m} \Delta_{ij}^{(l)},              & \text{if } j = 0
+  \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)}, & \text{if } j \neq 0 \\
+  \frac{1}{m} \Delta_{ij}^{(l)}, & \text{if } j = 0
 \end{cases}
 \)
+
+\subsection{Backpropagation in Practice}
+
+\noindent \textbf{unrolling parameters:}
+
+\noindent We can concat flattened matrices into a single vector for the convenience of some calculations. Also after slice and reshape on the vector we can get matrices back.
+
+\[thetaVector = concat(\Theta^{(1)}.flatten(), \dots, \Theta^{(L - 1)}.flatten())\]
+\[deltaVector = concat(D^{(1)}.flatten(), \dots, D^{(L - 1)}.flatten())\]
 
 \printindex
 
