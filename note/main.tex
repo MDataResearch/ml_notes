@@ -844,6 +844,30 @@ a_1 & \dots & a_d
 
 \[\text{initialize each } \Theta_{ij}^{(l)} \text{ to a random value in } [-\epsilon, +\epsilon]\]
 
+\noindent \textbf{in summary:}
+
+\noindent First, pick a network architecture; choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have.
+
+\begin{itemize}
+  \item Number of input units = dimension of features \(x^{(i)}\)
+  \item Number of output units = number of classes
+  \item Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)
+  \item Defaults: 1 hidden layer. If you have more than 1 hidden layer, then it is recommended that you have the same number of units in every hidden layer.
+\end{itemize}
+
+\noindent Training a Neural Network
+
+\begin{enumerate}
+  \item Randomly initialize the weights
+  \item Implement forward propagation to get \(h_\Theta(x^{(i)})\) for any \(x^{(i)}\)
+  \item Implement the cost function
+  \item Implement backpropagation to compute partial derivatives
+  \item Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.
+  \item Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.
+\end{enumerate}
+
+\noindent This will minimize our cost function. However, keep in mind that \(J(\Theta)\) is not always convex and thus we can end up in a local minimum instead. 
+
 \printindex
 
 \end{document}
