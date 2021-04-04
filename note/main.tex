@@ -281,7 +281,7 @@ x_n
 
 \[x_i = \frac{x_i - mean(x_i)}{std(x_i)}\]
 
-\[std(x_i) = \sqrt{ \frac{1}{m} \sum_{j = 1}^m (x^{(j)}_i - mean(x_i))^2}\]
+\[std(x_i) = \sqrt{\frac{1}{m} \sum_{j = 1}^m (x^{(j)}_i - mean(x_i))^2}\]
 
 \noindent \textbf{learning rate} \(\alpha\):
 
@@ -843,6 +843,10 @@ a_1 & \dots & a_d
 \noindent Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our \(\Theta\) matrices using the following method: (here \(\epsilon\) is a value selected for random initialization)
 
 \[\text{initialize each } \Theta_{ij}^{(l)} \text{ to a random value in } [-\epsilon, +\epsilon]\]
+
+\noindent One effective strategy for choosing \(\epsilon\) is to base it on the number of units in the network: (Xavier normalized initialization)
+
+\[\epsilon^{(l)} = \frac{\sqrt{6}}{\sqrt{s^{(l)} + s^{(l + 1)}}}\]
 
 \noindent \textbf{in summary:}
 
