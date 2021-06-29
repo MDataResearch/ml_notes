@@ -1,7 +1,0 @@
-# Notebook Checkpoints
-.ipynb_checkpoints/
-__pycache__
-Pipfile
-Pipfile.lock
-.venv
-.vscode
