@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\title{Deep Learning Notes}
+\author{Haotian Chen}
+\date{}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\makeatletter
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\makeindex
+
+
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\tableofcontents{}
+
+\clearpage
+
+\section{Neural Networks and Deep Learning}
+
+\printindex
+
+\end{document}
