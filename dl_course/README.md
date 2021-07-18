@@ -2,6 +2,7 @@
 
 https://www.coursera.org/specializations/deep-learning
 
-This note is also inspired by the note written by mbadry1
+This note is also inspired by following github repositories:
 
 https://github.com/mbadry1/DeepLearning.ai-Summary
+https://github.com/Kulbear/deep-learning-coursera
