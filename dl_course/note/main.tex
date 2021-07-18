@@ -124,7 +124,7 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 
 \[J(w, b) = \frac{1}{m} \sum^m_{i = 1} L(\hat{y}^{(i)}, y^{(i)}) = - \frac{1}{m} \sum^m_{i = 1} [ylog(\hat{y}) + (1 - y)log(1 - \hat{y})]\]
 
-\noindent \textbf{gradient descent:} find best \(w\), \(b\) to minimize \(J(w, b)\)
+\noindent \textbf{gradient descent:} with learning rate \(\alpha\), find best \(w\), \(b\) to minimize \(J(w, b)\)
 
 \noindent repeat until convergence \{
 \[w =: w - \alpha \frac{\partial}{\partial w} J(w, b)\]
