@@ -116,6 +116,14 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \[z = w^Tx + b\]
 \[\hat{y} = \sigma(z)\]
 
+\noindent \textbf{loss function: (convex)}
+
+\[L(\hat{y}, y) = -(ylog(\hat{y}) + (1 - y)log(1 - \hat{y}))\]
+
+\noindent \textbf{cost function: (convex)}
+
+\[J(w, b) = \frac{1}{m} \sum^m_{i = 1} L(\hat{y}^{(i)}, y^{(i)}) = - \frac{1}{m} \sum^m_{i = 1} [ylog(\hat{y}) + (1 - y)log(1 - \hat{y})]\]
+
 \printindex
 
 \end{document}
