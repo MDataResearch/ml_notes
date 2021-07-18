@@ -42,6 +42,32 @@
 
 \section{Neural Networks and Deep Learning}
 
+\subsection{Activation Function}
+
+\noindent \textbf{binary step:}
+
+\begin{center}
+\includegraphics[scale=0.8]{./images/binary_step.png}
+\end{center}
+
+\[f(x) = \begin{cases}0&{\text{if }}x<0\\1&{\text{if }}x\geq 0\end{cases}, f(x) \in \{0, 1\}\]
+
+\noindent \textbf{sigmoid function:}
+
+\begin{center}
+\includegraphics[scale=0.8]{./images/sigmoid.png}
+\end{center}
+
+\[f(x) = \sigma (x)={\frac {e^{x}}{e^{x}+1}}={\frac {1}{1+e^{-x}}}, f(x) \in (0, 1)\]
+
+\noindent \textbf{rectified linear unit:}
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/relu.png}
+\end{center}
+
+\[f(x) = max\{0, x\} = \begin{cases}0&{\text{if }}x<0\\1&{\text{if }}x\geq 0\end{cases}, f(x) \in [0, +\infty)\]
+
 \subsection{Binary Classification}
 
 Use logistic regression to build a binary classifier.
@@ -51,7 +77,8 @@ Use logistic regression to build a binary classifier.
 \end{center}
 
 \noindent \textbf{training data}:
-\[(x^{(i)}, y^{(i)})\:for\:i = 1, \dots, m\]
+\[x \in \mathbb{R}^{n_x}, y \in \{0, 1\}\]
+\[\text{\(m\) training examples: } (x^{(i)}, y^{(i)})\:for\:i = 1, \dots, m\]
 
 \[
 x^{(i)} = 
@@ -75,6 +102,8 @@ Y =
 y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \end{bmatrix}
 \]
+
+\[X \in \mathbb{R}^{n_x \times m}, Y \in \mathbb{R}^{1 \times m}\]
 
 \subsection{Logistic Regression}
 
