@@ -132,6 +132,22 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \centerline{simultaneously update w, b}
 \}
 
+\bigskip
+
+\noindent \textbf{Computation Graphs of Derivatives:}
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/computation_graph.png}
+\end{center}
+
+\noindent apply chain rule:
+
+\[\frac{\partial J}{\partial a} = \frac{\partial J}{\partial v} \frac{\partial v}{\partial a} = 3 \times 1 = 3\]
+
+\[\frac{\partial J}{\partial b} = \frac{\partial J}{\partial v} \frac{\partial v}{\partial u} \frac{\partial u}{\partial b} = 3 \times 1 \times 2 = 6\]
+
+\[\frac{\partial J}{\partial c} = \frac{\partial J}{\partial v} \frac{\partial v}{\partial u} \frac{\partial u}{\partial c} = 3 \times 1 \times 3 = 9\]
+
 \printindex
 
 \end{document}
