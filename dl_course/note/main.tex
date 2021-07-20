@@ -142,9 +142,9 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \noindent \textbf{gradient descent:} with learning rate \(\alpha\), find best \(w\), \(b\) to minimize \(J(w, b)\)
 
 \noindent repeat until convergence \{
-\[w =: w - \alpha \frac{\partial}{\partial w} J(w, b)\]
-\[b =: b - \alpha \frac{\partial}{\partial b} J(w, b)\]
-\centerline{simultaneously update w, b}
+\[w_j =: w_j - \alpha \frac{\partial}{\partial w_j} J(w, b) = w_j - \alpha \frac{1}{m} \sum^m_{i = 1} (\hat{y}^{(i)} - y^{(i)}) x^{(i)}_j\]
+\[b =: b - \alpha \frac{\partial}{\partial b} J(w, b) = b - \alpha \frac{1}{m} \sum^m_{i = 1} (\hat{y}^{(i)} - y^{(i)})\]
+\centerline{simultaneously update \(w_j\) and \(b\), \(j \in [1, n]\)}
 \}
 
 \printindex
