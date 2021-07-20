@@ -132,7 +132,7 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \noindent Given \(x\), want \(\hat{y} = P(y = 1 | x)\), where \(0 \leq \hat{y} \leq 1\), \(x \in \mathbb{R}^{n_x}\), \(w \in \mathbb{R}^{n_x}\), \(b \in \mathbb{R}\)
 
 \[z = w^Tx + b\]
-\[\hat{y} = \sigma(z)\]
+\[\hat{y} = \sigma(z) = \frac {1}{1+e^{-z}}\]
 
 \noindent \textbf{loss function: (convex)}
 
@@ -148,6 +148,13 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \[w_j =: w_j - \alpha \frac{\partial}{\partial w_j} J(w, b) = w_j - \alpha \frac{1}{m} \sum^m_{i = 1} (\hat{y}^{(i)} - y^{(i)}) x^{(i)}_j\]
 \[b =: b - \alpha \frac{\partial}{\partial b} J(w, b) = b - \alpha \frac{1}{m} \sum^m_{i = 1} (\hat{y}^{(i)} - y^{(i)})\]
 \centerline{simultaneously update \(w_j\) and \(b\), \(j \in [1, n]\)}
+\}
+
+\noindent \textbf{vectorized implementation}:
+
+\noindent repeat until convergence \{
+\[w =: w - \alpha \frac{1}{m} X (\sigma(w^TX + b) - Y)^T\]
+\[b =: b - \alpha \frac{1}{m} sum\{\sigma(w^TX + b) - Y\}\]
 \}
 
 \printindex
