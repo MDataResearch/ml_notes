@@ -51,6 +51,7 @@
 \end{center}
 
 \[f(x) = \begin{cases}0&{\text{if }}x<0\\1&{\text{if }}x\geq 0\end{cases}, f(x) \in \{0, 1\}\]
+\[f'(x) = \begin{cases}0&{\text{if }}x\neq 0\\{\text{undefined}}&{\text{if }}x=0\end{cases}\]
 
 \noindent \textbf{sigmoid function:}
 
@@ -59,6 +60,7 @@
 \end{center}
 
 \[f(x) = \sigma (x)={\frac {e^{x}}{e^{x}+1}}={\frac {1}{1+e^{-x}}}, f(x) \in (0, 1)\]
+\[f'(x) = f(x)(1-f(x))\]
 
 \noindent \textbf{rectified linear unit: (relu)}
 
@@ -67,6 +69,7 @@
 \end{center}
 
 \[f(x) = max\{0, x\} = \begin{cases}0&{\text{if }}x<0\\1&{\text{if }}x\geq 0\end{cases}, f(x) \in [0, +\infty)\]
+\[f'(x) = \begin{cases}0&{\text{if }}x<0\\1&{\text{if }}x>0\\{\text{undefined}}&{\text{if }}x=0\end{cases}\]
 
 \subsection{Computation Graphs of Derivatives:}
 
