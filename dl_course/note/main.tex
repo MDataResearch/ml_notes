@@ -134,6 +134,14 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \[z = w^Tx + b\]
 \[\hat{y} = \sigma(z) = \frac {1}{1+e^{-z}}\]
 
+\[P(y|x) = \begin{cases}\hat{y}&{\text{if }}y = 1\\1 -\hat{y}&{\text{if }}y = 0\end{cases} = \hat{y}^y (1 - \hat{y})^{(1 - y)}\]
+
+\noindent We want to maximize \(P(y|x)\). To make it simpler, because \(log\) function is a strictly increasing function, we can maximize \(log(P(y|x))\) instead.
+
+\[log(P(y|x)) = log(\hat{y}^y (1 - \hat{y})^{(1 - y)}) = ylog(\hat{y}) + (1 - y)log(1 - \hat{y})\]
+
+\noindent Or in reverse, we can minimize \(-log(P(y|x))\), which is called \textbf{loss function}.
+
 \noindent \textbf{loss function: (convex)}
 
 \[L(\hat{y}, y) = -(ylog(\hat{y}) + (1 - y)log(1 - \hat{y}))\]
