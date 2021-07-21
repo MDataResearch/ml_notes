@@ -167,6 +167,28 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \[b =: b - \alpha \frac{1}{m} sum\{\sigma(w^TX + b) - Y\}\]
 \}
 
+\subsection{Neural Network}
+
+\noindent \textbf{Basic Structure:}
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/neural_network.jpg}
+\end{center}
+\[a_i^{[j]} = \text{"activation" of unit i in layer j}\]
+\[W^{[j]} = \text{matrix of weights (edges) from layer j to j + 1}\]
+\[B^{[j]} = \text{vector of biases (nodes) from layer j to j + 1}\]
+
+\bigskip
+
+\[a_1^{[1]} = \sigma(W_{11}^{[0]} x_1 + W_{12}^{[0]} x_2 + W_{13}^{[0]} x_3 + B_{1}^{[0]})\]
+\[a_2^{[1]} = \sigma(W_{21}^{[0]} x_1 + W_{22}^{[0]} x_2 + W_{23}^{[0]} x_3 + B_{2}^{[0]})\]
+\[a_3^{[1]} = \sigma(W_{31}^{[0]} x_1 + W_{32}^{[0]} x_2 + W_{33}^{[0]} x_3 + B_{3}^{[0]})\]
+\[h_{(W, B)}(x) = a_1^{[2]} = \sigma(W_{11}^{[1]} a_1^{[1]} + W_{12}^{[1]} a_2^{[1]} + W_{13}^{[1]} a_3^{[1]} + B_{1}^{[1]})\]
+
+\bigskip
+
+\noindent If network has \(s_j\) units in layer \(j\), \(s_{j + 1}\) units in layer \(j + 1\), then \(W_j\) will be of dimension \(s_{j + 1} \times s_j\), \(B_j\) will be of dimension \(s_{j + 1} \times 1\).
+
 \printindex
 
 \end{document}
