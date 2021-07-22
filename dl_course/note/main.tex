@@ -89,6 +89,12 @@
 \[f(x) = \tanh(x) = \frac {e^{x}-e^{-x}}{e^{x}+e^{-x}}, f(x) \in (-1, 1)\]
 \[f'(x) = 1-f(x)^{2}\]
 
+\noindent It turns out that the tanh activation usually works better than sigmoid activation function for hidden units because the mean of its output is closer to zero, and so it centers the data better for the next layer. Sigmoid or Tanh function disadvantage is that if the input is too small or too high, the slope will be near zero which will cause us the vanishing gradient problem.
+
+\bigskip
+
+\noindent Linear activation function will output linear activations. No matter how many hidden layers you add, the activation will be always linear like logistic regression (So its useless in a lot of complex problems). You might use linear activation function in the output layer if the output is real numbers (regression problem).
+
 \subsection{Computation Graphs of Derivatives:}
 
 \begin{center}
