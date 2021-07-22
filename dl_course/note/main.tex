@@ -178,8 +178,6 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \[W^{[j]} = \text{matrix of weights (edges) from layer j to j + 1}\]
 \[B^{[j]} = \text{vector of biases (nodes) from layer j to j + 1}\]
 
-\bigskip
-
 \[a_1^{[1]} = \sigma(W_{11}^{[0]} x_1 + W_{12}^{[0]} x_2 + W_{13}^{[0]} x_3 + B_{1}^{[0]})\]
 \[a_2^{[1]} = \sigma(W_{21}^{[0]} x_1 + W_{22}^{[0]} x_2 + W_{23}^{[0]} x_3 + B_{2}^{[0]})\]
 \[a_3^{[1]} = \sigma(W_{31}^{[0]} x_1 + W_{32}^{[0]} x_2 + W_{33}^{[0]} x_3 + B_{3}^{[0]})\]
@@ -188,6 +186,31 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \bigskip
 
 \noindent If network has \(s_j\) units in layer \(j\), \(s_{j + 1}\) units in layer \(j + 1\), then \(W_j\) will be of dimension \(s_{j + 1} \times s_j\), \(B_j\) will be of dimension \(s_{j + 1} \times 1\).
+
+\bigskip
+
+\noindent \textbf{Generalized Model (one vs all):}
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/neural_network_generalized.jpg}
+\end{center}
+
+\noindent For a neural network that has:
+
+\[L = \text{total number of layers in the network}\]
+\[s_l = \text{number of units in layer } l\]
+\[K = \text{number of output units/classes}\]
+
+\noindent assume \(a^{[0]} = x, a^{[L]} = h_{(W, B)}(x)\), let:
+
+\[z^{[l]} = W^{[l - 1]} a^{[l - 1]} + B^{[l - 1]}\]
+\[a^{[l]} = \sigma(z^{[l]})\]
+\[h_{(W, B)}(x) = a^{[L]} = \sigma(z^{[L]})\]
+
+\bigskip
+
+\noindent \textbf{regularized cost function:}
+\[J(W, B) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{(W, B)} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{(W, B)}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 0}^{L - 1} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (W_{j, i}^{(l)})^{2}\]
 
 \printindex
 
