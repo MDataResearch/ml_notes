@@ -323,9 +323,9 @@ a_1 & \dots & a_d
 
 \noindent To train the model, we need to update \(W\) for each epoch: (gradient decent)
 
-\[W := W - \alpha  \frac{\partial}{\partial W} J(W)\]
+\[W := W - \alpha  \frac{\partial}{\partial W} J(W, B)\]
 
-\noindent We can see \(\frac{\partial}{\partial W} J(W)\) is hard to get directly. There is an easier way to calculate it. For each training example \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\), define cost function:
+\noindent We can see \(\frac{\partial}{\partial W} J(W, B)\) is hard to get directly. There is an easier way to calculate it. For each training example \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\), define cost function:
 
 \[J = -\sum_{k = 1}^{K} [y^{(q)}_k log(h_{W} (x^{(q)})_k) + (1 - y^{(q)}_k) log(1 - h_{W}(x^{(q)})_k)] \]
 
@@ -376,7 +376,7 @@ a_1 & \dots & a_d
 \[\delta^{(l)} = (W^{(l)})^T \delta^{(l + 1)} \odot (a^{(l)} \odot (1 - a^{(l)}))\]
 \[\delta^{(L)} = a^{(L)} - y^{(q)}\]
 
-\noindent \textbf{backpropagation algorithm:} (compute \(\frac{\partial}{\partial W} J(W)\))
+\noindent \textbf{backpropagation algorithm:} (compute \(\frac{\partial}{\partial W} J(W, B)\))
 
 \noindent training set: \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\)
 
@@ -396,7 +396,7 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} compute \(\Delta^{(l)} := \Delta^{(l)} + \delta^{(l + 1)}(a^{(l)})^{(T)}\)
 
-\noindent compute \(\frac{\partial}{\partial W_{ij}^{(l)}} J(W) = D_{ij}^{(l)} = 
+\noindent compute \(\frac{\partial}{\partial W_{ij}^{(l)}} J(W, B) = D_{ij}^{(l)} = 
 \begin{cases}
   \frac{1}{m} \Delta_{ij}^{(l)} + \lambda W_{ij}^{(l)}, & \text{if } j \neq 0 \\
   \frac{1}{m} \Delta_{ij}^{(l)}, & \text{if } j = 0
