@@ -238,6 +238,87 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 
 \noindent To reduce over-fitting, we can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated.
 
+\subsection{Backpropagation Preliminary}
+\noindent \textbf{matrix calculus:} see \href{https://en.wikipedia.org/wiki/Matrix_calculus}{Wikipedia}
+
+\noindent \textbf{chaine rule:}
+
+\noindent Suppose the variable \(J\) depends on the variables \(w_1, \dots, w_p\) via the intermediate variable \(z_1, \dots, z_k\).
+
+\[z_j = z_j(w_1, \dots, w_p), \forall j \in \{1, \dots, k\} \]
+\[J = J(z_1, \dots, z_k)\]
+
+\noindent Expand \(J\), we can find:
+
+\[\frac{\partial J}{\partial w_i} = \sum_{j = 1}^{k} \frac{\partial J}{\partial z_j} \frac{\partial z_j}{\partial w_i}, \forall i \in \{1, \dots, p\}\]
+
+\noindent \textbf{chain rule derivation for matrix:}
+
+\noindent Suppose \(J\) is a real-valued output variable, \(z \in \mathbb{R}^m\) is the intermediate variable and \(W \in \mathbb{R}^{m \times d}\), \(a \in \mathbb{R}^d\) are the input variables. Suppose they satisfy:
+
+\[z = W a\]
+\[J = J(z)\]
+
+\noindent Then we can get:
+
+\[
+\frac{\partial J}{\partial a} = 
+\begin{bmatrix}
+\frac{\partial J}{\partial a_1}\\
+\vdots\\
+\frac{\partial J}{\partial a_d}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\sum_{j = 1}^m \frac{\partial J}{\partial z_j} \frac{z_j}{a_1}\\
+\vdots\\
+\sum_{j = 1}^m \frac{\partial J}{\partial z_j} \frac{z_j}{a_d}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{\partial z_1}{\partial a_1} & \dots & \frac{\partial z_m}{\partial a_1}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial z_1}{\partial a_d} & \dots & \frac{\partial z_m}{\partial a_d}
+\end{bmatrix}
+\begin{bmatrix}
+\frac{\partial J}{\partial z_1}\\
+\vdots\\
+\frac{\partial J}{\partial z_m}
+\end{bmatrix}
+= \frac{\partial z}{\partial a} \frac{\partial J}{\partial z}
+= W^T \frac{\partial J}{\partial z}
+\]
+
+\[
+\frac{\partial J}{\partial W_{ij}} = \sum_{k = 1}^m \frac{\partial J}{\partial z_k} \frac{\partial z_k}{\partial W_{ij}} = \frac{\partial J}{\partial z_i} \frac{\partial z_i}{\partial W_{ij}} = \frac{\partial J}{\partial z_i} a_j
+\]
+
+\[
+\frac{\partial J}{\partial W} = 
+\begin{bmatrix}
+\frac{\partial J}{\partial z_1}\\
+\vdots\\
+\frac{\partial J}{\partial z_m}
+\end{bmatrix}
+\begin{bmatrix}
+a_1 & \dots & a_d
+\end{bmatrix}
+= \frac{\partial J}{\partial z} a^T
+\]
+
+\noindent \textbf{element-wise chain rule:}
+
+\noindent Assume \(z, a \in \mathbb{R}^d\):
+
+\[a = \sigma(z) \text{, where \(\sigma\) is an element-wise activation}\]
+\[J = J(a)\]
+
+\noindent Then we have:
+
+\[\frac{\partial J}{\partial z} = \frac{\partial J}{\partial a} \odot \sigma'(z)\]
+
+\noindent Where \(\sigma'\) is the element-wise derivative of the activation function \(\sigma\).
+
 \printindex
 
 \end{document}
