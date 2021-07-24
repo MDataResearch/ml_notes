@@ -227,14 +227,14 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 
 \noindent assume \(a^{[0]} = x, a^{[L]} = h_{(W, B)}(x)\), let:
 
-\[z^{[l]} = W^{[l - 1]} a^{[l - 1]} + B^{[l - 1]}\]
+\[z^{[l]} = W^{[l]} a^{[l - 1]} + B^{[l]}\]
 \[a^{[l]} = \sigma(z^{[l]})\]
 \[h_{(W, B)}(x) = a^{[L]} = \sigma(z^{[L]})\]
 
 \bigskip
 
 \noindent \textbf{regularized cost function:}
-\[J(W, B) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{(W, B)} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{(W, B)}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 0}^{L - 1} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (W_{j, i}^{[l]})^{2}\]
+\[J(W, B) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{(W, B)} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{(W, B)}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 1}^{L} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (W_{j, i}^{[l]})^{2}\]
 
 \noindent To reduce over-fitting, we can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated.
 
