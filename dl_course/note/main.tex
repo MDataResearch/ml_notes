@@ -254,9 +254,9 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 
 \noindent \textbf{chain rule derivation for matrix:}
 
-\noindent Suppose \(J\) is a real-valued output variable, \(z \in \mathbb{R}^m\) is the intermediate variable and \(W \in \mathbb{R}^{m \times d}\), \(a \in \mathbb{R}^d\) are the input variables. Suppose they satisfy:
+\noindent Suppose \(J\) is a real-valued output variable, \(z \in \mathbb{R}^m\) is the intermediate variable and \(W \in \mathbb{R}^{m \times d}\), \(B \in \mathbb{R}^{m}\), \(a \in \mathbb{R}^d\) are the input variables. Suppose they satisfy:
 
-\[z = W a\]
+\[z = W a + B\]
 \[J = J(z)\]
 
 \noindent Then we can get:
@@ -294,6 +294,10 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \]
 
 \[
+\frac{\partial J}{\partial B_{i}} = \sum_{k = 1}^m \frac{\partial J}{\partial z_k} \frac{\partial z_k}{\partial B_{i}} = \frac{\partial J}{\partial z_i} \frac{\partial z_i}{\partial B_{i}} = \frac{\partial J}{\partial z_i}
+\]
+
+\[
 \frac{\partial J}{\partial W} = 
 \begin{bmatrix}
 \frac{\partial J}{\partial z_1}\\
@@ -304,6 +308,16 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 a_1 & \dots & a_d
 \end{bmatrix}
 = \frac{\partial J}{\partial z} a^T
+\]
+
+\[
+\frac{\partial J}{\partial B} = 
+\begin{bmatrix}
+\frac{\partial J}{\partial z_1}\\
+\vdots\\
+\frac{\partial J}{\partial z_m}
+\end{bmatrix}
+= \frac{\partial J}{\partial z}
 \]
 
 \noindent \textbf{element-wise chain rule:}
