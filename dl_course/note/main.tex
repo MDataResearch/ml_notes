@@ -234,7 +234,7 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 \bigskip
 
 \noindent \textbf{regularized cost function:}
-\[J(W, B) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{(W, B)} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{(W, B)}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 0}^{L - 1} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (W_{j, i}^{(l)})^{2}\]
+\[J(W, B) = - \frac{1}{m} \sum_{i = 1}^{m} \sum_{k = 1}^{K} [y^{(i)}_k log(h_{(W, B)} (x^{(i)})_k) + (1 - y^{(i)}_k) log(1 - h_{(W, B)}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum_{l = 0}^{L - 1} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (W_{j, i}^{[l]})^{2}\]
 
 \noindent To reduce over-fitting, we can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated.
 
@@ -332,75 +332,75 @@ a_1 & \dots & a_d
 
 \noindent Apply chain rule we have:
 
-\[\frac{\partial J}{\partial W_{ij}^{(l)}} = \frac{\partial J}{\partial z^{(l + 1)}} (a^{(l)})^T\]
-\[\frac{\partial J}{\partial a^{(l)}} = (W^{(l)})^T \frac{\partial J}{\partial z^{(l + 1)}}\]
+\[\frac{\partial J}{\partial W_{ij}^{[l]}} = \frac{\partial J}{\partial z^{[l + 1]}} (a^{[l]})^T\]
+\[\frac{\partial J}{\partial a^{[l]}} = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}}\]
 \begin{equation*}
 \begin{split}
-\frac{\partial J}{\partial z^{(l)}}
-& = \frac{\partial J}{\partial a^{(l)}} \odot g'(z^{(l)}) \\
-& = (W^{(l)})^T \frac{\partial J}{\partial z^{(l + 1)}} \odot g'(z^{(l)}) \\
-& = (W^{(l)})^T \frac{\partial J}{\partial z^{(l + 1)}} \odot (a^{(l)} \odot (1 - a^{(l)}))
+\frac{\partial J}{\partial z^{[l]}}
+& = \frac{\partial J}{\partial a^{[l]}} \odot g'(z^{[l]}) \\
+& = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}} \odot g'(z^{[l]}) \\
+& = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}} \odot (a^{[l]} \odot (1 - a^{[l]}))
 \end{split}
 \end{equation*}
 
 \noindent For \(p \in \{1, ..., K\}\):
 \begin{equation*}
 \begin{split}
-\frac{\partial J}{\partial z_p^{(L)}} 
-& = \frac{\partial}{\partial z_p^{(L)}} \sum_{k = 1}^{K} -[y^{(q)}_k log(h_{(W, B)} (x^{(q)})_k) + (1 - y^{(q)}_k) log(1 - h_{(W, B)}(x^{(q)})_k)] \\
-& = \frac{\partial}{\partial z_p^{(L)}} \{-[y^{(q)}_p log(\frac{1}{1 + e^{-z_p^{(L)}}}) + (1 - y^{(q)}_p) log(1 - \frac{1}{1 + e^{-z_p^{(L)}}})]\} \\
-& = - [y^{(q)}_p (1 + e^{-z_p^{(L)}}) \frac{0 - (-e^{-z_p^{(L)}})}{(1 + e^{-z_p^{(L)}})^2} + (1 - y^{(q)}_p) \frac{1 + e^{-z_p^{(L)}}}{e^{-z_p^{(L)}}} \frac{(-e^{-z_p^{(L)}})(1 + e^{-z_p^{(L)}}) - e^{-z_p^{(L)}}(-e^{-z_p^{(L)}})}{(1 + e^{-z_p^{(L)}})^2}] \\
-& = - [y_p^{(q)} \frac{e^{-z_p^{(L)}}}{1 + e^{-z_p^{(L)}}} + (1 - y_p^{(q)}) \frac{-1}{1 + e^{-z_p^{(L)}}}] \\
-& = - \frac{y_p^{(q)}e^{-z_p^{(L)}} + y_p^{(q)} - 1}{1 + e^{-z_p^{(L)}}} \\
-& = \frac{1}{1 + e^{-z_p^{(L)}}} - y_p^{(q)} \\ 
-& = a_p^{(L)} - y_p^{(q)}
+\frac{\partial J}{\partial z_p^{[L]}} 
+& = \frac{\partial}{\partial z_p^{[L]}} \sum_{k = 1}^{K} -[y^{(q)}_k log(h_{(W, B)} (x^{(q)})_k) + (1 - y^{(q)}_k) log(1 - h_{(W, B)}(x^{(q)})_k)] \\
+& = \frac{\partial}{\partial z_p^{[L]}} \{-[y^{(q)}_p log(\frac{1}{1 + e^{-z_p^{[L]}}}) + (1 - y^{(q)}_p) log(1 - \frac{1}{1 + e^{-z_p^{[L]}}})]\} \\
+& = - [y^{(q)}_p (1 + e^{-z_p^{[L]}}) \frac{0 - (-e^{-z_p^{[L]}})}{(1 + e^{-z_p^{[L]}})^2} + (1 - y^{(q)}_p) \frac{1 + e^{-z_p^{[L]}}}{e^{-z_p^{[L]}}} \frac{(-e^{-z_p^{[L]}})(1 + e^{-z_p^{[L]}}) - e^{-z_p^{[L]}}(-e^{-z_p^{[L]}})}{(1 + e^{-z_p^{[L]}})^2}] \\
+& = - [y_p^{(q)} \frac{e^{-z_p^{[L]}}}{1 + e^{-z_p^{[L]}}} + (1 - y_p^{(q)}) \frac{-1}{1 + e^{-z_p^{[L]}}}] \\
+& = - \frac{y_p^{(q)}e^{-z_p^{[L]}} + y_p^{(q)} - 1}{1 + e^{-z_p^{[L]}}} \\
+& = \frac{1}{1 + e^{-z_p^{[L]}}} - y_p^{(q)} \\ 
+& = a_p^{[L]} - y_p^{(q)}
 \end{split}
 \end{equation*}
 
 \noindent Then we get:
 
-\[\frac{\partial J}{\partial z^{(L)}} = 
+\[\frac{\partial J}{\partial z^{[L]}} = 
 \begin{bmatrix}
-\frac{\partial J}{\partial z_1^{(L)}} \\
+\frac{\partial J}{\partial z_1^{[L]}} \\
 \vdots \\
-\frac{\partial J}{\partial z_K^{(L)}}
+\frac{\partial J}{\partial z_K^{[L]}}
 \end{bmatrix}
-= a^{(L)} - y^{(q)}
+= a^{[L]} - y^{(q)}
 \]
 
 \noindent For convenience, define \textbf{error term}: 
-\[\delta^{(l)} = \frac{\partial J}{\partial z^{(l)}}\]
+\[\delta^{[l]} = \frac{\partial J}{\partial z^{[l]}}\]
 
 \noindent Then we get:
 
-\[\frac{\partial J}{\partial W_{ij}^{(l)}} = \delta^{(l + 1)} (a^{(l)})^T\]
-\[\delta^{(l)} = (W^{(l)})^T \delta^{(l + 1)} \odot (a^{(l)} \odot (1 - a^{(l)}))\]
-\[\delta^{(L)} = a^{(L)} - y^{(q)}\]
+\[\frac{\partial J}{\partial W_{ij}^{[l]}} = \delta^{[l + 1]} (a^{[l]})^T\]
+\[\delta^{[l]} = (W^{[l]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\]
+\[\delta^{[L]} = a^{[L]} - y^{(q)}\]
 
 \noindent \textbf{backpropagation algorithm:} (compute \(\frac{\partial}{\partial W} J(W, B)\), \(\frac{\partial}{\partial B} J(W, B)\))
 
 \noindent training set: \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\)
 
-\noindent set \(\Delta_{ij}^{(l)} = 0, l \in \{1, \dots, L - 1\}\)
+\noindent set \(\Delta_{ij}^{[l]} = 0, l \in \{1, \dots, L - 1\}\)
 
 \noindent for \(q \in \{1, \dots, m\}\):
 
-\noindent \hspace{.5cm} forward propagation: compute \(a^{(l)}\) for \(l \in \{2, \dots, L\}\)
+\noindent \hspace{.5cm} forward propagation: compute \(a^{[l]}\) for \(l \in \{2, \dots, L\}\)
 
-\noindent \hspace{.5cm} compute \(\delta^{(L)} = a^{(L)} - y^{(q)}\)
+\noindent \hspace{.5cm} compute \(\delta^{[L]} = a^{[L]} - y^{(q)}\)
 
 \noindent \hspace{.5cm} for \(l \in \{L - 1, \dots, 2\}\):
 
-\noindent \hspace{1cm} compute \(\delta^{(l)} = (W^{(l)})^T \delta^{(l + 1)} \odot (a^{(l)} \odot (1 - a^{(l)}))\)
+\noindent \hspace{1cm} compute \(\delta^{[l]} = (W^{[l]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\)
 
 \noindent \hspace{.5cm} for \(l \in \{1, \dots, L - 1\}\):
 
-\noindent \hspace{1cm} compute \(\Delta^{(l)} := \Delta^{(l)} + \delta^{(l + 1)}(a^{(l)})^{(T)}\)
+\noindent \hspace{1cm} compute \(\Delta^{[l]} := \Delta^{[l]} + \delta^{[l + 1]}(a^{[l]})^{(T)}\)
 
-\noindent compute \(\frac{\partial}{\partial W_{ij}^{(l)}} J(W, B) = D_{ij}^{(l)} = 
+\noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D_{ij}^{[l]} = 
 \begin{cases}
-  \frac{1}{m} \Delta_{ij}^{(l)} + \lambda W_{ij}^{(l)}, & \text{if } j \neq 0 \\
-  \frac{1}{m} \Delta_{ij}^{(l)}, & \text{if } j = 0
+  \frac{1}{m} \Delta_{ij}^{[l]} + \lambda W_{ij}^{[l]}, & \text{if } j \neq 0 \\
+  \frac{1}{m} \Delta_{ij}^{[l]}, & \text{if } j = 0
 \end{cases}
 \)
 
