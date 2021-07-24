@@ -347,6 +347,7 @@ a_1 & \dots & a_d
 \noindent Apply chain rule we have:
 
 \[\frac{\partial J}{\partial W^{[l]}} = \frac{\partial J}{\partial z^{[l + 1]}} (a^{[l]})^T\]
+\[\frac{\partial J}{\partial B^{[l]}} = \frac{\partial J}{\partial z^{[l + 1]}}\]
 \[\frac{\partial J}{\partial a^{[l]}} = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}}\]
 \begin{equation*}
 \begin{split}
@@ -388,6 +389,7 @@ a_1 & \dots & a_d
 \noindent Then we get:
 
 \[\frac{\partial J}{\partial W^{[l]}} = \delta^{[l + 1]} (a^{[l]})^T\]
+\[\frac{\partial J}{\partial B^{[l]}} = \delta^{[l + 1]}\]
 \[\delta^{[l]} = (W^{[l]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\]
 \[\delta^{[L]} = a^{[L]} - y^{(q)}\]
 
