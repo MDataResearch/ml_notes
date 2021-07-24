@@ -399,7 +399,7 @@ a_1 & \dots & a_d
 
 \noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D_{ij}^{[l]} = 
 \begin{cases}
-  \frac{1}{m} \Delta_{ij}^{[l]} + \lambda W_{ij}^{[l]}, & \text{if } j \neq 0 \\
+  \frac{1}{m} \Delta_{ij}^{[l]} + \frac{\lambda}{m} W_{ij}^{[l]}, & \text{if } j \neq 0 \\
   \frac{1}{m} \Delta_{ij}^{[l]}, & \text{if } j = 0
 \end{cases}
 \)

@@ -814,7 +814,7 @@ a_1 & \dots & a_d
 
 \noindent compute \(\frac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)} = 
 \begin{cases}
-  \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)}, & \text{if } j \neq 0 \\
+  \frac{1}{m} \Delta_{ij}^{(l)} + \frac{\lambda}{m} \Theta_{ij}^{(l)}, & \text{if } j \neq 0 \\
   \frac{1}{m} \Delta_{ij}^{(l)}, & \text{if } j = 0
 \end{cases}
 \)
