@@ -352,8 +352,8 @@ a_1 & \dots & a_d
 \begin{equation*}
 \begin{split}
 \frac{\partial J}{\partial z^{[l]}}
-& = \frac{\partial J}{\partial a^{[l]}} \odot g'(z^{[l]}) \\
-& = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}} \odot g'(z^{[l]}) \\
+& = \frac{\partial J}{\partial a^{[l]}} \odot \sigma'(z^{[l]}) \\
+& = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}} \odot \sigma'(z^{[l]}) \\
 & = (W^{[l]})^T \frac{\partial J}{\partial z^{[l + 1]}} \odot (a^{[l]} \odot (1 - a^{[l]}))
 \end{split}
 \end{equation*}
