@@ -326,7 +326,7 @@ a_1 & \dots & a_d
 \[W := W - \alpha  \frac{\partial}{\partial W} J(W, B)\]
 \[B := B - \alpha  \frac{\partial}{\partial B} J(W, B)\]
 
-\noindent We can see \(\frac{\partial}{\partial W} J(W, B)\) and \(\frac{\partial}{\partial B} J(W, B)\) are hard to get directly. There is an easier way to calculate it. For each training example \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\), define loss function:
+\noindent We can see \(\frac{\partial}{\partial W} J(W, B)\) and \(\frac{\partial}{\partial B} J(W, B)\) are hard to get directly. There is an easier way to calculate it. For each training example \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\), define \textbf{loss function}:
 
 \[J = -\sum_{k = 1}^{K} [y^{(q)}_k log(h_{(W, B)} (x^{(q)})_k) + (1 - y^{(q)}_k) log(1 - h_{(W, B)}(x^{(q)})_k)] \]
 
