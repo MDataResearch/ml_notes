@@ -381,7 +381,7 @@ a_1 & \dots & a_d
 
 \noindent training set: \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\)
 
-\noindent set \(\Delta_{ij}^{[l]} = 0, l \in \{1, \dots, L - 1\}\)
+\noindent set \(\Delta_{ij}^{[l]} = 0, l \in \{0, \dots, L - 1\}\)
 
 \noindent for \(q \in \{1, \dots, m\}\):
 
@@ -397,11 +397,7 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} compute \(\Delta^{[l]} := \Delta^{(l)} + \frac{\partial J}{\partial W^{[l]}} = \Delta^{[l]} + \delta^{[l + 1]}(a^{[l]})^T\)
 
-\noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D_{ij}^{[l]} = 
-\begin{cases}
-  \frac{1}{m} \Delta_{ij}^{[l]} + \frac{\lambda}{m} W_{ij}^{[l]}, & \text{if } j \neq 0 \\
-  \frac{1}{m} \Delta_{ij}^{[l]}, & \text{if } j = 0
-\end{cases}
+\noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D_{ij}^{[l]} = \frac{1}{m} \Delta_{ij}^{[l]} + \frac{\lambda}{m} W_{ij}^{[l]}
 \)
 
 \printindex
