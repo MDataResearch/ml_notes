@@ -395,7 +395,7 @@ a_1 & \dots & a_d
 
 \noindent \hspace{.5cm} for \(l \in \{1, \dots, L - 1\}\):
 
-\noindent \hspace{1cm} compute \(\Delta^{[l]} := \Delta^{[l]} + \delta^{[l + 1]}(a^{[l]})^{(T)}\)
+\noindent \hspace{1cm} compute \(\Delta^{[l]} := \Delta^{(l)} + \frac{\partial J}{\partial W^{(l)}} = \Delta^{[l]} + \delta^{[l + 1]}(a^{[l]})^T\)
 
 \noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D_{ij}^{[l]} = 
 \begin{cases}
