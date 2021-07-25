@@ -397,7 +397,7 @@ a_1 & \dots & a_d
 
 \noindent training set: \((x^{(q)}, y^{(q)}), q \in \{1, \dots, m\}\)
 
-\noindent set \(\Delta(W)_{ij}^{[l]} = 0, \Delta(B)_{i}^{[l]} = 0, l \in \{0, \dots, L - 1\}\)
+\noindent set \(\Delta(W)_{ij}^{[l]} = 0, \Delta(B)_{i}^{[l]} = 0, l \in \{1, \dots, L\}\)
 
 \noindent for \(q \in \{1, \dots, m\}\):
 
@@ -407,13 +407,13 @@ a_1 & \dots & a_d
 
 \noindent \hspace{.5cm} for \(l \in \{L - 1, \dots, 1\}\):
 
-\noindent \hspace{1cm} compute \(\delta^{[l]} = (W^{[l]})^T \delta^{[l + 1]} \odot \sigma'(z^{[l]}) = (W^{[l]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\)
+\noindent \hspace{1cm} compute \(\delta^{[l]} = (W^{[l + 1]})^T \delta^{[l + 1]} \odot \sigma'(z^{[l]}) = (W^{[l + 1]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\)
 
-\noindent \hspace{.5cm} for \(l \in \{0, \dots, L - 1\}\):
+\noindent \hspace{.5cm} for \(l \in \{1, \dots, L\}\):
 
-\noindent \hspace{1cm} compute \(\Delta(W)^{[l]} := \Delta(W)^{(l)} + \frac{\partial J}{\partial W^{[l]}} = \Delta(W)^{[l]} + \delta^{[l + 1]}(a^{[l]})^T\)
+\noindent \hspace{1cm} compute \(\Delta(W)^{[l]} := \Delta(W)^{[l]} + \frac{\partial J}{\partial W^{[l]}} = \Delta(W)^{[l]} + \delta^{[l]}(a^{[l - 1]})^T\)
 
-\noindent \hspace{1cm} compute \(\Delta(B)^{[l]} := \Delta(B)^{(l)} + \frac{\partial J}{\partial B^{[l]}} = \Delta(B)^{[l]} + \delta^{[l + 1]}\)
+\noindent \hspace{1cm} compute \(\Delta(B)^{[l]} := \Delta(B)^{[l]} + \frac{\partial J}{\partial B^{[l]}} = \Delta(B)^{[l]} + \delta^{[l]}\)
 
 \noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D(W)_{ij}^{[l]} = \frac{1}{m} \Delta(W)_{ij}^{[l]} + \frac{\lambda}{m} W_{ij}^{[l]}\)
 
@@ -427,7 +427,7 @@ a_1 & \dots & a_d
 
 \noindent One effective strategy for choosing \(\epsilon\) is to base it on the number of units in the network: (Xavier normalized initialization)
 
-\[\epsilon^{[l]} = \frac{\sqrt{6}}{\sqrt{s^{[l]} + s^{[l + 1]}}}\]
+\[\epsilon^{[l]} = \frac{\sqrt{6}}{\sqrt{s^{[l]} + s^{[l - 1]}}}\]
 
 \subsection{Parameters vs Hyperparameters}
 
