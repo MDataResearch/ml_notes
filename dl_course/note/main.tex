@@ -388,9 +388,9 @@ a_1 & \dots & a_d
 
 \noindent Then we get:
 
-\[\frac{\partial J}{\partial W^{[l]}} = \delta^{[l + 1]} (a^{[l]})^T\]
-\[\frac{\partial J}{\partial B^{[l]}} = \delta^{[l + 1]}\]
-\[\delta^{[l]} = (W^{[l]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\]
+\[\frac{\partial J}{\partial W^{[l]}} = \delta^{[l]} (a^{[l - 1]})^T\]
+\[\frac{\partial J}{\partial B^{[l]}} = \delta^{[l]}\]
+\[\delta^{[l]} = (W^{[l + 1]})^T \delta^{[l + 1]} \odot (a^{[l]} \odot (1 - a^{[l]}))\]
 \[\delta^{[L]} = a^{[L]} - y^{(q)}\]
 
 \noindent \textbf{backpropagation algorithm:} (compute \(\frac{\partial}{\partial W} J(W, B)\), \(\frac{\partial}{\partial B} J(W, B)\))
