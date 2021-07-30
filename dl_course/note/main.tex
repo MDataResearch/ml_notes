@@ -238,6 +238,15 @@ y^{(1)} & y^{(2)} & \dots & y^{(m)}
 
 \noindent To reduce over-fitting, we can reduce(penalize) the weight of the features in our function carry by increasing their cost. The \(\lambda\) is the regularization parameter. It determines how much the costs of our theta parameters are inflated.
 
+\bigskip
+
+\noindent \textbf{vectorized implementation}: (with different activation function for each layer)
+
+\[Z^{[l]} = W^{[l]}A^{[l - 1]} + B^{[l]}\]
+\[A^{[l]} = \sigma^{[l]}(Z^{[l]})\]
+\[h_{(W, B)}(X) = A^{[L]} = \sigma^{[L]}(Z^{[L]})\]
+\[J(W, B) =  - \frac{1}{m} np.sum(Y \odot log(h_{(W, B)}(X)) + (1 - Y) \odot log(1 - h_{(W, B)}(X))) + \frac{\lambda}{2m} np.sum(W \odot W)\]
+
 \subsection{Backpropagation Preliminary}
 \noindent \textbf{matrix calculus:} see \href{https://en.wikipedia.org/wiki/Matrix_calculus}{Wikipedia}
 
@@ -418,6 +427,17 @@ a_1 & \dots & a_d
 \noindent compute \(\frac{\partial}{\partial W_{ij}^{[l]}} J(W, B) = D(W)_{ij}^{[l]} = \frac{1}{m} \Delta(W)_{ij}^{[l]} + \frac{\lambda}{m} W_{ij}^{[l]}\)
 
 \noindent compute \(\frac{\partial}{\partial B_{i}^{[l]}} J(W, B) = D(B)_{i}^{[l]} = \frac{1}{m} \Delta(B)_{i}^{[l]}\)
+
+\bigskip
+
+\noindent \textbf{vectorized backpropagation algorithm:} (compute \(\frac{\partial}{\partial W} J(W, B)\), \(\frac{\partial}{\partial B} J(W, B)\))
+
+\noindent with different activation function for each layer:
+
+\[\partial Z^{[L]} = \frac{\partial}{\partial Z^{[L]}} J(W, B) = A^{[L]} - Y\]
+\[\partial Z^{[l]} = \frac{\partial}{\partial Z^{[l]}} J(W, B) = (W^{[l + 1]})^T \partial Z^{[l + 1]} \odot \sigma'^{[l]}(Z^{[l]})\]
+\[\partial W^{[l]} = \frac{\partial}{\partial W^{[l]}} J(W, B) = \frac{1}{m} \partial Z^{[l]} (A^{[l - 1]})^T + \frac{\lambda}{m} W^{[l]}\]
+\[\partial B^{[l]} = \frac{\partial}{\partial B^{[l]}} J(W, B) = \frac{1}{m} np.sum(\partial Z^{[l]}, axis=1, keepdims=True)\]
 
 \subsection{Random Initialization (symmetry breaking)}
 
