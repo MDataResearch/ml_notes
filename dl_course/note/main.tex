@@ -466,6 +466,36 @@ a_1 & \dots & a_d
   \item Regularization parameters.
 \end{itemize}
 
+\section{Hyperparameter Tuning, Regularization and Optimization}
+
+\subsection{Train/Dev/Test Sets}
+
+\noindent \textbf{find better hyperparameters}:
+
+\noindent repeat: Idea \(\longrightarrow\) Code \(\longrightarrow\) Experiment
+
+\bigskip
+
+\noindent \textbf{split dataset}:
+
+\begin{itemize}
+  \item Training set
+  \item Validation set / Development or "dev" set.
+  \item Testing set
+\end{itemize}
+
+\noindent \textbf{ratio of splitting}:
+\begin{itemize}
+  \item If size of the dataset is 100 to 1000000: 60\%/20\%/20\%
+  \item If size of the dataset is 1000000 to INF: 98\%/1\%/1\% or 99.5\%/0.25\%/0.25\%
+\end{itemize}
+
+\noindent Make sure the dev and test set are coming from the same distribution. For example if cat training pictures is from the web and the dev/test pictures are from users cell phone they will mismatch. It is better to make sure that dev and test set are from the same distribution.
+
+\bigskip
+
+\noindent The dev set rule is to try them on some of the good models you've created. Its OK to only have a dev set without a testing set. But a lot of people in this case call the dev set as the test set. A better terminology is to call it a dev set as its used in the development.
+
 \printindex
 
 \end{document}
