@@ -541,6 +541,22 @@ a_1 & \dots & a_d
 
 \noindent You should try the previous two points until you have a low bias and low variance. In the older days before deep learning, there was a "Bias/variance tradeoff". But because now you have more options/tools for solving the bias and variance problem its really helpful to use deep learning. With enough training data, training a bigger neural network never hurts.
 
+\bigskip
+
+\noindent \textbf{Regularization}: 
+
+\noindent Add regularization term to the cost function to reduce variance (overfitting):
+
+\[\frac{\lambda}{2m} \sum_{l = 1}^{L} \sum_{i = 1}^{s_l} \sum_{j = 1}^{s_{l + 1}} (W_{j, i}^{[l]})^{2} = \frac{\lambda}{2m} np.sum(W \odot W)\]
+
+\bigskip
+
+\noindent weight backpropagation with regularization:
+
+\[W^{[l]} := W^{[l]} - \alpha \partial W^{[l]} = (1 - \frac{\alpha \lambda}{m}) W^{[l]} - \frac{\alpha}{m} \partial Z^{[l]} (A^{[l - 1]})^T\]
+
+\noindent The new term \((1 - \frac{\alpha \lambda}{m}) W^{[l]}\) causes the weight to decay in proportion to its size. In practice this penalizes large weights and effectively limits the freedom in your model.
+
 \printindex
 
 \end{document}
