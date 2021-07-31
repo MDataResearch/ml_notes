@@ -496,6 +496,30 @@ a_1 & \dots & a_d
 
 \noindent The dev set rule is to try them on some of the good models you've created. Its OK to only have a dev set without a testing set. But a lot of people in this case call the dev set as the test set. A better terminology is to call it a dev set as its used in the development.
 
+\subsection{Bias/Variance}
+
+\noindent The training error will tend to decrease as we increase the degree \(d\) of the polynomial. At the same time, the cross validation error will tend to decrease as we increase \(d\) up to a point, and then it will increase as \(d\) is increased, forming a convex curve.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/bias_and_variance_polynomial.png}
+\end{center}
+
+\noindent High bias(underfitting): both \(J_{train}(W, B)\) and \(J_{cv}(W, B)\) will be high. Also, \(J_{cv}(W, B) \approx J_{train}(W, B)\). 
+
+\noindent High variance(overfitting): \(J_{train}(W, B)\) will be low and \(J_{cv}(W, B)\) will be high. Also, \(J_{cv}(W, B) \gg J_{train}(W, B)\). 
+
+\bigskip
+
+\noindent \textbf{underfitting}:
+
+\noindent High bias, which means hypothesis fits training data poorly, is usually caused by a function that is too simple or using too few features. 
+
+\bigskip
+
+\noindent \textbf{overfitting}:
+
+\noindent High variance, which means hypothesis fits training data well, but does not generalize well to predict new data. It is usually caused by a complicated function with too many features.
+
 \printindex
 
 \end{document}
