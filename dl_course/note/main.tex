@@ -613,6 +613,30 @@ a_1 & \dots & a_d
   \item Early stopping. We will pick the point at which the training set error and dev set error are best (lowest training cost with lowest dev cost). We will take these parameters as the best parameters.
 \end{itemize}
 
+\noindent \textbf{Normalizing Inputs}: (Feature Scaling)
+
+\noindent The range of all features should be normalized so that each feature contributes approximately proportionately to the result. Also it helps gradient descent converge much faster.
+
+\begin{center}
+\includegraphics[scale=0.8]{./images/normalize_input.png}
+\end{center}
+
+\bigskip
+
+\noindent \textbf{mean normalization}:
+
+\[x_i = \frac{x_i - mean(x_i)}{max(x_i) - min(x_i)}\]
+
+\bigskip
+
+\noindent \textbf{standardization}:
+
+\noindent Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance.
+
+\[x_i = \frac{x_i - mean(x_i)}{std(x_i)}\]
+
+\[std(x_i) = \sqrt{\frac{1}{m} \sum_{j = 1}^m (x^{(j)}_i - mean(x_i))^2}\]
+
 \printindex
 
 \end{document}
