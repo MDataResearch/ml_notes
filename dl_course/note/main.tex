@@ -689,6 +689,16 @@ a_1 & \dots & a_d
   \item if it is \(> 10^{-3}\) - bad, probably there is a bug in backpropagation implementation
 \end{itemize}
 
+\noindent gradient checking implementation notes:
+
+\begin{itemize}
+  \item Don't use the gradient checking algorithm at training time because it's very slow. Use gradient checking only for debugging.
+  \item If algorithm fails grad check, look at components to try to identify the bug.
+  \item Don't forget to add regularization term to \(J(W, B)\) if you are using L1 or L2 regularization.
+  \item Gradient checking doesn't work with dropout because cost function is not consistent. You can first turn off dropout \(keep\_prob = 1.0\), run gradient checking and then turn on dropout again.
+  \item Run gradient checking at random initialization and train the network for a while maybe there's a bug which can be seen when w's and b's become larger (further from 0) and can't be seen on the first iteration (when w's and b's are very small).
+\end{itemize}
+
 \printindex
 
 \end{document}
