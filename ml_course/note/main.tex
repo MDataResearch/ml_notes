@@ -279,9 +279,13 @@ x_n
 
 \noindent Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance.
 
-\[x_i = \frac{x_i - mean(x_i)}{std(x_i)}\]
+\[\mu: \text{mean, } \sigma^2: \text{variance, } \sigma: \text{standard deviation}\]
 
-\[std(x_i) = \sqrt{\frac{1}{m} \sum_{j = 1}^m (x^{(j)}_i - mean(x_i))^2}\]
+\[\mu_i ={\frac {1}{m}}\sum _{j=1}^{m}x^{(j)}_{i}\]
+
+\[\sigma^2_i = \frac{1}{m} \sum_{j = 1}^m (x^{(j)}_i - \mu_i)^2\]
+
+\[x_i = \frac{x_i - \mu_i}{\sigma_i}\]
 
 \noindent \textbf{learning rate} \(\alpha\):
 
@@ -840,7 +844,7 @@ a_1 & \dots & a_d
 
 \noindent \textbf{random initialization:} (symmetry breaking)
 
-\noindent Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our \(\Theta\) matrices using the following method: (here \(\epsilon\) is a value selected for random initialization)
+\noindent Initializing all the weights to zero does not work with neural networks, because all hidden units will be completely identical (symmetric) - compute exactly the same function. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our \(\Theta\) matrices using the following method: (here \(\epsilon\) is a value selected for random initialization)
 
 \[\text{initialize each } \Theta_{ij}^{(l)} \text{ to a random value in } [-\epsilon, +\epsilon]\]
 
