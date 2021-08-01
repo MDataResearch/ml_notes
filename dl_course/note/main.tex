@@ -571,7 +571,8 @@ a_1 & \dots & a_d
 
 \noindent \textbf{Dropout}:
 
-\noindent The dropout regularization eliminates some neurons/weights on each iteration based on a probability. A most common technique to implement dropout is called "Inverted dropout".
+\noindent The dropout regularization eliminates some neurons/weights on each iteration based on a probability. It is used to reduce overfitting. A most common technique to implement dropout is called "Inverted dropout".
+
 \[keep\_prob = 0.8 \text{ (for example)}\]
 \[D^{[l]} = np.random.rand(A^{[l]}.shape[0], A^{[l]}.shape[1]) < keep\_prob\]
 \[A^{[l]} = A^{[l]} \odot D^{[l]}\]
@@ -590,6 +591,20 @@ a_1 & \dots & a_d
 \bigskip
 
 \noindent \(D^{[l]}\) is used for forward and back propagation and is the same for them, but it is different for each iteration of training example. At test time we don't use dropout. Otherwise it would add noise to predictions.
+
+\bigskip
+
+\noindent \textbf{Understanding Dropout}:
+
+\begin{itemize}
+  \item The intuition is dropout randomly knocks out units in your network. So it's as if on every iteration you're working with a smaller NN, and so using a smaller NN seems like it should have a regularizing effect.
+  \item Another intuition: can't rely on any single feature, so have to spread out weights.
+  \item Dropout can have different keep\_prob per layer.
+  \item The input layer dropout has to be near 1 (or 1 - no dropout) because you don't want to eliminate a lot of features.
+  \item If you're more worried about some layers overfitting than others, you can set a lower keep\_prob for some layers than others. The downside is, this gives you even more hyperparameters to search for using cross-validation. One other alternative might be to have some layers where you apply dropout and some layers where you don't apply dropout and then just have one hyperparameter, which is a keep\_prob for the layers for which you do apply dropouts.
+  \item A lot of researchers are using dropout with Computer Vision (CV) because they have a very big input size and almost never have enough data, so overfitting is the usual problem.
+  \item A downside of dropout is that the cost function is not well defined and it will be hard to debug (plot cost by iteration). To solve that you'll need to turn off dropout, set all the keep\_prob to 1, and then run the code and check that it monotonically decreases cost and then turn on the dropouts again.
+\end{itemize}
 
 \printindex
 
