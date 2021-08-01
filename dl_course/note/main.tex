@@ -651,6 +651,10 @@ a_1 & \dots & a_d
 
 \[x_i = \frac{x_i - \mu_i}{\sigma_i}\]
 
+\noindent \textbf{Gradient Vanishing/Exploding}:
+
+\noindent In a deep neural network, when the weights or derivatives for each layer get a little bit smaller/larger, the final gradient could be exponentially smaller/larger with respect to \(L\). Too small/large gradient could cause weights update overshot or in tiny steps, and make training process unable to continue.
+
 \printindex
 
 \end{document}
