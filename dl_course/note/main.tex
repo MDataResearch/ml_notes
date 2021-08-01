@@ -725,6 +725,31 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} \(B =: B - \alpha \partial B\)
 
+\bigskip
+
+\noindent \textbf{Understanding Mini-Batch Gradient Descent}:
+
+\noindent In mini-batch algorithm, the cost won't go down with each step as it does in batch algorithm (not enough training data in one mini batch, not as effective as batch algorithm). It could contain some ups and downs but generally it has to go down (unlike the batch gradient descent where cost function decreases on each iteration).
+
+\begin{itemize}
+  \item \(batch\_size = m\), Batch gradient descent, too long per iteration
+  \item \(batch\_size = 1\), Stochastic gradient descent (SGD), too noisy regarding cost minimization (can be reduced by using smaller learning rate), won't ever converge (reach the minimum cost), lose speedup from vectorization
+  \item \(batch\_size \in [1, m]\), Mini-batch gradient descent, have the vectorization advantage, make progress without waiting to process the entire training set, doesn't always exactly converge (oscillates in a very small region, but you can reduce learning rate)
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/mini_batch.png}
+\end{center}
+
+\noindent \textbf{Guidelines for choosing mini-batch size}:
+
+\begin{itemize}
+  \item If small training set - use batch gradient descent.
+  \item It has to be a power of 2 (because of the way computer memory is Laid out and accessed, sometimes your code runs faster): \(2^{6}, 2^{7}, 2^{8}, 2^{9}, 2^{10} \dots\)
+  \item Make sure that mini-batch fits in CPU/GPU memory.
+  \item Mini-batch size is a hyperparameter.
+\end{itemize}
+
 \printindex
 
 \end{document}
