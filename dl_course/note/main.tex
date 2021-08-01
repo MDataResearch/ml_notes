@@ -567,6 +567,26 @@ a_1 & \dots & a_d
 
 \noindent Implementation tip: if you implement gradient descent, plot the cost function as a function of the number of iterations of gradient descent and you want to see that the cost function decreases monotonically after every elevation of gradient descent with regularization.
 
+\bigskip
+
+\noindent \textbf{Dropout}:
+
+\noindent The dropout regularization eliminates some neurons/weights on each iteration based on a probability. A most common technique to implement dropout is called "Inverted dropout".
+\[keep\_prob = 0.8 \text{ (for example)}\]
+\[D^{[l]} = np.random.rand(A^{[l]}.shape[0], A^{[l]}.shape[1]) < keep\_prob\]
+\[A^{[l]} = A^{[l]} \odot D^{[l]}\]
+\[A^{[l]} = keep\_prob^{-1} A^{[l]}\]
+
+\noindent Drop 20\% of units in \(A^{[l]}\) by replacing them with 0, then scale \(A^{[l]}\) by \(keep\_prob^{-1}\). 
+
+\bigskip
+
+\noindent We need to scale \(A^{[l]}\) because \(Z^{[l + 1]} = W^{[l + 1]} A^{[l]} + B^{[l + 1]}\). And we want to increase \(A^{[l]}\) to not reduce the expected value of output \(Z^{[l + 1]}\) after dropout.
+
+\bigskip
+
+\noindent \(D^{[l]}\) is used for forward and back propagation and is the same for them, but it is different for each iteration of training example. At test time we don't use dropout. Otherwise it would add noise to predictions.
+
 \printindex
 
 \end{document}
