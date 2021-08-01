@@ -557,6 +557,16 @@ a_1 & \dots & a_d
 
 \noindent The new term \((1 - \frac{\alpha \lambda}{m}) W^{[l]}\) causes the weight to decay in proportion to its size. In practice this penalizes large weights and effectively limits the freedom in your model.
 
+
+\begin{itemize}
+  \item If \(\lambda\) is too large - \(W^{[l]}_{i,j}\) will be close to zeros which will make the NN simpler.
+  \item If \(\lambda\) is good enough it will just reduce some weights and prevent the overfitting.
+  \item If \(\lambda\) is too large, \(Z^{[l]}_{i}\) will be small (close to zero) - assume tanh activation function is used, then it will behave like a linear function, so we will go from non linear activation to roughly linear which would make the NN a roughly linear classifier.
+  \item If \(\lambda\) good enough it will just make some of tanh activations roughly linear which will prevent overfitting.
+\end{itemize}
+
+\noindent Implementation tip: if you implement gradient descent, plot the cost function as a function of the number of iterations of gradient descent and you want to see that the cost function decreases monotonically after every elevation of gradient descent with regularization.
+
 \printindex
 
 \end{document}
