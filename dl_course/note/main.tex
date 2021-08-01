@@ -441,13 +441,9 @@ a_1 & \dots & a_d
 
 \subsection{Random Initialization (symmetry breaking)}
 
-\noindent Initializing bias matrices \(B\) with zero is OK. Initializing all the weight matrices \(W\) with zero does not work with neural networks, because all hidden units will be completely identical (symmetric) - compute exactly the same function. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our \(W\) matrices using the following method: (here \(\epsilon\) is a value selected for random initialization)
+\noindent Initializing bias matrices \(B\) with zero is OK. Initializing all the weight matrices \(W\) with zero does not work with neural networks, because all hidden units will be completely identical (symmetric) - compute exactly the same function. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our \(W\) matrices using the following method:
 
-\[\text{initialize each } W_{ij}^{[l]} \text{ to a random value in } [-\epsilon, +\epsilon]\]
-
-\noindent One effective strategy for choosing \(\epsilon\) is to base it on the number of units in the network: (Xavier normalized initialization)
-
-\[\epsilon^{[l]} = \frac{\sqrt{6}}{\sqrt{s^{[l]} + s^{[l - 1]}}}\]
+\[W^{[l]} = np.random.randn(s_{l - 1}, s_l) * 0.01 \]
 
 \subsection{Parameters vs Hyperparameters}
 
