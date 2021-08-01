@@ -543,7 +543,7 @@ a_1 & \dots & a_d
 
 \bigskip
 
-\noindent \textbf{Regularization}: 
+\noindent \textbf{Regularization}: (L2 Regularization) 
 
 \noindent Add regularization term to the cost function to reduce variance (overfitting):
 
@@ -604,6 +604,13 @@ a_1 & \dots & a_d
   \item If you're more worried about some layers overfitting than others, you can set a lower keep\_prob for some layers than others. The downside is, this gives you even more hyperparameters to search for using cross-validation. One other alternative might be to have some layers where you apply dropout and some layers where you don't apply dropout and then just have one hyperparameter, which is a keep\_prob for the layers for which you do apply dropouts.
   \item A lot of researchers are using dropout with Computer Vision (CV) because they have a very big input size and almost never have enough data, so overfitting is the usual problem.
   \item A downside of dropout is that the cost function is not well defined and it will be hard to debug (plot cost by iteration). To solve that you'll need to turn off dropout, set all the keep\_prob to 1, and then run the code and check that it monotonically decreases cost and then turn on the dropouts again.
+\end{itemize}
+
+\noindent \textbf{Other regularization methods}:
+
+\begin{itemize}
+  \item Data augmentation. For example, you can flip all your pictures horizontally this will give you m more data instances. You could also apply a random position and rotation to an image to get more data. New data obtained using this technique isn't as good as the real independent data, but still can be used as a regularization technique.
+  \item Early stopping. We will pick the point at which the training set error and dev set error are best (lowest training cost with lowest dev cost). We will take these parameters as the best parameters.
 \end{itemize}
 
 \printindex
