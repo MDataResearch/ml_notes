@@ -699,6 +699,32 @@ a_1 & \dots & a_d
   \item Run gradient checking at random initialization and train the network for a while maybe there's a bug which can be seen when w's and b's become larger (further from 0) and can't be seen on the first iteration (when w's and b's are very small).
 \end{itemize}
 
+\noindent \textbf{Mini-batch gradient descent}:
+
+\noindent When training set is getting too big, it is impossible to use entire training set \(X\), \(Y\) to do a vectorized gradient descent. Instead we can separate the training set into mini batches, and do a vectorized gradient descent for each of them at a time.
+
+\bigskip
+
+\noindent After we iterate through the entire training set (all batches) for one time, we call it an \(epoch\). The model should be trained for enough \(epochs\) until the cost function converges.
+
+\bigskip
+
+\noindent Suppose we have \(m\) training examples, and we use \(batch\_size = 1000\), then we have \(num\_batches = \frac{m}{1000}\). The mini batches are \(X^{\{t\}}\), \(Y^{\{t\}}\) for \(t \in [1, num\_batches]\). And we want to train the model with entire training set for \(num\_epochs = 10000\) times.
+
+\bigskip
+
+\noindent \textbf{mini-batch gradient descent algorithm}:
+
+\noindent for \(epoch \in \{1, \dots, num\_epochs\}\):
+
+\noindent \hspace{.5cm} for \(t \in \{1, \dots, num\_batches\}\):
+
+\noindent \hspace{1cm} vectorized gradient descent with mini batch \(X^{\{t\}}\), \(Y^{\{t\}}\):
+
+\noindent \hspace{1cm} \(W =: W - \alpha \partial W\)
+
+\noindent \hspace{1cm} \(B =: B - \alpha \partial B\)
+
 \printindex
 
 \end{document}
