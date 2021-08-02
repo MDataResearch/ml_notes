@@ -764,6 +764,12 @@ a_1 & \dots & a_d
 \[\dots\]
 \[v_{t} = \beta v_{t - 1} + (1 - \beta) \theta_{t}\]
 
+\noindent \textbf{Bias Correction of Exponentially Weighted Averages}:
+
+\noindent The bias correction helps make the exponentially weighted averages more accurate. Because \(v_{0} = 0\), the initial weighted averages are too small and the accuracy suffers at the start. To fix the bias for the initial estimates we have to use this equation: (As \(t\) becomes larger the \(1 - \beta^{t}\) becomes close to 1)
+
+\[v_{t} = \frac{\beta v_{t - 1} + (1 - \beta) \theta_{t}}{1 - \beta^{t}}\]
+
 \printindex
 
 \end{document}
