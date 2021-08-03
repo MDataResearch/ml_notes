@@ -796,6 +796,30 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} \(B =: B - \alpha v_{\partial B}\)
 
+\subsection{RMSProp}
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/RMSprop.png}
+\end{center}
+
+\noindent \textbf{RMSProp}:
+
+\noindent \(s_{\partial W} = 0, s_{\partial B} = 0\)
+
+\noindent for \(epoch \in \{1, \dots, num\_epochs\}\):
+
+\noindent \hspace{.5cm} for \(t \in \{1, \dots, num\_batches\}\):
+
+\noindent \hspace{1cm} vectorized gradient descent with mini batch \(X^{\{t\}}\), \(Y^{\{t\}}\):
+
+\noindent \hspace{1cm} \(s_{\partial W} =: \beta s_{\partial W} + (1 - \beta) \partial W \odot \partial W\)
+
+\noindent \hspace{1cm} \(s_{\partial B} =: \beta s_{\partial B} + (1 - \beta) \partial B \odot \partial B\)
+
+\noindent \hspace{1cm} \(W =: W - \alpha \frac{\partial W}{\sqrt{s_{\partial W}}}\)
+
+\noindent \hspace{1cm} \(B =: B - \alpha \frac{\partial B}{\sqrt{s_{\partial B}}}\)
+
 \printindex
 
 \end{document}
