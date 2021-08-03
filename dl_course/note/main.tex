@@ -796,7 +796,13 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} \(B =: B - \alpha v_{\partial B}\)
 
-\subsection{RMSProp}
+\subsection{RMSProp(Root mean square prop)}
+
+\noindent RMSprop can speed up the gradient descent by dividing the gradient \(\partial W\), \(\partial B\) by a manually constructed term: If gradient is small, divided by a small term will make it larger, and make gradient descent faster in this direction; If gradient is large, divided by a large term will make it smaller, and make gradient descent slower in this direction.
+
+\bigskip
+
+\noindent It will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
 
 \begin{center}
 \includegraphics[scale=0.4]{./images/RMSprop.png}
