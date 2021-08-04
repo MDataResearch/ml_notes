@@ -816,6 +816,8 @@ a_1 & \dots & a_d
 
 \noindent \(s_{\partial W} = 0, s_{\partial B} = 0\)
 
+\noindent make sure denominator is not too small: \(\epsilon = 10^{-8}\)
+
 \noindent for \(epoch \in \{1, \dots, num\_epochs\}\):
 
 \noindent \hspace{.5cm} for \(t \in \{1, \dots, num\_batches\}\):
@@ -826,9 +828,9 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} \(s_{\partial B} =: \beta s_{\partial B} + (1 - \beta) \partial B \odot \partial B\)
 
-\noindent \hspace{1cm} \(W =: W - \alpha \frac{\partial W}{\sqrt{s_{\partial W}}}\)
+\noindent \hspace{1cm} \(W =: W - \alpha \frac{\partial W}{\sqrt{s_{\partial W}} + \epsilon}\)
 
-\noindent \hspace{1cm} \(B =: B - \alpha \frac{\partial B}{\sqrt{s_{\partial B}}}\)
+\noindent \hspace{1cm} \(B =: B - \alpha \frac{\partial B}{\sqrt{s_{\partial B}} + \epsilon}\)
 
 \printindex
 
