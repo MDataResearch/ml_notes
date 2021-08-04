@@ -875,6 +875,30 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} \(B =: B - \alpha \frac{v^{corrected}_{\partial B}}{\sqrt{s^{corrected}_{\partial B}} + \epsilon}\)
 
+\subsection{Learning Rate Decay}
+
+Slowly reduce learning rate for each epoch helps cost function to converge near the optimum point.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/learning_rate_decay.png}
+\end{center}
+
+\noindent \textbf{learning rate decay}:
+
+\noindent initial learning rate: \(\alpha_{0}\), decay rate: \(d\)
+
+\noindent for each epoch \(p\): \(\alpha_{p} = \frac{1}{1 + d \times p} \alpha_{0}\)
+
+\bigskip
+
+\noindent \textbf{other learning rate decay}:
+
+\begin{itemize}
+    \item exponentially decay: \(\alpha_{p} = o.95^{p} \alpha_{0}\)
+    \item \(\alpha_{p} = \frac{k}{\sqrt{p}} \alpha_{0}\) or \(\alpha_{t} = \frac{k}{\sqrt{t}} \alpha_{0}\)
+    \item manually learning rate decay.
+\end{itemize}
+
 \printindex
 
 \end{document}
