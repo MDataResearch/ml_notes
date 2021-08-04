@@ -899,6 +899,29 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
     \item manually learning rate decay.
 \end{itemize}
 
+\subsection{Tuning Process}
+
+\noindent Hyperparameters priority: (as for Andrew Ng)
+
+\begin{itemize}
+    \item \(\alpha\)
+    \item \(\beta\)
+    \item \(s_{l}\)
+    \item \(batch\_size\)
+    \item \(L\)
+    \item \(d\)
+    \item \(\beta_{1}, \beta_{2}, \epsilon\)
+\end{itemize}
+
+\noindent Tune Hyperparameters:
+
+\begin{itemize}
+    \item give each Hyperparameter a range
+    \item randomly pick a value for each Hyperparameter in its range, then train with them
+    \item randomly picking helps to explore Hyperparameters in a larger range (compare with increasing by steps), which can give hints to narrow the range and speed up the tuning process
+    \item use Coarse to fine sampling scheme: when you find some hyperparameter values that give you a better performance - zoom into a smaller region around these values and sample more densely within this space
+\end{itemize}
+
 \printindex
 
 \end{document}
