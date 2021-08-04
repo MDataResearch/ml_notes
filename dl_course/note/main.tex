@@ -834,6 +834,15 @@ a_1 & \dots & a_d
 
 \subsection{Adam Optimization Algorithm}
 
+\noindent Adam (Adaptive Moment Estimation) optimization algorithm combined momentum and RMSProp methods. Hyperparameters for Adam:
+
+\begin{itemize}
+    \item \(\alpha\): learning rate
+    \item \(\beta_{1}\): parameter of the momentum - 0.9 is recommended by default.
+    \item \(\beta_{2}\): parameter of the RMSprop - 0.999 is recommended by default.
+    \item \(\epsilon\): \(10^{-8}\) is recommended by default.
+\end{itemize}
+
 \noindent \textbf{adam optimization algorithm}:
 
 \noindent \(v_{\partial W} = 0, v_{\partial B} = 0, s_{\partial W} = 0, s_{\partial B} = 0\)
