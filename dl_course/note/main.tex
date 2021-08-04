@@ -832,6 +832,40 @@ a_1 & \dots & a_d
 
 \noindent \hspace{1cm} \(B =: B - \alpha \frac{\partial B}{\sqrt{s_{\partial B}} + \epsilon}\)
 
+\subsection{Adam Optimization Algorithm}
+
+\noindent \textbf{adam optimization algorithm}:
+
+\noindent \(v_{\partial W} = 0, v_{\partial B} = 0, s_{\partial W} = 0, s_{\partial B} = 0\)
+
+\noindent make sure denominator is not too small: \(\epsilon = 10^{-8}\)
+
+\noindent for \(epoch \in \{1, \dots, num\_epochs\}\):
+
+\noindent \hspace{.5cm} for \(t \in \{1, \dots, num\_batches\}\):
+
+\noindent \hspace{1cm} vectorized gradient descent with mini batch \(X^{\{t\}}\), \(Y^{\{t\}}\):
+
+\noindent \hspace{1cm} \(v_{\partial W} =: \beta_{1} v_{\partial W} + (1 - \beta_{1}) \partial W\)
+
+\noindent \hspace{1cm} \(v_{\partial B} =: \beta_{1} v_{\partial B} + (1 - \beta_{1}) \partial B\)
+
+\noindent \hspace{1cm} \(s_{\partial W} =: \beta_{2} s_{\partial W} + (1 - \beta_{2}) \partial W \odot \partial W\)
+
+\noindent \hspace{1cm} \(s_{\partial B} =: \beta_{2} s_{\partial B} + (1 - \beta_{2}) \partial B \odot \partial B\)
+
+\noindent \hspace{1cm} \(v^{corrected}_{\partial W} =: \frac{v_{\partial W}}{1 - \beta^{t}_{1}}\)
+
+\noindent \hspace{1cm} \(v^{corrected}_{\partial B} =: \frac{v_{\partial B}}{1 - \beta^{t}_{1}}\)
+
+\noindent \hspace{1cm} \(s^{corrected}_{\partial W} =: \frac{s_{\partial W}}{1 - \beta^{t}_{2}}\)
+
+\noindent \hspace{1cm} \(s^{corrected}_{\partial B} =: \frac{s_{\partial B}}{1 - \beta^{t}_{2}}\)
+
+\noindent \hspace{1cm} \(W =: W - \alpha \frac{v^{corrected}_{\partial W}}{\sqrt{s^{corrected}_{\partial W}} + \epsilon}\)
+
+\noindent \hspace{1cm} \(B =: B - \alpha \frac{v^{corrected}_{\partial B}}{\sqrt{s^{corrected}_{\partial B}} + \epsilon}\)
+
 \printindex
 
 \end{document}
