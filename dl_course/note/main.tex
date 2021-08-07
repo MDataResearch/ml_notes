@@ -950,10 +950,32 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 
 \[\mu = \frac{1}{m} \sum^{m}_{i = 1} Z^{[l](i)}\]
 \[\sigma^{2} = \frac{1}{m} \sum^{m}_{i = 1} (Z^{[l](i)} - \mu) \odot (Z^{[l](i)} - \mu)\]
-\[Z^{[l](i)}_{norm} = \frac{Z^{[l](i)} - \mu}{\sqrt{\sigma^{2} + \epsilon}}\]
-\[\overset{N}{Z}^{[l](i)} = \gamma Z^{[l](i)}_{norm} + \beta\]
+\[Z^{[l](i)}_{norm} = (Z^{[l](i)} - \mu) \oslash \sqrt{\sigma^{2} + \epsilon}\]
+\[\overset{N}{Z}^{[l](i)} = \gamma^{[l]} \odot Z^{[l](i)}_{norm} + \beta^{[l]}\]
 
 \noindent \(\epsilon\) is added for numerical stability (in case \(\sigma\) is too small). \(\gamma, \beta\) are learnable parameters of the model, and they make inputs belong to other distribution (with other mean and variance). It makes the NN learn the distribution of the outputs.
+
+\bigskip
+
+\noindent \textbf{Gradient Descent with Batch Normalization}:
+
+\noindent (also can work with Momentum, RMSprop, Adam...)
+
+\noindent for \(epoch \in \{1, \dots, num\_epochs\}\):
+
+\noindent \hspace{.5cm} for \(t \in \{1, \dots, num\_batches\}\):
+
+\noindent \hspace{1cm} vectorized gradient descent with mini batch \(X^{\{t\}}\), \(Y^{\{t\}}\):
+
+\noindent \hspace{1cm} use \(\overset{N}{Z}^{\{t\}}\) to replace \(Z^{\{t\}}\)
+
+\noindent \hspace{1cm} \(B\) will be replaced by \(\beta\)
+
+\noindent \hspace{1cm} \(W =: W - \alpha \partial W\)
+
+\noindent \hspace{1cm} \(\gamma =: \gamma - \alpha \partial \gamma\)
+
+\noindent \hspace{1cm} \(\beta =: \beta - \alpha \partial \beta\)
 
 \printindex
 
