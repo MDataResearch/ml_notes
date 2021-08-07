@@ -922,6 +922,15 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
     \item use Coarse to fine sampling scheme: when you find some hyperparameter values that give you a better performance - zoom into a smaller region around these values and sample more densely within this space
 \end{itemize}
 
+\noindent \textbf{Using scale to pick hyperparameters}
+
+\noindent Let's say you have a specific wide range for a hyperparameter from "a" to "b". It's better to search for the right ones using the logarithmic scale rather then in linear scale:
+
+\[a = -4, b = 0\]
+\[r \in [a, b]\]
+\[r = -4 \times np.random.rand()\]
+\[\alpha = 10^{r}\]
+
 \printindex
 
 \end{document}
