@@ -984,6 +984,23 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 
 \noindent \hspace{1cm} \(\beta =: \beta - \alpha \partial \beta\)
 
+\bigskip
+
+\noindent \textbf{Batch normalization at test time}:
+
+\noindent When we train a NN with Batch normalization, we compute the mean and the variance of the mini-batch. In testing we might need to process examples one at a time. The mean and the variance of one example won't make sense. We have to compute an estimated value of mean and variance to use it in testing time. We can use the exponentially weighted average of \(\mu, \sigma^{2}\) across the mini-batches. In practice most often you will use a deep learning framework and it will contain some default implementation of doing such a thing.
+
+\bigskip
+
+\noindent Given \(t\) mini batches of training examples:
+
+\noindent \(\mu_{test}\) is exponentially weighted average of \(\mu^{\{1\}}, \mu^{\{2\}}, \dots, \mu^{\{t\}}\)
+
+\noindent \(\sigma^{2}_{test}\) is exponentially weighted average of \(\sigma^{2\{1\}}, \sigma^{2\{2\}}, \dots, \sigma^{2\{t\}}\)
+
+\[Z_{norm} = (Z - \mu_{test}) \oslash \sqrt{\sigma^{2}_{test} + \epsilon}\]
+\[\overset{N}{Z} = \gamma \odot Z_{norm} + \beta\]
+
 \printindex
 
 \end{document}
