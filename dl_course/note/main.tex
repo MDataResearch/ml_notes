@@ -942,7 +942,7 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 
 \noindent \textbf{Batch Normalization}:
 
-\noindent Batch Normalization speeds up learning. In practice, normalizing \(Z^{[l]}\) is done much more often and that is what Andrew Ng presents.
+\noindent \noindent Normalized inputs could be shifted in the hidden layers. Batch normalization reduces the problem of input values changing (shifting). And it speeds up learning as well. In practice, normalizing \(Z^{[l]}\) is done much more often and that is what Andrew Ng presents.
 
 \bigskip
 
@@ -956,6 +956,13 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 \noindent \(\epsilon\) is added for numerical stability (in case \(\sigma\) is too small). \(\gamma, \beta\) are learnable parameters of the model, and they make inputs belong to other distribution (with other mean and variance). It makes the NN learn the distribution of the outputs.
 
 \bigskip
+
+\noindent Batch normalization does some regularization:
+
+\begin{itemize}
+    \item Each mini batch is scaled by the mean/variance computed of that mini-batch.
+    \item This adds some noise to the values \(Z^{[l]}\) within that mini batch. So similar to dropout it adds some noise to each hidden layer's activations.
+\end{itemize}
 
 \noindent \textbf{Gradient Descent with Batch Normalization}:
 
