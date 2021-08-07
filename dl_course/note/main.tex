@@ -940,6 +940,21 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
     \item If you have enough computational resources, you can run several models in parallel and at the end of the day(s) you check the results (Caviar Approach).
 \end{itemize}
 
+\noindent \textbf{Batch Normalization}:
+
+\noindent Batch Normalization speeds up learning. In practice, normalizing \(Z^{[l]}\) is done much more often and that is what Andrew Ng presents.
+
+\bigskip
+
+\noindent For a layer \(l\), given a mini batch of samples \(Z^{[l](1)}, \dots, Z^{[l](m)}\):
+
+\[\mu = \frac{1}{m} \sum^{m}_{i = 1} Z^{[l](i)}\]
+\[\sigma^{2} = \frac{1}{m} \sum^{m}_{i = 1} (Z^{[l](i)} - \mu) \odot (Z^{[l](i)} - \mu)\]
+\[Z^{[l](i)}_{norm} = \frac{Z^{[l](i)} - \mu}{\sqrt{\sigma^{2} + \epsilon}}\]
+\[\overset{N}{Z}^{[l](i)} = \gamma Z^{[l](i)}_{norm} + \beta\]
+
+\noindent \(\epsilon\) is added for numerical stability (in case \(\sigma\) is too small). \(\gamma, \beta\) are learnable parameters of the model, and they make inputs belong to other distribution (with other mean and variance). It makes the NN learn the distribution of the outputs.
+
 \printindex
 
 \end{document}
