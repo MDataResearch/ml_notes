@@ -1017,6 +1017,14 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 \[\partial Z^{[L]} = \hat{y} - y\]
 \[\partial Z^{[l]} = \dots\]
 
+\noindent \textbf{Local Optima}:
+
+\begin{itemize}
+    \item The normal local optima is not likely to appear in a deep neural network because data is usually high dimensional. For point to be a local optima it has to be a local optima for each of the dimensions which is highly unlikely.
+    \item It's unlikely to get stuck in a bad local optima in high dimensions, it is much more likely to get to the saddle point rather to the local optima, which is not a problem.
+    \item Plateaus can make learning slow. Plateau is a region where the derivative is close to zero for a long time. This is where algorithms like momentum, RMSprop or Adam can help.
+\end{itemize}
+
 \printindex
 
 \end{document}
