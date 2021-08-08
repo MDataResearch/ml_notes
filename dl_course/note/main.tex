@@ -1001,6 +1001,13 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 \[Z_{norm} = (Z - \mu_{test}) \oslash \sqrt{\sigma^{2}_{test} + \epsilon}\]
 \[\overset{N}{Z} = \gamma \odot Z_{norm} + \beta\]
 
+\noindent \textbf{Softmax Regression}:
+
+\noindent Softmax regression is used for multiclass classification/regression. It is normally used in the last layer. Each of values in the output layer represents a probability of the example to belong to each of the classes, and they sum up to 1.
+
+\[t = e^{Z^{[L]}}\]
+\[A^{[L]} = \frac{t}{sum\{t\}}\]
+
 \printindex
 
 \end{document}
