@@ -1008,6 +1008,15 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 \[t = e^{Z^{[L]}}\]
 \[A^{[L]} = \frac{t}{sum\{t\}}\]
 
+\noindent \textbf{Train with Softmax}:
+
+\noindent With machine learning framework like Tensorflow, Forward Propagation needs to be built, Backpropagation part can be handled automatically .
+
+\[L(\hat{y}, y) = - \sum^{K}_{k = 1} y_{k}log(\hat{y}_{k}) \]
+\[J(W, B) = - \frac{1}{m} \sum_{i = 1}^{m} L(\hat{y}^{(i)}, y^{(i)})\]
+\[\partial Z^{[L]} = \hat{y} - y\]
+\[\partial Z^{[l]} = \dots\]
+
 \printindex
 
 \end{document}
