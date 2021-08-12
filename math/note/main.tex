@@ -44,7 +44,7 @@
 
 \subsection{Discrete Probability Distribution}
 
-Let \(X\) be a random variable with a finite number of finite outcomes \( x_{1},  x_{2}, \ldots, x_{n}\) occurring with probabilities \(p_{1}, p_{2}, \ldots, p_{n}\) respectively. The expectation of \(X\) is defined as
+\noindent Let \(X\) be a random variable with a finite number of finite outcomes \( x_{1},  x_{2}, \ldots, x_{n}\) occurring with probabilities \(p_{1}, p_{2}, \ldots, p_{n}\) respectively. The expectation of \(X\) is defined as
 
 \[\mu = E[X] = \sum_{i=1}^{n}x_{i} p_{i} = x_{1} p_{1} + x_{2} p_{2} + \cdots  + x_{n} p_{n}\]
 
@@ -56,6 +56,21 @@ Let \(X\) be a random variable with a finite number of finite outcomes \( x_{1},
 
 \[\mu = \frac {1}{n} \sum_{i=1}^{n} x_{i}\]
 \[\sigma^{2} = \frac {1}{n} \sum_{i=1}^{n} (x_{i} - \mu)^{2}\]
+
+\subsection{Continuous Probability Distribution}
+
+\noindent If the random variable \(X\) has a probability density function \(f(x)\), and \(F(x)\) is the corresponding cumulative distribution function, then
+
+\[\mu =\int_{\mathbb{R}} x f(x) dx = \int_{\mathbb{R}} x dF(x)\]
+\[\sigma^{2} = \int_{\mathbb{R}}(x - \mu)^{2} f(x) dx\]
+
+\subsubsection{Normal Distribution}
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/normal_distribution_pdf.png}
+\end{center}
+
+\[f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} (\frac{x - \mu}{\sigma })^{2}}\]
 
 \printindex
 
