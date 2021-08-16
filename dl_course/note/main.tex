@@ -1070,6 +1070,21 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent An old way of splitting the data was 70\% training, 30\% test or 60\% training, 20\% dev, 20\% test. The old way was valid for a number of examples \(< 100000\) In the modern deep learning if you have a million or more examples a reasonable split would be 98\% training, 1\% dev, 1\% test.
 
+\bigskip
+
+\noindent \textbf{When to change dev/test sets and metrics}:
+
+\noindent Orthogonalization for deep learning: break a machine learning problem into distinct steps.
+
+\begin{itemize}
+    \item Figure out how to define a metric that captures what you want to do - place the target.
+    \item Worry about how to actually do well on this metric - how to aim/shoot accurately at the target.
+\end{itemize}
+
+\noindent Conclusion: if doing well on your metric + dev/test set doesn't correspond to doing well in your application, change your metric and/or dev/test set.
+
+\noindent 
+
 \printindex
 
 \end{document}
