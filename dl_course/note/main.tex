@@ -1025,6 +1025,23 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
     \item Plateaus can make learning slow. Plateau is a region where the derivative is close to zero for a long time. This is where algorithms like momentum, RMSprop or Adam can help.
 \end{itemize}
 
+\section{Structuring Machine Learning Projects}
+
+\subsection{Orthogonalization}
+
+\noindent Some deep learning developers know exactly what hyperparameter to tune in order to try to achieve one effect. This is a process we call orthogonalization. In orthogonalization, you have some controls, but each control does a specific task and doesn't affect other controls.
+
+\bigskip
+
+\noindent For a supervised learning system to do well, you usually need to tune the knobs of your system to make sure that four things hold true - chain of assumptions in machine learning:
+
+\begin{itemize}
+    \item You'll have to fit training set well on cost function (near human level performance if possible). If it's not achieved you could try bigger network, another optimization algorithm (like Adam)...
+    \item Fit dev set well on cost function. If its not achieved you could try regularization, bigger training set...
+    \item Fit test set well on cost function. If its not achieved you could try bigger dev set...
+    \item Performs well in real world. If its not achieved you could try change dev set, change cost function...
+\end{itemize}
+
 \printindex
 
 \end{document}
