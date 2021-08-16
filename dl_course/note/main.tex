@@ -1056,6 +1056,10 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 \[\text{Recall} = \frac{\text{True positives}}{\text{actual positives}} = \frac{\text{True positives}}{\text{True positives + False negatives}}\]
 \[F_{score} = \frac{2}{\frac{1}{\text{Precision}} + \frac{1}{\text{Recall}}} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision + Recall}}\]
 
+\noindent \textbf{Satisficing and Optimizing Metrics}:
+
+\noindent Assume we have \(N\) metrics to evaluate the model, normally we will have \(1\) optimizing metric, and \(N - 1\) satisficing metrics. For example: Maximize optimizing metric \(F_{score}\), subject to satisficing metrics \(RunningTime < 100ms\), \(ModelSize < 1gb\).
+
 \printindex
 
 \end{document}
