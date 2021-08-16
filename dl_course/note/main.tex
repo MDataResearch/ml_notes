@@ -1042,6 +1042,20 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
     \item Performs well in real world. If its not achieved you could try change dev set, change cost function...
 \end{itemize}
 
+\subsection{Single Number Evaluation Metric}
+
+\noindent \textbf{Precision \& Recall: (deal with skewed classes)}
+
+\noindent High \(F_{score} \in [0, 1]\) (high precision and high recall) represents a good prediction model. (use average value of precision and recall for all classes if there are multiple classes)
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/precision_recall.png}
+\end{center}
+
+\[\text{Precision} = \frac{\text{True positives}}{\text{predicted as positive}} = \frac{\text{True positives}}{\text{True positives + False positives}}\]
+\[\text{Recall} = \frac{\text{True positives}}{\text{actual positives}} = \frac{\text{True positives}}{\text{True positives + False negatives}}\]
+\[F_{score} = \frac{2}{\frac{1}{\text{Precision}} + \frac{1}{\text{Recall}}} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision + Recall}}\]
+
 \printindex
 
 \end{document}
