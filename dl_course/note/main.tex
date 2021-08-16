@@ -1060,6 +1060,10 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 
 \noindent Assume we have \(N\) metrics to evaluate the model, normally we will have \(1\) optimizing metric, and \(N - 1\) satisficing metrics. For example: Maximize optimizing metric \(F_{score}\), subject to satisficing metrics \(RunningTime < 100ms\), \(ModelSize < 1gb\).
 
+\subsection{Train/Dev/Test Set Distributions}
+
+Dev and test sets have to come from the same distribution. Choose dev set and test set to reflect data you expect to get in the future and consider important to do well on. Setting up the dev set, as well as the validation metric is really defining what target you want to aim at.
+
 \printindex
 
 \end{document}
