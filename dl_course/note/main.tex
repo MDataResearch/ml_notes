@@ -1064,6 +1064,12 @@ Slowly reduce learning rate for each epoch helps cost function to converge near 
 
 Dev and test sets have to come from the same distribution. Choose dev set and test set to reflect data you expect to get in the future and consider important to do well on. Setting up the dev set, as well as the validation metric is really defining what target you want to aim at.
 
+\bigskip
+
+\noindent \textbf{Size of the dev and test sets}:
+
+\noindent An old way of splitting the data was 70\% training, 30\% test or 60\% training, 20\% dev, 20\% test. The old way was valid for a number of examples \(< 100000\) In the modern deep learning if you have a million or more examples a reasonable split would be 98\% training, 1\% dev, 1\% test.
+
 \printindex
 
 \end{document}
