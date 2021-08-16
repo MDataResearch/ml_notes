@@ -1083,6 +1083,33 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent Conclusion: if doing well on your metric + dev/test set doesn't correspond to doing well in your application, change your metric and/or dev/test set.
 
+\subsection{Human-level Performance}
+
+\noindent We compare to human-level performance because of two main reasons:
+
+\begin{itemize}
+    \item Because of advances in deep learning, machine learning algorithms are suddenly working much better and so it has become much more feasible in a lot of application areas for machine learning algorithms to actually become competitive with human-level performance.
+    \item It turns out that the workflow of designing and building a machine learning system is much more efficient when you're trying to do something that humans can also do.
+\end{itemize}
+
+\noindent After an algorithm reaches the human level performance the progress and accuracy slow down.
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/human_level_performance.png}
+\end{center}
+
+\noindent You won't surpass an error that's called "Bayes optimal error" (the minimum possible error that can be made). There isn't much error range between human-level error and Bayes optimal error.
+
+\bigskip
+
+\noindent Humans are quite good at a lot of tasks. So as long as Machine learning is worse than humans, you can:
+
+\begin{itemize}
+    \item Get labeled data from humans.
+    \item Gain insight from manual error analysis: why did a person get it right?
+    \item Better analysis of bias/variance.
+\end{itemize}
+
 \printindex
 
 \end{document}
