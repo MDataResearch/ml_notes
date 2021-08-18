@@ -1168,6 +1168,26 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 \includegraphics[scale=0.5]{./images/error_analysis.png}
 \end{center}
 
+\noindent \textbf{Incorrectly Labeled Data}:
+
+\noindent DL algorithms are quite robust to random errors in the training set but less robust to systematic errors. Only fix these labels for training set if you can. If you want to check for mislabeled data in dev/test set, try error analysis with the mislabeled column.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/incorrectly_labeled_data.png}
+\end{center}
+
+\noindent If other errors takes up the majority of dev set error, fixing mislabeled data is not the first priority. If mislabeled data is a significant part of dev set error, then you need to fix it.
+
+\bigskip
+
+\noindent Consider these guidelines while correcting the dev/test mislabeled examples:
+
+\begin{itemize}
+    \item Apply the same process to your dev and test sets to make sure they continue to come from the same distribution.
+    \item Consider examining examples your algorithm got right as well as ones it got wrong. (Not always done if you reached a good accuracy)
+    \item Train and dev/test data may now come from a slightly different distributions. It's very important to have dev and test sets to come from the same distribution. But it could be OK for a train set to come from slightly other distribution.
+\end{itemize}
+
 \printindex
 
 \end{document}
