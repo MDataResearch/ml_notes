@@ -1198,6 +1198,19 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
     \item Use Bias/Variance Analysis and Error Analysis to prioritize next steps.
 \end{itemize}
 
+\noindent \textbf{Training and Dev/Test set on different distributions}:
+
+\noindent A lot of teams are working with deep learning applications that have training sets that are different from the dev/test sets due to the hunger of deep learning to data.
+
+\bigskip
+
+\noindent There is a strategy to split data into train, dev/test sets:
+
+\begin{itemize}
+    \item Use data from real application feedback data for dev/test sets (for example user image, experience or feedback). This sets a more accurate target and reduces bias for the DL problem.
+    \item Use purchased data, collected data from different sources, plus the real application feedback data for training set. This provides enough amount of data to reduce variance.
+\end{itemize}
+
 \printindex
 
 \end{document}
