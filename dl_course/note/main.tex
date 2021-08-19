@@ -1226,6 +1226,21 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 \[\text{Data mismatch} = \text{Dev error} - \text{Training-dev error}\]
 \[\text{Degree of Overfitting to Dev set} = \text{Test error} - \text{Dev error}\]
 
+\noindent \textbf{Addressing data mismatch}:
+
+\noindent There aren't completely systematic solutions to this, but there some things you could try.
+
+\begin{itemize}
+    \item Carry out manual error analysis to try to understand the difference between training and dev/test sets.
+    \item Make training data more similar to dev/test sets, or collect more data similar to dev/test sets.
+\end{itemize}
+
+\noindent If your goal is to make the training data more similar to your dev set, one of the techniques you can use is Artificial data synthesis. (Combine some of your training data with some other data and produce some data that similar to the dev/test set distribution.) For example, combine normal audio with car noise to get audio with car noise example, generate cars using 3D graphics.
+
+\bigskip
+
+\noindent Be cautious and bear in mind whether or not you might be accidentally simulating data only from a tiny subset of the space of all possible examples because your NN might overfit these generated data (like particular car noise or a particular design of 3D graphics cars).
+
 \printindex
 
 \end{document}
