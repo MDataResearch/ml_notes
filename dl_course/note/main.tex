@@ -1211,6 +1211,21 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
     \item Use purchased data, collected data from different sources, plus the real application feedback data for training set. This provides enough amount of data to reduce variance.
 \end{itemize}
 
+\noindent \textbf{Bias and Variance with mismatched data distributions}:
+
+\noindent Bias and Variance analysis changes when training and Dev/test set is from the different distribution, because you need to consider the influence of distribution.
+
+\begin{center}
+\includegraphics[scale=0.8]{./images/bias_variance_mismatched_data.jpg}
+\end{center}
+
+\noindent To solve this issue we create a new set called train-dev set as a random subset of the training set (so it has the same distribution with training set, and we don't use this part of training set to train the model) and we get:
+
+\[\text{Avoidable Bias} = \text{Training error} - \text{Human (Bayes) error}\]
+\[\text{Variance} = \text{Training-dev error} - \text{Training error}\]
+\[\text{Data mismatch} = \text{Dev error} - \text{Training-dev error}\]
+\[\text{Degree of Overfitting to Dev set} = \text{Test error} - \text{Dev error}\]
+
 \printindex
 
 \end{document}
