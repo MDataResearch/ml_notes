@@ -1286,6 +1286,25 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent If you can train a big enough NN, the performance of the multi-task learning compared to splitting the tasks is better. Today transfer learning is used more often than multi-task learning.
 
+\subsection{End-to-end deep learning}
+
+\noindent Some systems break a task into multiple steps, and build a NN for each step. An end-to-end deep learning system implements all these steps with a single NN.
+
+\bigskip
+
+\noindent For example:
+
+\begin{itemize}
+    \item Face recognition system. In practice, the best approach is the multi-steps approach for now. It uses one NN for face detection, and another NN which takes two faces as inputs, then outputs if the two faces are the same person or not.
+\[\text{Image} --> \text{Face detection} --> \text{Face recognition}\]
+\[\text{Image} ------------> \text{Face recognition}\]
+    \item Machine translation system. Here end-to-end deep leaning system works better because we have enough data to train the NN.
+\[\text{English} --> \text{Text analysis} --> \dots --> \text{French}\]
+\[\text{English} ----------------> \text{French}\]
+\end{itemize}
+
+\noindent To build the end-to-end deep learning system that works well, we need a big dataset (more data than in non end-to-end system). If we have a small dataset, the multi-steps approach could work better.
+
 \printindex
 
 \end{document}
