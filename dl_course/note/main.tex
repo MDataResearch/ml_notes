@@ -1305,6 +1305,30 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent To build the end-to-end deep learning system that works well, we need a big dataset (more data than in non end-to-end system). If we have a small dataset, the multi-steps approach could work better.
 
+\bigskip
+
+\noindent \textbf{Whether to use end-to-end deep learning}:
+
+\noindent Key question: Do you have sufficient data to learn a function of the complexity needed to map X to Y? When applying supervised learning you should carefully choose what types of X to Y mappings you want to learn depending on what task you can get data for.
+
+\bigskip
+
+\noindent Pros of end-to-end deep learning:
+
+\begin{itemize}
+    \item By having a pure deep learning approach, your NN learning input from X to Y may be more able to capture whatever statistics are in the data, rather than being forced to reflect human preconceptions.
+    \item Less hand-designing of components needed.
+\end{itemize}
+
+\noindent Cons of end-to-end deep learning:
+
+\begin{itemize}
+    \item May need a large amount of data.
+    \item Excludes potentially useful hand-design components (it helps more on the smaller dataset).
+\end{itemize}
+
+\noindent Multi-steps approach could be better if a complex system can be divided into multiple tasks and they have a good mapping from data to tasks (autonomous driving), and you are able to build ML/DL models for individual components.
+
 \printindex
 
 \end{document}
