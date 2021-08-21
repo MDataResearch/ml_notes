@@ -1241,6 +1241,51 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent Be cautious and bear in mind whether or not you might be accidentally simulating data only from a tiny subset of the space of all possible examples because your NN might overfit these generated data (like particular car noise or a particular design of 3D graphics cars).
 
+\subsection{Transfer learning}
+
+\noindent Apply the knowledge you took in a task A and apply it in another task B. For example, you have trained a cat classifier with a lot of data, you can use part of the trained NN to solve x-ray classification problem.
+
+\bigskip
+
+\noindent To do transfer learning, delete the last layer(s) of NN and it's weights and:
+
+\begin{itemize}
+    \item Option 1: if you have a small data set - keep all the other weights as fixed weights. Add new last layer(s) and initialize the weights for the new layer(s), then feed the new data to the NN and learn the new weights.
+    \item Option 2: if you have enough data you can keep less fixed weights and retrain the weights for more layers.
+\end{itemize}
+
+\noindent Training on task A called pre-training and Option 1 and 2 are called fine-tuning.
+
+\bigskip
+
+\noindent When transfer learning make sense:
+
+\begin{itemize}
+    \item Task A and B have the same input X (e.g. image, audio).
+    \item You have a lot of data for the task A you are transferring from and relatively less data for the task B your transferring to.
+    \item Low level features from task A could be helpful for learning task B.
+\end{itemize}
+
+\subsection{Multi-task learning}
+
+\noindent In multi-task learning, you try to have one neural network do several things at the same time.
+
+\bigskip
+
+\noindent For example, build an object recognition system that detects pedestrians, cars, stop signs, and traffic lights (image has multiple labels). Then Y shape will be \((4,m)\) because we have 4 classes and each one is a binary one.
+
+\bigskip
+
+\noindent Multi-task learning makes sense:
+
+\begin{itemize}
+    \item Training on a set of tasks that could benefit from having shared lower-level features.
+    \item Usually, amount of data you have for each task is quite similar.
+    \item Can train a big enough network to do well on all the tasks.
+\end{itemize}
+
+\noindent If you can train a big enough NN, the performance of the multi-task learning compared to splitting the tasks is better. Today transfer learning is used more often than multi-task learning.
+
 \printindex
 
 \end{document}
