@@ -1329,6 +1329,24 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent Multi-steps approach could be better if a complex system can be divided into multiple tasks and they have a good mapping from data to tasks (autonomous driving), and you are able to build ML/DL models for individual components.
 
+\section{Convolutional Neural Networks}
+
+\subsection{Computer Vision}
+
+\noindent Computer vision is one of the applications that are rapidly active thanks to deep learning. Some of the applications of computer vision using deep learning includes self driving cars, face recognition, new types of art...
+
+\bigskip
+
+\noindent Examples of a computer vision problems:
+
+\begin{itemize}
+    \item Image classification.
+    \item Object detection: detect object and localize them.
+    \item Neural style transfer: changes the style of an image using another image.
+\end{itemize}
+
+\noindent One of the challenges of computer vision problem that images can be so large and we want a fast and accurate algorithm to work with that. For example, a \(1000 \times 1000 \times 3\) image will represent 3 million feature/input to the full connected neural network. If the first hidden layer contains 1000 nodes, then we will have to learn weights of the shape [1000, 3 million] which is 3 billion parameter only in the first layer and that's so computationally expensive! One of the solutions is using convolution layers instead of the fully connected layers.
+
 \printindex
 
 \end{document}
