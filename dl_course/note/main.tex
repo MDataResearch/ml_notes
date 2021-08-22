@@ -1423,6 +1423,32 @@ w_{7} & w_{8} & w_{9}
 \end{bmatrix}
 \]
 
+\noindent \textbf{Padding}:
+
+\noindent In the last section we saw that a 6x6 matrix convolved with 3x3 filter/kernel gives us a 4x4 matrix. Also we noticed that the pixels in the center of image are used multiple times in the convolution, but the ones at the edge of the image are used less.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/padding.png}
+\end{center}
+
+\noindent So the problems with convolutions are:
+
+\begin{itemize}
+    \item We want to apply convolution operation multiple times, but if the image shrinks every time we will lose a lot of data in this process.
+    \item The edge pixels are used less than central pixels in an image.
+\end{itemize}
+
+\noindent To solve these problems we need to use padding. Assume the input image is of shape \(n \times n\), the filter is of shape \(f \times f\), and we add \(p\) padding pixels to the input image. Then the output matrix will be of shape:
+
+\[(n + 2p - f + 1) \times (n + 2p - f + 1)\]
+
+\noindent Choice of padding:
+
+\begin{itemize}
+    \item Valid Convolution: \(p = 0\)
+    \item Same Convolution: Pad so the output size is the same as input size, using \(p = \frac{f - 1}{2}\). This works when \(f\) is odd, and \(f\) is usually odd in a filter because it's nice to have a central pixel.
+\end{itemize}
+
 \printindex
 
 \end{document}
