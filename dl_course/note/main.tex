@@ -1371,6 +1371,58 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \noindent The vertical edge detection filter will find the \(3 \times 3\) places in an image where it is bright on the left and dark on the right (or in reverse). If we apply this filter to a white region followed by a dark region, it should find the edge in between the two colors as a positive value. But if we apply the same filter to a dark region followed by a white region it will give us a negative value. To solve this we can use the abs function to make it positive.
 
+\bigskip
+
+\noindent \textbf{Vertical edge detection matrix}:
+
+\[
+\begin{bmatrix}
+1 & 0 & -1\\
+1 & 0 & -1\\
+1 & 0 & -1
+\end{bmatrix}
+\]
+
+\noindent \textbf{Horizontal edge detection matrix}:
+
+\[
+\begin{bmatrix}
+1 & 1 & 1\\
+0 & 0 & 0\\
+-1 & -1 & -1
+\end{bmatrix}
+\]
+
+\noindent There are a lot of ways we can put number inside the horizontal or vertical edge detections. For example, the vertical Sobel filter (The idea is taking care of the middle row):
+
+\[
+\begin{bmatrix}
+1 & 0 & -1\\
+2 & 0 & -2\\
+1 & 0 & -1
+\end{bmatrix}
+\]
+
+\noindent Scharr filter (The idea is taking great care of the middle row):
+
+\[
+\begin{bmatrix}
+3 & 0 & -3\\
+10 & 0 & -10\\
+3 & 0 & -3
+\end{bmatrix}
+\]
+
+\noindent To implement convolution in a NN, instead of manually choosing the filter matrix, we can use a matrix of weights that can be learned in the training process, and use the data to learn the right filter matrix for the model. This is a approach much more robust than manually choosing the filter.
+
+\[
+\begin{bmatrix}
+w_{1} & w_{2} & w_{3}\\
+w_{4} & w_{5} & w_{6}\\
+w_{7} & w_{8} & w_{9}
+\end{bmatrix}
+\]
+
 \printindex
 
 \end{document}
