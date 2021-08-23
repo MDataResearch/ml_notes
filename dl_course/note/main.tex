@@ -1331,7 +1331,7 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \section{Convolutional Neural Networks}
 
-\subsection{Computer Vision}
+\subsection{Computer Vision and Convolution}
 
 \noindent Computer vision is one of the applications that are rapidly active thanks to deep learning. Some of the applications of computer vision using deep learning includes self driving cars, face recognition, new types of art...
 
@@ -1484,7 +1484,7 @@ w_{7} & w_{8} & w_{9}
 \noindent If layer \(l\) is a convolutional layer,
 
 \[Input: n_{H}^{[l - 1]} \times n_{W}^{[l - 1]} \times n_{c}^{[l - 1]}\]
-\[ filter \ width/height = f^{[l]}\]
+\[filter \ width/height = f^{[l]}\]
 \[filter \ padding = p^{[l]}\]
 \[filter \ stride = s^{[l]}\]
 \[filter \ channels = n_{c}^{[l - 1]}\]
@@ -1493,7 +1493,7 @@ w_{7} & w_{8} & w_{9}
 \[n_{W}^{[l]} = floor(\frac{n_{W}^{[l - 1]} + 2p^{[l]} - f^{[l]}}{s^{[l]}} + 1)\]
 \[Output \ a^{[l]}: n_{H}^{[l]} \times n_{W}^{[l]} \times n_{c}^{[l]}\]
 
-\noindent We can find that
+\noindent We can find that:
 
 \[Each \ filter \ is \ of \ shape: f^{[l]} \times f^{[l]} \times n_{c}^{[l - 1]}\]
 \[Weights \ is \ of \ shape: f^{[l]} \times f^{[l]} \times n_{c}^{[l - 1]} \times n_{c}^{[l]}\]
