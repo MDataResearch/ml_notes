@@ -1459,6 +1459,22 @@ w_{7} & w_{8} & w_{9}
 
 \[floor(\frac{n + 2p - f}{s}  + 1) \times floor(\frac{n + 2p - f}{s} + 1)\]
 
+\noindent \textbf{Convolutions Over Volumes}
+
+\noindent We can convolve an image of shape \((height, width, number \ of \ channels)\) (like RGB images) with stacked filters of shape \((height, width, same \ number \ of \ channels)\). To get the convolution of all the channels, we get the the convolution of each channel first and add them together.
+
+\bigskip
+
+\noindent The advantage of using multiple stacked filters is that it helps to detect multiple features in the image.
+
+\begin{center}
+\includegraphics[scale=0.2]{./images/convolutions_over_volumes.png}
+\end{center}
+
+\noindent Assume the image is of shape \(n \times n \times n_{c}\), with \(n_{c}^{'}\) stacked filters of shape \(f \times f \times n_{c}\), the output would be of shape \((n - f + 1) \times (n - f + 1) \times n_{c}^{'}\).
+
+\noindent 
+
 \printindex
 
 \end{document}
