@@ -1369,6 +1369,10 @@ Dev and test sets have to come from the same distribution. Choose dev set and te
 
 \bigskip
 
+\noindent Notice that in math textbooks the convolution operation needs to flip the filter before getting the dot product. The "convolution" operation in deep learning field is called cross-correlation operation in mathematics field.
+
+\bigskip
+
 \noindent The vertical edge detection filter will find the \(3 \times 3\) places in an image where it is bright on the left and dark on the right (or in reverse). If we apply this filter to a white region followed by a dark region, it should find the edge in between the two colors as a positive value. But if we apply the same filter to a dark region followed by a white region it will give us a negative value. To solve this we can use the abs function to make it positive.
 
 \bigskip
@@ -1448,6 +1452,12 @@ w_{7} & w_{8} & w_{9}
     \item Valid Convolution: \(p = 0\)
     \item Same Convolution: Pad so the output size is the same as input size, using \(p = \frac{f - 1}{2}\). This works when \(f\) is odd, and \(f\) is usually odd in a filter because it's nice to have a central pixel.
 \end{itemize}
+
+\noindent \textbf{Strided convolution}:
+
+\noindent When deal with large images, instead of moving 1 step each time, we can move the filter matrix \(s\) steps each time when sliding through the image. Notice that the sliding doesn't happen when there is not enough room to do that. Then the output matrix will be:
+
+\[floor(\frac{n + 2p - f}{s}  + 1) \times floor(\frac{n + 2p - f}{s} + 1)\]
 
 \printindex
 
