@@ -1473,7 +1473,32 @@ w_{7} & w_{8} & w_{9}
 
 \noindent Assume the image is of shape \(n \times n \times n_{c}\), with \(n_{c}^{'}\) stacked filters of shape \(f \times f \times n_{c}\), the output would be of shape \((n - f + 1) \times (n - f + 1) \times n_{c}^{'}\).
 
-\noindent 
+\bigskip
+
+\noindent \textbf{One Layer of a Convolutional Net}
+
+\begin{center}
+\includegraphics[scale=0.2]{./images/one_layer_of_a_convolutional_net.png}
+\end{center}
+
+\noindent If layer \(l\) is a convolutional layer,
+
+\[Input: n_{H}^{[l - 1]} \times n_{W}^{[l - 1]} \times n_{c}^{[l - 1]}\]
+\[ filter \ width/height = f^{[l]}\]
+\[filter \ padding = p^{[l]}\]
+\[filter \ stride = s^{[l]}\]
+\[filter \ channels = n_{c}^{[l - 1]}\]
+\[number \ of \ filters = n_{c}^{[l]}\]
+\[n_{H}^{[l]} = floor(\frac{n_{H}^{[l - 1]} + 2p^{[l]} - f^{[l]}}{s^{[l]}} + 1)\]
+\[n_{W}^{[l]} = floor(\frac{n_{W}^{[l - 1]} + 2p^{[l]} - f^{[l]}}{s^{[l]}} + 1)\]
+\[Output \ a^{[l]}: n_{H}^{[l]} \times n_{W}^{[l]} \times n_{c}^{[l]}\]
+
+\noindent We can find that
+
+\[Each \ filter \ is \ of \ shape: f^{[l]} \times f^{[l]} \times n_{c}^{[l - 1]}\]
+\[Weights \ is \ of \ shape: f^{[l]} \times f^{[l]} \times n_{c}^{[l - 1]} \times n_{c}^{[l]}\]
+\[Bias \ is \ of \ shape: n_{c}^{[l]}\]
+\[A^{[l]} \ is \ of \ shape: m \times n_{H}^{[l]} \times n_{W}^{[l]} \times n_{c}^{[l]}\]
 
 \printindex
 
