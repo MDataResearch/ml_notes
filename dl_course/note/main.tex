@@ -1442,7 +1442,7 @@ w_{7} & w_{8} & w_{9}
     \item The edge pixels are used less than central pixels in an image.
 \end{itemize}
 
-\noindent To solve these problems we need to use padding. Assume the input image is of shape \(n \times n\), the filter is of shape \(f \times f\), and we add \(p\) padding pixels to the input image. Then the output matrix will be of shape:
+\noindent To solve these problems we need to use padding. Assume the input image is of shape \(n \times n\), the filter is of shape \(f \times f\), and we add \(p\) padding pixels (of value 0) to the input image. Then the output matrix will be of shape:
 
 \[(n + 2p - f + 1) \times (n + 2p - f + 1)\]
 
