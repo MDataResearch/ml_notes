@@ -1595,6 +1595,57 @@ w_{7} & w_{8} & w_{9}
     \item Inception
 \end{itemize}
 
+\noindent \textbf{LeNet-5}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/lenet5.png}
+\end{center}
+
+\begin{itemize}
+    \item The goal for this model was to identify handwritten digits in a \(32 \times 32 \times 1\) gray image.
+    \item This model was published in 1998. The last layer wasn't using softmax back then.
+    \item It has 60k parameters.
+    \item The width/height of the image decreases as the number of channels increases.
+    \item \(Conv \longrightarrow Pool \longrightarrow Conv \longrightarrow Pool \longrightarrow FC \longrightarrow FC \longrightarrow softmax\). This type of arrangement is quite common.
+    \item The activation function used in the paper was Sigmoid and Tanh. Modern implementation uses RELU in most of the cases.
+\end{itemize}
+
+\noindent \textbf{AlexNet}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/alexnet.png}
+\end{center}
+
+\begin{itemize}
+    \item The goal for this model was the ImageNet challenge which classifies images into 1000 classes.
+    \item \(Conv \longrightarrow Max-pool \longrightarrow Conv \longrightarrow Max-pool \longrightarrow Conv \longrightarrow Conv \longrightarrow Conv \longrightarrow Max-pool \longrightarrow Flatten \longrightarrow FC \longrightarrow FC \longrightarrow Softmax\)
+    \item Similar to LeNet-5 but bigger. It has 60 Million parameters compared to 60k parameters of LeNet-5.
+    \item It used the RELU activation function.
+    \item The original paper contains Multiple GPUs and Local Response normalization (RN). Multiple GPUs were used because the GPUs were not so fast back then. Researchers proved that Local Response normalization doesn't help much.
+    \item This paper convinced the computer vision researchers that deep learning is very important.
+\end{itemize}
+
+\noindent \textbf{VGG-16}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/vgg16.png}
+\end{center}
+
+\begin{itemize}
+    \item A modification for AlexNet. Instead of having a lot of hyperparameters it has a simpler network architecture.
+    \item Focus on having only these blocks:
+    \begin{itemize}
+        \item CONV: \(3 \times 3\) filter, \(s = 1\), same padding
+        \item MAX-POOL: \(2 \times 2\) filter, \(s = 2\)
+    \end{itemize}
+    \item This network is large even by modern standards. It has around 138 million parameters. Most of the parameters are in the fully connected layers.
+    \item It has a total memory of 96MB per image for only forward propagation! Most memory are used in the earlier layers.
+    \item Number of filters increases from 64 to 128 to 256 to 512. 512 was made twice.
+    \item Pooling was the only one who is responsible for shrinking the image width/height.
+    \item There are another version called VGG-19 which is a bigger version. But most people uses the VGG-16 instead of the VGG-19 because it does the same.
+    \item VGG paper is attractive because it tries to make some rules regarding using CNNs, like doubling the number of filters for convolution layers.
+\end{itemize}
+
 \printindex
 
 \end{document}
