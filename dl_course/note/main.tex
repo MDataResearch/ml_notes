@@ -1566,6 +1566,19 @@ w_{7} & w_{8} & w_{9}
     \item To consider using these building blocks together you can look at other working examples first to get some intuitions.
 \end{itemize}
 
+\noindent \textbf{Why Convolutions}:
+
+\begin{itemize}
+    \item Parameter sharing: A feature detector (such as a vertical edge detector) that's useful in one part of the image is probably useful in another part of the image.
+    \item Sparsity of connections: Fully connected layer causes overfitting if training set is small, and it has far more weights to train. In each convolution layer, each output value depends only on a small number of inputs which makes it translation invariance, and that reduces overfitting.
+\end{itemize}
+
+\noindent To train a CNN, given training set \([(x^{(1)}, y^{(1)}), \dots, (x^{(m)}, y^{(m)})]\)
+
+\[J = \frac{1}{m} \sum_{i = 1}^{m} L(\hat{y}^{(i)}, y^{(i)})\]
+
+\noindent Use gradient descent to optimize parameters to reduce \(J\).
+
 \printindex
 
 \end{document}
