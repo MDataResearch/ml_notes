@@ -1542,6 +1542,30 @@ w_{7} & w_{8} & w_{9}
 
 \noindent Average pooling is taking the averages of the values of the matched regions instead of taking the max values. Max pooling is used more often than average pooling in practice.
 
+\bigskip
+
+\noindent \textbf{CNN Example}:
+
+\[Input \ Image \longrightarrow Conv \longrightarrow Pool \longrightarrow Conv \longrightarrow Pool\]
+\[\longrightarrow Flatten \longrightarrow Fully \ Connected \longrightarrow Fully \ Connected \longrightarrow Softmax\]
+
+\begin{center}
+\includegraphics[scale=0.2]{./images/cnn_example.png}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.3]{./images/cnn_example_table.png}
+\end{center}
+
+\noindent From the table we can find:
+
+\begin{itemize}
+    \item Hyperparameters are a lot. For choosing the value of each you can follow the guideline that we will discuss later or check the literature and takes some ideas and numbers from it.
+    \item Usually the input width/height of convolution layer decreases over layers while the number of channels increases.
+    \item A CNN usually consists of one or more convolution layers (Not just one as the shown examples) followed by a pooling layer.
+    \item Fully connected layers has the most parameters in the network.
+    \item To consider using these blocks together you can look at other working examples first to get some intuitions.
+\end{itemize}
+
 \printindex
 
 \end{document}
