@@ -1500,6 +1500,30 @@ w_{7} & w_{8} & w_{9}
 \[Bias \ is \ of \ shape: n_{c}^{[l]}\]
 \[A^{[l]} \ is \ of \ shape: m \times n_{H}^{[l]} \times n_{W}^{[l]} \times n_{c}^{[l]}\]
 
+\noindent \textbf{A simple convolution network example}:
+
+\noindent Here is a simple CNN example:
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/simple_cnn_example.jpg}
+\end{center}
+
+\noindent The image goes through 3 convolutional layers, then the output is flattened into a vector so that it can be fed into a logistic regression (or softmax) unit, to be able to classify the image.
+
+\bigskip
+
+\noindent Notice that for the outputs of the convolutional layers, when it goes deeper it's size is shrinking, while it's number of channels is increasing. You can find this trend in many other CNNs.
+
+\bigskip
+
+\noindent Types of layer in a convolutional network:
+
+\begin{itemize}
+    \item Convolution Layer.
+    \item Pooling Layer.
+    \item Fully Connected Layer.
+\end{itemize}
+
 \printindex
 
 \end{document}
