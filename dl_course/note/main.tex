@@ -1475,7 +1475,7 @@ w_{7} & w_{8} & w_{9}
 
 \bigskip
 
-\noindent \textbf{One Layer of a Convolutional Net}
+\noindent \textbf{Convolutional Layer (Generalized)}
 
 \begin{center}
 \includegraphics[scale=0.2]{./images/one_layer_of_a_convolutional_net.png}
@@ -1523,6 +1523,24 @@ w_{7} & w_{8} & w_{9}
     \item Pooling Layer.
     \item Fully Connected Layer.
 \end{itemize}
+
+\noindent \textbf{Pooling Layers}:
+
+\noindent Other than the conv layers, CNNs often use pooling layers to reduce the size of the inputs, speed up computation, and to make some of the features it detects more robust.
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/max_pooling.png}
+\end{center}
+
+\noindent For a pooling layer, given an input image of shape \(n_{H} \times n_{W} \times n_{c}\), with filter of shape \(f \times f\), stride \(s\), and for most of time \(p = 0\), the filter slides through the image for each layer and only choose the max value of the matched region (max pooling). So the output will be of shape:
+
+\[floor(\frac{n_{H} + 2p - f}{s}  + 1) \times floor(\frac{n_{W} + 2p - f}{s} + 1) \times n_{c}\]
+
+\noindent Notice that the parameters for pooling layer are fixed (manually picked) and they are not going to be learned during the training process.
+
+\bigskip
+
+\noindent Average pooling is taking the averages of the values of the matched region instead of taking the max values. Max pooling is used more often than average pooling in practice.
 
 \printindex
 
