@@ -1646,6 +1646,26 @@ w_{7} & w_{8} & w_{9}
     \item VGG paper is attractive because it tries to make some rules regarding using CNNs, like doubling the number of filters for convolution layers.
 \end{itemize}
 
+\noindent \textbf{Residual Network}:
+
+\noindent Very, very deep NNs are difficult to train because of vanishing and exploding gradients problems. In this section we will learn about Residual Network which skips connections and take the activation from one layer and feed it directly to a much deeper layer. It allows you to train large NNs even with more than 100 layers.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/resnet_fp.png}
+\end{center}
+
+\noindent The NN above adds a shortcut/skip connection before the second activation. The researchers find that you can train a deeper NN by stacking blocks like this (residual blocks).
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/resnet_blocks.png}
+\end{center}
+
+\noindent In the normal NN - Plain networks - the theory tells us that if we go deeper we will get lower training error, but because of the vanishing and exploding gradient problems the training error increases as it goes deeper. While for a Residual Network the training error keeps decreasing when going deeper.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/resnet_training_error.png}
+\end{center}
+
 \printindex
 
 \end{document}
