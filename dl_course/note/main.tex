@@ -1654,7 +1654,9 @@ w_{7} & w_{8} & w_{9}
 \includegraphics[scale=0.4]{./images/resnet_fp.png}
 \end{center}
 
-\noindent The NN above adds a shortcut/skip connection before the second activation. The researchers find that you can train a deeper NN by stacking blocks like this (residual blocks).
+\noindent The NN above adds a shortcut/skip connection before the second activation. The researchers find that you can train a deeper NN by stacking blocks like this (residual blocks). Assume \(z^{[l + 2]}\) and \(a^{[l]}\) have the same dimension:
+
+\[a^{[l + 2]} = g(z^{[l + 2]} + a^{[l]})\]
 
 \begin{center}
 \includegraphics[scale=0.4]{./images/resnet_blocks.png}
@@ -1664,6 +1666,26 @@ w_{7} & w_{8} & w_{9}
 
 \begin{center}
 \includegraphics[scale=0.4]{./images/resnet_training_error.png}
+\end{center}
+
+\noindent \textbf{Why ResNets Work}:
+
+\begin{center}
+\includegraphics[scale=0.6]{./images/resnet_why.jpg}
+\end{center}
+
+\noindent Notice that for above example \(a^{[l + 2]} = g(z^{[l + 2]} + a^{[l]})\), if we apply L2 normalization it's not hard to make \(z^{[l + 2]} = 0\) by punishing the weights of \(l + 2\) layer, then \(a^{[l + 2]} = g(a^{[l]}) \approx a^{[l]}\). This means it's easy for Resnet to learn an identity function in a residual block, and this can achieve the same performance of an NN with less layers. It's also possible that a residual block can learn better weights than an identity function.
+
+\bigskip
+
+\noindent To make \(z^{[l + 2]}\) and \(a^{[l]}\) have the same dimension, we can use Same Convolution. Or we can apply a weight matrix \(w_{s}\) to \(a^{[l]}\) so that \(a^{[l + 2]} = g(z^{[l + 2]} + w_{s} a^{[l]})\). \(w_{s}\) can be fixed matrix or can be learned in the training process. Another way is to add zero padding to \(a^{[l]}\).
+
+\bigskip
+
+\noindent For example, the Resnet below used a lot of \(3 \times 3\) Same Convolution layers.
+
+\begin{center}
+\includegraphics[scale=0.25]{./images/resnet_compare.png}
 \end{center}
 
 \printindex
