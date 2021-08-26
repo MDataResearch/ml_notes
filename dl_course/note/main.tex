@@ -1702,6 +1702,38 @@ w_{7} & w_{8} & w_{9}
     \item It works similiar to a fully connected layer.
 \end{itemize}
 
+\noindent \textbf{Inception Network Motivation}:
+
+\noindent When you design a CNN you have to choose what layer to use. Will you pick a \(3 \times 3\) Conv or \(5 \times 5\) Conv or maybe a max pooling layer. But in an inception network, they can be used all at once.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/inception_motivation.png}
+\end{center}
+
+\noindent For the example above, the input of the inception module is \(28 \times 28 \times 192\) and the output is \(28 \times 28 \times 256\). We can apply all the Convs and pools we might want and then let the NN learn and decide which it wants to use most.
+
+\bigskip
+
+\noindent If we just focus on the \(5 \times 5\) Conv in the example. There are 32 same filters of \(5 \times 5\), and the input is \(28 \times 28 \times 192\). Output is \(28 \times 28 \times 32\). The total number of multiplications needed here are:
+\[number \ of \ outputs \times filter \ size \times filter \ size \times input \ channels\]
+\[= 28 \times 28 \times 32 \times 5 \times 5 \times 192 \approx 120 \ mil\]
+
+\noindent 120 mil multiply operations is still a problem for the modern day computers. Using a \(1 \times 1\) convolution we can reduce the multiply operations significantly.
+
+\begin{center}
+\includegraphics[scale=0.2]{./images/inception_reduce.jpg}
+\end{center}
+
+\noindent For the \(1 \times 1\) Conv layer, the number of multiplications:
+
+\[28 \times 28 \times 16 \times 1 \times 1 \times 192 \approx 2.5 \ mil\]
+
+\noindent For the second Conv layer, the number of multiplications:
+
+\[28 \times 28 \times 32 \times 5 \times 5 \times 16 \approx 10 \ mil\]
+
+\noindent So the total number of multiplications reduces from 120 mil to 12.5 mil approx. The \(1 \times 1\) Conv layer in this case is also called a Bottleneck Layer. If it is used for a proven reason, it can reduce the computation and it won't hurt the performance.
+
 \printindex
 
 \end{document}
