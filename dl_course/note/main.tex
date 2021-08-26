@@ -1734,6 +1734,27 @@ w_{7} & w_{8} & w_{9}
 
 \noindent So the total number of multiplications reduces from 120 mil to 12.5 mil approx. The \(1 \times 1\) Conv layer in this case is also called a Bottleneck Layer. If it is used for a proven reason, it can reduce the computation and it won't hurt the performance.
 
+\bigskip
+
+\noindent \textbf{Inception Network}:
+
+\noindent Inception Network is made up with a series of Inception Modules. An Inception Module can have multiple parallel layers/blocks, and the output will concat all the channels from parallel layers/blocks. Here is an example of Inception Module:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/inception_module.png}
+\end{center}
+
+\noindent Inception Network example: GoogLeNet
+
+\begin{itemize}
+    \item A Max-Pool block is sometimes used before the inception module to reduce the dimensions of the inputs.
+    \item There are 2 Sofmax side branches which are used to predict the output label using the hidden layer. It helps to ensure that even the intermediate layers are not too bad to predict the output class of an image. It turns out that this has a regularization effect on the Inception Network and it helps prevent overfitting.
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/inception_googlenet.png}
+\end{center}
+
 \printindex
 
 \end{document}
