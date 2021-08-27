@@ -1831,6 +1831,20 @@ w_{7} & w_{8} & w_{9}
 
 \noindent The cool thing about the Bottleneck Block is that it enables a richer set of computations, thus allow your neural network to learn richer and more complex functions, while also keeping the amounts of memory that is the size of the activations you need to pass from layer to layer, relatively small. That's why the MobileNet V2 can get a better performance than MobileNet V1, while still continuing to use only a modest amount of compute and memory resources.
 
+\bigskip
+
+\noindent \textbf{EfficientNet}:
+
+\noindent EfficientNet gives you a way to automatically scale up or down neural networks for a particular device. If you have a little bit more computation, maybe you need a slightly bigger neural network and hopefully you get a bit more accuracy, or if you are more computationally constraint, maybe you want a slightly smaller neural network that runs a bit faster, at the cost of a little bit of accuracy.
+
+\bigskip
+
+\noindent Here are three things you can scale in an EfficientNet: input image resolution \(r\), depth of network \(d\), and width of layers \(w\). Check an open source application that implements EfficientNet to learn how to scale \(r\), \(d\) and \(w\) for a certain device for the best performance.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/efficientnet.png}
+\end{center}
+
 \printindex
 
 \end{document}
