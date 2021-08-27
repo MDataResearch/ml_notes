@@ -1803,6 +1803,36 @@ w_{7} & w_{8} & w_{9}
 
 \[\frac{Depthwise \ Separable \ Conv \ Computations}{Normal \ Conv \ Computations} = \frac{1}{n_{c}^{'}} + \frac{1}{f^{2}}\]
 
+\noindent \textbf{MobileNet V2}:
+
+\noindent For a MobileNet V1 network, it uses 13 Depthwise Separable Convolution Layers, followed by Pooling Layer, Fully Connected Layer and Softmax Layer in order to do classification.
+
+\bigskip
+
+\noindent For a MobileNet V2 network, it uses 17 "Bottleneck Blocks", followed by Pooling Layer, Fully Connected Layer and Softmax Layer in order to do classification.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/mobilenet_v2_compare.png}
+\end{center}
+
+\noindent The MobileNet V2 network uses a Bottleneck Block. It adds a Residual Connection in the block, and also an Expansion Convolution in front of the Depthwise Convolution. It's Projection Convolution is just another name of "Pointwise Convolution".
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/mobilenet_v2_architecture.png}
+\end{center}
+
+\noindent The Residual Connection works as a Residual layer. The Projection Convolution works as a Pointwise Convolution.
+
+\bigskip
+
+\noindent The Expansion Convolution expands the channels of the input. It increases the size of the representation of input within the bottleneck block, and this allows the neural network to learn a richer function. Then the Projection Convolution projects it back down to a smaller input, so that it won't hit the memory limit of a mobile device.
+
+\bigskip
+
+\noindent The cool thing about the Bottleneck Block is that it enables a richer set of computations, thus allow your neural network to learn richer and more complex functions, while also keeping the amounts of memory that is the size of the activations you need to pass from layer to layer, relatively small. That's why the MobileNet V2 can get a better performance than MobileNet V1, while still continuing to use only a modest amount of compute and memory resources.
+
+\noindent 
+
 \printindex
 
 \end{document}
