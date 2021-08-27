@@ -1755,6 +1755,54 @@ w_{7} & w_{8} & w_{9}
 \includegraphics[scale=0.4]{./images/inception_googlenet.png}
 \end{center}
 
+\noindent \textbf{MobileNet}:
+
+\noindent MobileNet (Depthwise Seperable Convolution) can reduce the calculation of an NN. Using MobileNet will allow you to build and deploy new networks that work even in low compute environment, such as a mobile phone.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/mobilenet_compare.png}
+\end{center}
+
+\noindent The number of multiplications that this Normal Convolution needs is:
+
+\[4 \times 4 \times 5 \times 3 \times 3 \times 3 = 2160\]
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/mobilenet_normal_conv.png}
+\end{center}
+
+\noindent Depthwise Separable Convolution can be divided into 2 steps: Depthwise Convolution and Pointwise Convolution.
+
+\bigskip
+
+\noindent For the Depthwise Convolution, apply each channel of the filter to each channel of the input, then you get the output for each channel.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/mobilenet_depthwise_conv.png}
+\end{center}
+
+\noindent The number of multiplications that this Depthwise Convolution needs is:
+
+\[4 \times 4 \times 3 \times 3 \times 3 = 432\]
+
+\noindent For the Pointwise Convolution, it works as an one by one convolution.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/mobilenet_pointwise_conv.png}
+\end{center}
+
+\noindent The number of multiplications that this Pointwise Convolution needs is:
+
+\[4 \times 4 \times 5 \times 1 \times 1 \times 3 = 240\]
+
+\noindent So in total, the number of multiplications that this Depthwise Separable Convolution needs is:
+
+\[432 + 240 = 672\]
+
+\noindent We can see Depthwise Separable Convolution saves a lot of computations from Normal Convolution. In a general case, for a Normal Convolution with filter size \(f\), number of filters \(n_{c}^{'}\), researchers found that:
+
+\[\frac{Depthwise \ Separable \ Conv \ Computations}{Normal \ Conv \ Computations} = \frac{1}{n_{c}^{'}} + \frac{1}{f^{2}}\]
+
 \printindex
 
 \end{document}
