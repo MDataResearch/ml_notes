@@ -1853,6 +1853,28 @@ w_{7} & w_{8} & w_{9}
 
 \noindent Fortunately, a lot of deep learning researchers routinely open source their work on the Internet, such as on GitHub. If you see a research paper whose results you would like to build on top of, one thing you should consider doing is looking online for an open source implementation. Some advantage of doing this is that you might download the network implementation along with its parameters/weights. The author might have used multiple GPUs and spent some weeks to reach this result and its right in front of you after you download it.
 
+\bigskip
+
+\noindent \textbf{Transfer Learning}:
+
+\begin{center}
+\includegraphics[scale=0.5]{./images/transfer_learning.png}
+\end{center}
+
+\noindent If you don't have enough data to train your own network, you can go online and download some open source implementation of a neural network and download not just the code but also the weights. What you can do is then get rid of the original softmax layer and create your own softmax layer that outputs the prediction you need.
+
+\bigskip
+
+\noindent Because some of the layers are fixed (frozen) in transfer learning, one of the trick that could speed up training is we just pre-compute the activation of frozen part, for all the examples in training set, and save them to disk. Then you can feed the output from the frozen part to your softmax layer to make a prediction, and train the softmax layer on top of that. Using this trick you don't need to recompute those activations every time you take an epoch or pass through a training set.
+
+\bigskip
+
+\noindent If you have more training data, your can keep and train the last a few layers and use their original weights as initialization, or replace them with your own layers and train them from random initialization.
+
+\bigskip
+
+\noindent If you have a lot of training data, you can retrain the whole model with its original weights as initialization, only replace the softmax layer with your own.
+
 \printindex
 
 \end{document}
