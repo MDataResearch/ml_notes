@@ -1930,6 +1930,61 @@ w_{7} & w_{8} & w_{9}
     \item Use pretrained models and fine tune on your data set.
 \end{itemize}
 
+\subsection{Object Detection}
+
+\begin{center}
+\includegraphics[scale=0.5]{./images/object_localization_and_detection.png}
+\end{center}
+
+\begin{itemize}
+    \item Image Classification: No localization. Classify the image.
+    \item Image Classification with Localization: Find the bounding box of the object. Classify the image.
+    \item Object Detection: Find the bounding boxes of all the objects. Classify the objects.
+\end{itemize}
+
+\noindent \textbf{Object Localization}:
+
+\begin{center}
+\includegraphics[scale=0.5]{./images/object_localization.png}
+\end{center}
+
+\noindent Assume there is only 1 object in the image. To localize the object in the image and classify it, you need to construct your neural network and make the output contains:
+
+\begin{itemize}
+    \item \(p_{c}\): Is there an object in the image (1 or 0).
+    \item \(b_{x}\): Part of bounding box center coordinate \((b_{x}, b_{y})\) (percentage as decimals).
+    \item \(b_{y}\): Part of bounding box center coordinate \((b_{x}, b_{y})\) (percentage as decimals).
+    \item \(b_{h}\): Bounding box height (percentage as decimals).
+    \item \(b_{w}\): Bounding box width (percentage as decimals).
+    \item \(c_{1}, \dots, c_{K}\): Is the object of class \(c_{1}, \dots, c_{K}\) (1 or 0).
+\end{itemize}
+
+\[
+y =
+\begin{bmatrix}
+p_{c}\\
+b_{x}\\
+b_{y}\\
+b_{h}\\
+b_{w}\\
+c_{1}\\
+\vdots\\
+c_{K}
+\end{bmatrix}
+\]
+
+\noindent Assume \(y\) is of shape \((P, 1)\). A simple squared error loss function can be:
+
+\[
+L(\hat{y}, y) =
+\begin{cases}
+\sum_{p = 1}^{P} (\hat{y}_{p} - y_{p})^{2} & \text{if } y_{1} = 1, \text{object exists}\\
+(\hat{y}_{1} - y_{1})^{2} & \text{if } y_{1} = 0, \text{object doesn't exist}
+\end{cases}
+\]
+
+\noindent To get a better loss function, you can use log likelyhood loss for \(c_{1}, \dots, c_{K}\), squared error for \(b_{x}, b_{y}, b_{h}, b_{w}\), logistic regression loss for \(p_{c}\).
+
 \printindex
 
 \end{document}
