@@ -1875,6 +1875,29 @@ w_{7} & w_{8} & w_{9}
 
 \noindent If you have a lot of training data, you can retrain the whole model with its original weights as initialization, only replace the softmax layer with your own.
 
+\bigskip
+
+\noindent \textbf{Data Augmentation}:
+
+\noindent Most computer vision tasks could use more data. Data augmentation is one of the techniques that is often used to generate more data and improve the performance of computer vision systems. Common data augmentation operations include:
+
+\begin{itemize}
+    \item Mirroring.
+    \item Random Cropping.
+    \item Color Shifting. (PCA color augmentation)
+    \item Rotation.
+    \item Shearing.
+    \item Local Warping.
+\end{itemize}
+
+\noindent Implement distortions during training:
+
+\noindent You can load the data and implement distortions in a CPU thread to create a minibatch, then feed it into another CPU/GPU thread for training, so that they can run in parallel.
+
+\begin{center}
+\includegraphics[scale=0.5]{./images/data_augmentation_distortions.png}
+\end{center}
+
 \printindex
 
 \end{document}
