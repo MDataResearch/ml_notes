@@ -1913,6 +1913,23 @@ w_{7} & w_{8} & w_{9}
 
 \noindent The Computer Vision model is trying to learn a very complex function, and it is heavily relying on Hand Engineering because of the lack of data.
 
+\bigskip
+
+\noindent Using following techniques can sometimes give you a better result in a competition. But because it takes extra time in the run time, they are not usually used in production. Tips for doing well on benchmarks/winning competitions:
+
+\begin{itemize}
+    \item Ensembling. Train several networks independently and average their outputs. 
+    \item Multi-crop at test time. Crop each of the image in the test set on different regions, do a prediction for each cropped image and average the results.
+\end{itemize}
+
+\noindent Use open source code:
+
+\begin{itemize}
+    \item Use architectures of networks published in the literature.
+    \item Use open source implementations if possible.
+    \item Use pretrained models and fine tune on your data set.
+\end{itemize}
+
 \printindex
 
 \end{document}
