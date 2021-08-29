@@ -2034,6 +2034,22 @@ l_{My}
 
 \noindent A disadvantage of sliding windows is that it is computationally expensive. To solve this problem, we can implement the sliding windows with a convolutional approach.
 
+\bigskip
+
+\noindent \textbf{Convolutional Implementation of Sliding Windows}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/fc_to_conv.png}
+\end{center}
+
+\noindent From the image above, we can see that the FC layers in the first NN can be replaced with Conv layers in the second NN, and they are doing the same thing mathematically.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/sliding_windows_conv.png}
+\end{center}
+
+\noindent When you feed the matched region of sliding windows each time, a lot of regions intersect with each other, and you are doing duplicated computations. Instead of feeding the matched regions to the NN individually, we can replace this process with a Conv layer, and apply filters as sliding windows to all the matched regions from the image. Then the results are passed to the rest of the NN, in the end we get the predictions for all the matched regions in the final output.
+
 \printindex
 
 \end{document}
