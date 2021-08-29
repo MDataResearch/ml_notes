@@ -2014,6 +2014,26 @@ l_{My}
 
 \noindent Landmark Detection is used in tasks like emotion recognition and pose detection.
 
+\bigskip
+
+\noindent \textbf{Object Detection}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/sliding_windows.png}
+\end{center}
+
+\noindent To detect cars on an image, first you need to train a Conv net on cropped car images and non car images, so that it can recognize car images. Then, apply sliding windows detection algorithm:
+
+\begin{itemize}
+    \item Pick a window size.
+    \item Slide the window through the image. Make sure it covers all the regions on the image.
+    \item For each matched region feed the region into the Conv net to see if it's a car or not.
+    \item Pick larger/smaller window sizes and repeat the above process.
+    \item Keep the matched regions that contain the cars. If two or more regions intersect choose the region with the highest confidence.
+\end{itemize}
+
+\noindent A disadvantage of sliding windows is that it is computationally expensive. To solve this problem, we can implement the sliding windows with a convolutional approach.
+
 \printindex
 
 \end{document}
