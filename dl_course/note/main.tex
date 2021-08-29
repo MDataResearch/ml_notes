@@ -1898,6 +1898,21 @@ w_{7} & w_{8} & w_{9}
 \includegraphics[scale=0.5]{./images/data_augmentation_distortions.png}
 \end{center}
 
+\noindent \textbf{State of Computer Vision}:
+
+\noindent Currently there is a lot of data for Speech Recognition, enough data for Image Recognition but only limited data for Object Detection. You can see that with a lot of data, model doesn't have to be complicated to achieve a good performance. Simple model can work well with a lot of data. But if there is not enough data provided, more hand engineering hacks are required when designing the model to make it perform well, which makes the model more complex. Transfer Learning can also help with resolving this problem.
+
+\bigskip
+
+\noindent The learning algorithm has two sources of knowledge.
+
+\begin{itemize}
+    \item Labeled data. The (x,y) pairs you use for supervised learning. 
+    \item Hand Engineering features/network architecture/other components.
+\end{itemize}
+
+\noindent The Computer Vision model is trying to learn a very complex function, and it is heavily relying on Hand Engineering because of the lack of data.
+
 \printindex
 
 \end{document}
