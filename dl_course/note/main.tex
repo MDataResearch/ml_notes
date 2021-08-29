@@ -1983,7 +1983,36 @@ L(\hat{y}, y) =
 \end{cases}
 \]
 
-\noindent To get a better loss function, you can use log likelyhood loss for \(c_{1}, \dots, c_{K}\), squared error for \(b_{x}, b_{y}, b_{h}, b_{w}\), logistic regression loss for \(p_{c}\).
+\noindent To get a better loss function, you can use log likelihood loss for \(c_{1}, \dots, c_{K}\), squared error for \(b_{x}, b_{y}, b_{h}, b_{w}\), logistic regression loss for \(p_{c}\).
+
+\bigskip
+
+\noindent \textbf{Landmark Detection}:
+
+\begin{center}
+\includegraphics[scale=0.5]{./images/landmark_detection.png}
+\end{center}
+
+\noindent You can have a neural network to output coordinates of important points on the image, which are called landmarks. You can construct your neural network and make the output contains:
+
+\begin{itemize}
+    \item \(p_{c}\): Is there an object on the image (1 or 0).
+    \item \(l_{1x}, l_{1y}, \dots, l_{Mx}, l_{My}\): \(M\) important coordinates of the object (percentage as decimals).
+\end{itemize}
+
+\[
+y =
+\begin{bmatrix}
+p_{c}\\
+l_{1x}\\
+l_{1y}\\
+\vdots\\
+l_{Mx}\\
+l_{My}
+\end{bmatrix}
+\]
+
+\noindent Landmark Detection is used in tasks like emotion recognition and pose detection.
 
 \printindex
 
