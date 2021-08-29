@@ -2050,6 +2050,30 @@ l_{My}
 
 \noindent When you feed the matched region of sliding windows each time, a lot of regions intersect with each other, and you are doing duplicated computations. Instead of feeding the matched regions to the NN individually, we can replace this process with a Conv layer, and apply filters as sliding windows to all the matched regions from the image. Then the results are passed to the rest of the NN, in the end we get the predictions for all the matched regions in the final output.
 
+\bigskip
+
+\noindent The weakness of this algorithm is that sometimes none of the sliding windows is exactly on the object you want to recognize.
+
+\bigskip
+
+\noindent \textbf{Bounding Box Predictions}:
+
+\noindent YOLO (You Only Look Once) Algorithm
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/bounding_box_predictions.png}
+\end{center}
+
+\noindent Assume the original image is of shape \((100, 100, 3)\), then the image is divided into \(3 \times 3\) regions (or \(19 \times 19\) which avoids multi-objects in one region). Apply Object Localization algorithm to each of the region by using a CNN, in the end we get predictions for all the regions in the final output, which is of shape \((3, 3, 8)\).
+
+\bigskip
+
+\noindent Notice that \(b_{x}, b_{y}, b_{h}, b_{w}\) should be the percentage (as decimals) of each divided region.
+
+\bigskip
+
+\noindent One of the best advantages that makes the YOLO algorithm popular is that it has a great speed and a Conv net implementation. But it will have a problem when there are more than one objects in one divided region.
+
 \printindex
 
 \end{document}
