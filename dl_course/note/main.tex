@@ -2088,6 +2088,27 @@ l_{My}
 
 \noindent Normally if \(IoU \geq 0.5\) then it's considered a correct localization.
 
+\bigskip
+
+\noindent \textbf{Non-max Suppression}:
+
+\noindent Non-max Suppression means that you're going to output your maximal probability predictions but suppress the overlapped ones that are non-maximal. This can make sure that YOLO detects the object just once.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/nonmax_suppression.png}
+\end{center}
+
+\noindent Given a list of predictions made on the image, divide them into different groups by predicted class. For each group:
+
+\begin{itemize}
+    \item Discard all predictions with \(p_{c} \leq 0.6\) (Probability of Detection).
+    \item Repeat while there are any remaining boxes in the group:
+    \begin{itemize}
+        \item Pick the box with the largest \(p_{c}\) as an output prediction. Then remove it from the prediction group.
+        \item Discard any remaining box with \(IoU \geq 0.5\) with the output box in the previous step.
+    \end{itemize}
+\end{itemize}
+
 \printindex
 
 \end{document}
