@@ -2066,9 +2066,11 @@ l_{My}
 
 \noindent Assume the original image is of shape \((100, 100, 3)\), then the image is divided into \(3 \times 3\) grids (or \(19 \times 19\) which avoids multi-objects in one grid). Apply Object Localization algorithm to each of the grid by using a CNN, in the end we get predictions for all the grids in the final output, which is of shape \((3, 3, 8)\). In the training data the object will be assigned to the grid which contains the center point of the object.
 
-\bigskip
+\begin{center}
+\includegraphics[scale=0.3]{./images/yolo_bounding_box.png}
+\end{center}
 
-\noindent Notice that \(b_{x}, b_{y}, b_{h}, b_{w}\) should be the percentage (as decimals) of each divided grid.
+\noindent Notice that \(b_{x}, b_{y}\) are relative to the position of the grid (top left coner). \(b_{h}, b_{w}\) are relative to the size of full image. They should be converted to percentage as decimals.
 
 \bigskip
 
