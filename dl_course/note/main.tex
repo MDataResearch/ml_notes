@@ -2074,6 +2074,20 @@ l_{My}
 
 \noindent One of the best advantages that makes the YOLO algorithm popular is that it has a great speed and a Conv net implementation. But it will have a problem when there are more than one objects in one divided region.
 
+\bigskip
+
+\noindent \textbf{Intersection Over Union}:
+
+\begin{center}
+\includegraphics[scale=0.5]{./images/intersection_over_union.png}
+\end{center}
+
+\noindent Intersection Over Union is a function used to evaluate the object detection algorithm. You can use this function to convert localization to accuracy. It is computed as the intersection area divided by the union area of predicted bounding box and labeled bounding box.
+
+\[IoU = \frac{Intersection \ Area}{Union Area}\]
+
+\noindent Normally if \(IoU \geq 0.5\) then it's considered a correct localization.
+
 \printindex
 
 \end{document}
