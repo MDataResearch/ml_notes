@@ -2138,6 +2138,45 @@ l_{My}
 
 \noindent You can manually choose or use some advanced algorithm to generate a lot more anchor boxes to make the model more powerful.
 
+\bigskip
+
+\noindent \textbf{YOLO Algorithm Summary}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/yolo_train.png}
+\end{center}
+
+\noindent Construct training set: assume your model needs to detect 3 types of object: pedestrian, car, motorcycle. You pick 2 anchor boxes for them and the input image is divided into 9 grid cells. So the output of the Conv Net will be of shape \((3, 3, 16)\). You go through each of the grid cells and form the appropriate target output.
+
+\begin{itemize}
+    \item For the first grid cell, there is nothing to detect, so \(p_{c} = 0\) for both anchor boxes, and in this case we don't care the rest of numbers (?).
+    \item For the 8th grid cell, the bounding box of car object has a higher \(IoU\) with the 2nd anchor box, so it is assigned to the lower portion of the prediction. No object is assigned to the 1st anchor box so it's \(p_{c}\) will be 0.
+\end{itemize}
+
+\noindent Your model takes a \((100, 100, 3)\) image as input, then use a Conv Net to make the prediction, which is of shape \((3, 3, 16)\).
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/yolo_prediction.png}
+\end{center}
+
+\noindent Expected predictions: given a training sample, for each grid cell
+
+\begin{itemize}
+    \item If there is an object assigned to the grid cell and an anchor box in the training sample, it is expected that the prediction will contain \(p_{c} = 1\), \((b_{x}, b_{y}, b_{h}, b_{w})\) as the bounding box of the object, and the correct class \((c_{1}, c_{2}, c_{3})\) in the corresponding anchor box position.
+    \item If there is no object assigned to an anchor box, \(p_{c} = 0\) is expected for the anchor box position, the rest of numbers for that anchor box position are not taken care of (?).
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/yolo_output.png}
+\end{center}
+
+\noindent Implement non-max supression: the prediction made by the Conv Net won't be the same as expected outputs
+
+\begin{itemize}
+    \item Each of the grid cell in the prediction will contain 2 predicted bounding boxes with a \(p_{c} \in [0, 1]\).
+    \item Implement non-max supression for all the predicted bounding boxes. The result will be the final output for the YOLO algorithm.
+\end{itemize}
+
 \printindex
 
 \end{document}
