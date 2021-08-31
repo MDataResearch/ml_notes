@@ -2113,7 +2113,7 @@ l_{My}
 
 \noindent \textbf{Anchor Boxes}:
 
-\noindent In the previous YOLO example, a grid only detects one object. What if a grid cell wants to detect multiple objects? The idea of Anchor boxes helps us solve this issue.
+\noindent In the previous YOLO example, a grid cell only detects one object. What if a grid cell wants to detect multiple objects? The idea of Anchor boxes helps us solve this issue.
 
 \begin{center}
 \includegraphics[scale=0.3]{./images/anchor_box.png}
@@ -2132,11 +2132,11 @@ l_{My}
 \includegraphics[scale=0.3]{./images/anchor_box_example.png}
 \end{center}
 
-\noindent In the above example, there are 2 anchor boxes. So the output \(y\) for each grid is of shape \((1, 1, 16)\), in which the first 8 numbers are for anchor box 1, and the following 8 numbers are for anchor box 2. And the final output is of shape \((3, 3, 16)\). Then this model is able to detect 2 objects in the same grid.
+\noindent In the above example, there are 2 anchor boxes with different size(width, height). So the prediction for each grid cell is of shape \((1, 1, 16)\), in which the first 8 numbers are for anchor box 1, and the following 8 numbers are for anchor box 2. And the final output is of shape \((3, 3, 16)\). Then this model is able to detect 2 objects in the same grid cell.
 
 \bigskip
 
-\noindent You can manually choose or use some advanced algorithm to generate a lot more anchor boxes to make the model more powerful.
+\noindent You can manually choose or use some advanced algorithm to generate a lot more anchor boxes (with different width and height) to make the model more powerful.
 
 \bigskip
 
