@@ -2064,7 +2064,7 @@ l_{My}
 \includegraphics[scale=0.3]{./images/bounding_box_predictions.png}
 \end{center}
 
-\noindent Assume the original image is of shape \((100, 100, 3)\), then the image is divided into \(3 \times 3\) grids (or \(19 \times 19\) which avoids multi-objects in one grid). Apply Object Localization algorithm to each of the grid by using a CNN, in the end we get predictions for all the grids in the final output, which is of shape \((3, 3, 8)\). In the training data the object will be assigned to the grid which contains the center point of the object.
+\noindent Assume the original image is of shape \((100, 100, 3)\), then the image is divided into \(3 \times 3\) grid cells (or \(19 \times 19\) which avoids multi-objects in one grid cell). Apply Object Localization algorithm to each of the grid cell by using a CNN, in the end we get predictions for all the grid cells in the final output, which is of shape \((3, 3, 8)\). In the training data the object will be assigned to the grid cell which contains the center point of the object.
 
 \begin{center}
 \includegraphics[scale=0.3]{./images/yolo_bounding_box.png}
@@ -2074,7 +2074,7 @@ l_{My}
 
 \bigskip
 
-\noindent One of the best advantages that makes the YOLO algorithm popular is that it has a great speed and a Conv net implementation. YOLO still works when there are more than one objects in the same grid and it will be explained later.
+\noindent One of the advantages of the YOLO algorithm is that it has a great speed and a Conv Net implementation. YOLO still works when there are more than one objects in the same grid cell and it will be explained later.
 
 \bigskip
 
