@@ -2177,6 +2177,20 @@ l_{My}
     \item Implement non-max supression for all the predicted bounding boxes. The result will be the final output for the YOLO algorithm.
 \end{itemize}
 
+\noindent \textbf{Region Proposals (R-CNN)}:
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/rcnn.png}
+\end{center}
+
+\noindent When using sliding window or YOLO, sometimes the model has to make predictions for some blank regions, where there is obviously no object. R-CNN uses a segmentation algorithm to pick only a few regions on the image that make sense to run your Conv Net on. In the example above, it picks 2000 blocks using the segmentation algorithm, and then make predictions on these blocks.
+
+\begin{center}
+\includegraphics[scale=0.3]{./images/fast_rcnn.png}
+\end{center}
+
+\noindent R-CNN is slow. Fast R-CNN uses a convolutional implementation of sliding window. Faster R-CNN uses Conv Net to propose regions. But they are still slower than YOLO, which is recommended by Andrew.
+
 \printindex
 
 \end{document}
