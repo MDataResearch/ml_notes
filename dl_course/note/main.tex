@@ -2230,7 +2230,21 @@ l_{My}
 \includegraphics[scale=0.4]{./images/unet_intuition.png}
 \end{center}
 
-\noindent The U-Net uses transpose convolutions to recover the dimensions. Also the skip connections from earlier layers to later layers make the model perform better. The reason is that the earlier layers contain a lot of high level resolution low level feature information that later layers don't have (lost when the width/height shrinks). Combined with the low resolution high level spacial/contextual information provided by the later layers, it makes the model do a better prediction.
+\noindent The U-Net uses transpose convolutions to recover the dimensions. Also the skip connections (copy and concat) from earlier layers to later layers make the model perform better. The reason is that the earlier layers contain a lot of high level resolution low level feature information that later layers don't have (lost when the width/height shrinks). Combined with the low resolution high level spacial/contextual information provided by the later layers, it makes the model do a better prediction.
+
+\bigskip
+
+\noindent \textbf{U-Net Architecture}:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/unet_architecture.png}
+\end{center}
+
+\noindent The example above is a U-Net. The input is a image of shape \((h, w, 3)\), and the output is of shape \((h, w, n_{classes})\), where \(n_{classes}\) dimension contains the confidence of each class the pixel may belong to.
+
+\bigskip
+
+\noindent Notice that the activations from layers on the left hand side is copied and concatenated with the activations of layers on the right hand side, which is called skip connection.
 
 \printindex
 
