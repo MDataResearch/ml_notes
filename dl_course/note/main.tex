@@ -2191,6 +2191,22 @@ l_{My}
 
 \noindent R-CNN is slow. Fast R-CNN uses a convolutional implementation of sliding window. Faster R-CNN uses Conv Net to propose regions. But they are still slower than YOLO, which is recommended by Andrew.
 
+\bigskip
+
+\noindent \textbf{Semantic Segmentation with U-Net}:
+
+\noindent Instead of drawing bounding boxes, semantic segmentation labels every pixel in the image to a class.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/semantic_segmentation.png}
+\end{center}
+
+\noindent In order to label every pixel on the image, the width/height of Conv layers shrinks first, then grows back. While the number of channels increases at first, then shrinks back. Transpose convolution is used to expand the width/height and reduce the channels.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/semantic_segmentation_nn.png}
+\end{center}
+
 \printindex
 
 \end{document}
