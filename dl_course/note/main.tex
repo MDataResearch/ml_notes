@@ -2222,6 +2222,16 @@ l_{My}
 
 \noindent There are many ways to map the input to an output with larger width/height. Why do it in this way? It turns out the model performs well after this type of layers learn the weights.
 
+\bigskip
+
+\noindent \textbf{U-Net Intuition}:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/unet_intuition.png}
+\end{center}
+
+\noindent The U-Net uses transpose convolutions to recover the dimensions. Also the skip connections from earlier layers to later layers make the model perform better. The reason is that the earlier layers contain a lot of high level resolution low level feature information that later layers don't have (lost when the width/height shrinks). Combined with the low resolution high level spacial/contextual information provided by the later layers, it makes the model do a better prediction.
+
 \printindex
 
 \end{document}
