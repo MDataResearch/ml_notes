@@ -2288,6 +2288,21 @@ Same \ Person =
 \noindent With this model, you can compare the input image with all the images in the database, if you can find one with a difference small enough, then output true,
 otherwise output false.
 
+\bigskip
+
+\noindent \textbf{Siamese Network}:
+
+\noindent To compare 2 person images, we can build an NN to output the encodings of different images, then compare the encodings to see the degree of difference.
+
+\bigskip
+
+\noindent Assume the siamese network outputs \(f(x^{(i)})\) for input \(x^{(i)}\), \(f(x^{(j)})\) for input \(x^{(j)}\). if \(||f(x^{(i)}) - f(x^{(j)})||^{2}\) is small, \(x^{(i)}\) and \(x^{(j)}\) are same person. If it's large, they are different person.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/siamese_net.png}
+\end{center}
+
+
 \printindex
 
 \end{document}
