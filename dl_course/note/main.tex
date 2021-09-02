@@ -2246,6 +2246,28 @@ l_{My}
 
 \noindent Notice that the activations from layers on the left hand side is copied and concatenated with the activations of layers on the right hand side, which is called skip connection.
 
+\subsection{Face Recognition}
+
+\noindent Face recognition system identifies a person's face. It can work on both images and videos.
+
+\bigskip
+
+\noindent \textbf{Face verification vs. Face recognition}
+
+\begin{itemize}
+    \item Verification:
+    \begin{itemize}
+        \item Input: image, name/ID. (1 : 1)
+        \item Output: whether the input image is that of the claimed person.
+    \end{itemize}
+    \item Recognition:
+    \begin{itemize}
+        \item Has a database of K persons
+        \item Get an input image
+        \item Output ID if the image is any of the K persons (or not recognized)
+    \end{itemize}
+\end{itemize}
+
 \printindex
 
 \end{document}
