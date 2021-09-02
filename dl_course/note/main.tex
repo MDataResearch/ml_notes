@@ -2268,6 +2268,26 @@ l_{My}
     \end{itemize}
 \end{itemize}
 
+\noindent \textbf{One Shot Learning}:
+
+\noindent It's not a good idea to train a neural network to take an image and figure out which person it is based on the knowledge in the database. Because every time when a new guy is added into the system, you need to train the model again.
+
+\bigskip
+
+\noindent Instead, you can train a model to compare 2 images and output the degree of difference between them.
+
+\[d(img1, img2) = \text{degree of difference between images}\]
+\[
+Same \ Person =
+\begin{cases}
+    true, & if \ d(img1, img2) \leq \tau\\
+    false, & if \ d(img1, img2) > \tau
+\end{cases}
+\]
+
+\noindent With this model, you can compare the input image with all the images in the database, if you can find one with a difference small enough, then output true,
+otherwise output false.
+
 \printindex
 
 \end{document}
