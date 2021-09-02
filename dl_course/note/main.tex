@@ -2207,6 +2207,21 @@ l_{My}
 \includegraphics[scale=0.4]{./images/semantic_segmentation_nn.png}
 \end{center}
 
+\noindent \textbf{Transpose Convolutions}:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/transpose_convolution.png}
+\end{center}
+
+\noindent Assume the input is of shape \((2, 2)\) and we want an output of shape \((4, 4)\), with a filter of shape \((3, 3)\), padding \(p = 1\) (apply to output), stride \(s = 2\) (apply to output).
+
+\begin{itemize}
+    \item Pick the first element on the input, multiply it with the filter, and map the result to the beginning area of the output. Notice that the values mapped to the padding are ignored.
+    \item Repeat until input is traversed: Move 1 step on the input, multiply current input element with the filter, move \(s\) steps on the output and map the result to the current output area. If there is overlapping with previous output areas, add the overlapped values together.
+\end{itemize}
+
+\noindent There are many ways to map the input to an output with larger width/height. Why do it in this way? It turns out the model performs well after this type of layers learn the weights.
+
 \printindex
 
 \end{document}
