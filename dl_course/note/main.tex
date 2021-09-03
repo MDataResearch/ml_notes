@@ -2342,6 +2342,30 @@ otherwise output false.
 \includegraphics[scale=0.4]{./images/triplet_train_set.png}
 \end{center}
 
+\noindent \textbf{Face Verification and Binary Classification}:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/face_verification_binary.png}
+\end{center}
+
+\noindent Face Verification can also be solved as a binary classification problem. You can build a pair of NNs to output the encodings of the 2 images, and feed them into a logistic regression unit to make a prediction (0 for different person, 1 for same person).
+
+\bigskip
+
+\noindent Assume the encodings has K elements in total, then the logistic regression unit:
+
+\[\hat{y} = \sigma(\sum_{k = 1}^{K} w_{k} |f(x^{(i)})_{k} - f(x^{(j)})_{k}| + b)\]
+
+\noindent Or use \(\chi^{2}\) similarity:
+
+\[\hat{y} = \sigma(\sum_{k = 1}^{K} w_{k} \frac{(f(x^{(i)})_{k} - f(x^{(j)})_{k})^{2}}{f(x^{(i)})_{k} + f(x^{(j)})_{k}} + b)\]
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/face_verification_binary_train.png}
+\end{center}
+
+\noindent You can precompute the encodings for the images in the database and store them on the disk, so that you don't need to compute them in the running time to make a prediction.
+
 \printindex
 
 \end{document}
