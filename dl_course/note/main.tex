@@ -2396,6 +2396,8 @@ otherwise output false.
 \includegraphics[scale=0.4]{./images/neural_style_transfer_cost.png}
 \end{center}
 
+\noindent Use a pre-trained ConvNet to extract features from "content" and "style" images in the hidden layers (e.g. VGG). The output of this pre-trained ConvNet can be ignored, since we are going to update generated image rather than the weights of the model to reduce the cost, and we are going to use the following cost function:
+
 \[J(G) = \alpha J_{content}(C, G) + \beta J_{style}(S, G)\]
 
 \noindent Find the generated image G:
@@ -2404,6 +2406,19 @@ otherwise output false.
     \item Initiate \(G\) randomly: \(100 \times 100 \times 3\)
     \item Use gradient descent to minimize \(J(G)\): \[G := G - \frac{\partial}{\partial G} J(G)\]
 \end{itemize}
+
+\noindent Notice that "content" and "style" are not strictly defined. They are just compared with generated image in different ways to get different costs.
+
+\bigskip
+
+\noindent \textbf{Content Cost Function}:
+
+\begin{itemize}
+    \item Choose hidden layer \(l\) in the middle of NN (neither too shallow nor too deep) to compute the content cost.
+    \item Let \(a^{[l](C)}\) and \(a^{[l](G)}\) be the activation of layer \(l\) on the images. If \(a^{[l](C)}\) and \(a^{[l](G)}\) are similar, both images have similar content.
+\end{itemize}
+
+\[J_{content}(C, G) = \frac{1}{2} ||a^{[l](C)} - a^{[l](G)}||^{2}\]
 
 \printindex
 
