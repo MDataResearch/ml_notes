@@ -2376,6 +2376,20 @@ otherwise output false.
 
 \noindent \textbf{What are deep ConvNets learning?}
 
+\begin{center}
+\includegraphics[scale=0.4]{./images/deep_conv_learn.png}
+\end{center}
+
+\noindent Given an image classifier NN. Observe 1 unit in a layer. Find the training image patch that maximizes the activation of this unit. Crop out the areas on the original images, in this image patch, that are associated with this unit. Do this to other units in other layers as well to observe the difference between the areas cropped out from the original images associated with those units.
+
+\bigskip
+
+\noindent We can find that, for the first a few layers, the cropped areas are small and they contain some simple features like edges. When it goes deeper, the cropped areas are larger and they contain more complex shapes like circle and square. In the deepest layers, the cropped areas are large and they contain complex objects like person and dog.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/deep_conv_layer_learn.png}
+\end{center}
+
 \printindex
 
 \end{document}
