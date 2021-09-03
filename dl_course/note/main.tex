@@ -2302,6 +2302,45 @@ otherwise output false.
 \includegraphics[scale=0.4]{./images/siamese_net.png}
 \end{center}
 
+\noindent \textbf{Triplet Loss}:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/triplet_loss.png}
+\end{center}
+
+\noindent To get triplet loss, we will be looking at 3 images at a time: Anchor, Positive, Negative, where Anchor is the target person, Positive is the same person, Negative is a different person. We expect the degree of difference between A and P is smaller than that between A and N:
+\[d(A, P) \leq d(A, N)\]
+\[||f(A) - f(P)||^{2} \leq ||f(A) - f(N)||^{2}\]
+\[||f(A) - f(P)||^{2} - ||f(A) - f(N)||^{2} \leq 0\]
+
+\noindent To push the gap between \(||f(A) - f(P)||^{2}\) and \(||f(A) - f(N)||^{2}\) larger, we can add a margin \(\alpha\) to further separate apart these 2 differences.
+
+\[||f(A) - f(P)||^{2} - ||f(A) - f(N)||^{2} \leq -\alpha\]
+\[||f(A) - f(P)||^{2} - ||f(A) - f(N)||^{2} + \alpha \leq 0\]
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/triplet_loss_function.png}
+\end{center}
+
+\noindent Given images A, P, N, define triplet loss function \(L\):
+
+\[L(A, P, N) = max(||f(A) - f(P)||^{2} - ||f(A) - f(N)||^{2} + \alpha, 0)\]
+
+\noindent With \(m\) training examples, define cost function \(J\):
+
+\[J = \sum_{i = 1}^{m} L(A^{(i)}, P^{(i)}, N^{(i)})\]
+
+\noindent Notice that you need multiple pictures of the same person in your training set to use this loss function.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/triplet_choosing.png}
+\end{center}
+
+\noindent If you choose the A, P, N randomly for the training set, the constraint \(||f(A) - f(P)||^{2} - ||f(A) - f(N)||^{2} + \alpha \leq 0\) is very easy to satisfy and the model won't be able to learn much from it. To learn a more powerful model, we need to choose triplets that hard to train on, where \(d(A, P) \approx d(A, N)\).
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/triplet_train_set.png}
+\end{center}
 
 \printindex
 
