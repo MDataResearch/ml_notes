@@ -2420,6 +2420,38 @@ otherwise output false.
 
 \[J_{content}(C, G) = \frac{1}{2} ||a^{[l](C)} - a^{[l](G)}||^{2}\]
 
+\noindent \textbf{Style Cost Function}:
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/correlation.png}
+\end{center}
+
+\noindent Correlation of pixels between different channels: Correlated means if a pixel appeared in a specific channel then a specific pixel will appear in another channel at the same position (Depends on each other). The correlation tells you how pairs of pixels (correlated features) might occur or not occur together in the different channels.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/correlation_style.png}
+\end{center}
+
+\noindent Assume \(a^{[l]}\) is the activation of layer \(l\), and it is of shape \((n_{H}^{[l]}, n_{W}^{[l]}, n_{c}^{[l]})\). To measure the correlation between each channels of \(a^{[l]}\), define style matrix \(G^{[l]}\) of shape \((n_{c}^{[l]}, n_{c}^{[l]})\):
+
+\[\text{between channel \(k, k^{'} \in [1, n_{c}^{[l]}]\), } G_{kk^{'}}^{[l]} = \sum_{i = 1}^{n_{H}^{[l]}} \sum_{j = 1}^{n_{W}^{[l]}} a_{ijk}^{[l]} a_{ijk^{'}}^{[l]}\]
+\[
+G^{[l]} =
+\begin{bmatrix}
+G_{1, 1}^{[l]} && \dots && G_{1, n_{c}^{[l]}}^{[l]} \\
+\vdots && \ddots && \vdots \\
+G_{n_{c}^{[l]}, 1}^{[l]} && \dots && G_{n_{c}^{[l]}, n_{c}^{[l]}}^{[l]} \\
+\end{bmatrix}
+\]
+
+\noindent Feed image S and G into NN, for each layer \(l\), we can get style matrix for style image \(G^{[l](S)}\), and for generated image \(G^{[l](G)}\). The correlation of style image channels should appear in the generated image channels. Define style cost function \(J_{style}(S, G)\):
+
+\[J_{style}^{[l]}(S, G) = \frac{1}{(2n_{H}^{[l]}n_{W}^{[l]}n_{c}^{[l]})^{2}} ||G^{[l](S)} - G^{[l](G)}||^{2}\]
+\[= \frac{1}{(2n_{H}^{[l]}n_{W}^{[l]}n_{c}^{[l]})^{2}} \sum_{k = 1}^{n_{c}^{[l]}} \sum_{k^{'} = 1}^{n_{c}^{[l]}} (G_{kk^{'}}^{[l](S)} - G_{kk^{'}}^{[l](G)})^{2}\]
+\[J_{style}(S, G) = \sum_{l = 1}^{L} \lambda^{[l]} J_{style}^{[l]}(S, G)\]
+
+\noindent It turns out you can get better visually result if you use style cost from all the different layers (both earlier ones and deeper ones). Choose the right hyper parameter \(\lambda^{[l]}\) to get a better result.
+
 \printindex
 
 \end{document}
