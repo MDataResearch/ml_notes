@@ -2,6 +2,11 @@
 
 This repository contains my notes for Machine Learning and Deep Learning topics.
 
+Courses taken:
+
+- [Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)
+- [Deep Learning Specialization by Andrew Ng](https://www.coursera.org/specializations/deep-learning)
+
 ## Table of contents
 
 - Machine Learning
