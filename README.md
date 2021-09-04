@@ -9,11 +9,11 @@ This repository contains my notes for Machine Learning and Deep Learning topics.
     - [PDF](./ml_course/note/MLNote-2021-08-22.pdf)
     - [Latex source code](./ml_course/note/main.tex)
   - Exercises
-    - [01](./ml_course/exercises/01/ex_01.ipynb)
-    - [02](./ml_course/exercises/02/ex_02.ipynb)
-    - [03](./ml_course/exercises/03/ex_03.ipynb)
-    - [04](./ml_course/exercises/04/ex_04.ipynb)
-    - [05](./ml_course/exercises/05/ex_05.ipynb)
+    - [01 Linear Regression](./ml_course/exercises/01%20Linear%20Regression/ex_01.ipynb)
+    - [02 Logistic Regression](./ml_course/exercises/02%20Logistic%20Regression/ex_02.ipynb)
+    - [03 Multi-class Classification and Neural Networks](./ml_course/exercises/03%20Multi-class%20Classification%20and%20Neural%20Networks/ex_03.ipynb)
+    - [04 Neural Network Learning](./ml_course/exercises/04%20Neural%20Network%20Learning/ex_04.ipynb)
+    - [05 Regularized Linear Regression and Bias Variance](./ml_course/exercises/05%20Regularized%20Linear%20Regression%20and%20Bias%20Variance/ex_05.ipynb)
 - Deep Learning
   - Note
     - [PDF](./dl_course/note/DLNote-2021-09-04.pdf)
