@@ -2452,6 +2452,22 @@ G_{n_{c}^{[l]}, 1}^{[l]} && \dots && G_{n_{c}^{[l]}, n_{c}^{[l]}}^{[l]} \\
 
 \noindent It turns out you can get better visually result if you use style cost from all the different layers (both earlier ones and deeper ones). Choose the right hyper parameter \(\lambda^{[l]}\) to get a better result.
 
+\bigskip
+
+\noindent \textbf{Multiple Dimension Convolution Generalizations}:
+
+\noindent You can apply convolution to muti dimensional data with the same convolution idea. Choose a filter of the right dimension and slide it through the muti dimensional input data to get the output.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/conv_1d_2d.png}
+\end{center}
+
+\noindent For example, you can use a 1d filter to detect heartbeat from 1d voltage data. Or you can apply a 3d filter to a 3d CT scan to detect tumor.
+
+\begin{center}
+\includegraphics[scale=0.4]{./images/conv_3d.png}
+\end{center}
+
 \printindex
 
 \end{document}
