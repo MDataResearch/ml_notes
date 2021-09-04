@@ -16,7 +16,7 @@ This repository contains my notes for Machine Learning and Deep Learning topics.
     - [05](./ml_course/exercises/05/ex_05.ipynb)
 - Deep Learning
   - Note
-    - [PDF](./dl_course/note/DLNote-2021-08-22.pdf)
+    - [PDF](./dl_course/note/DLNote-2021-09-04.pdf)
     - [Latex source code](./dl_course/note/main.tex)
   - Exercises
     - Neural Networks and Deep Learning
