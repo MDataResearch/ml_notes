@@ -1,6 +1,8 @@
 # Notes for Machine Learning and Deep Learning
 
-This repository contains my notes for Machine Learning and Deep Learning topics.
+## Description
+
+This repository contains some notes on Machine Learning and Deep Learning topics. Written in Latex with Overleaf editor.
 
 Courses taken:
 
