@@ -32,11 +32,11 @@ Courses taken:
       - [Building your Deep Neural Network - Step by Step](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/03/Building_your_Deep_Neural_Network_Step_by_Step.ipynb)
       - [Deep Neural Network - Application](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/04/Deep_Neural_Network_Application.ipynb)
     - Improving Deep Neural Networks Hyperparameter tuning, Regularization and Optimization
-      - [Initialization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/01/01_Initialization.ipynb)
-      - [Regularization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/02/02_Regularization.ipynb)
-      - [Gradient Checking](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/03/03_Gradient_Checking.ipynb)
-      - [Optimization methods](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/04/04_Optimization_methods.ipynb)
-      - [Tensorflow Tutorial](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/05/05_Tensorflow_Tutorial.ipynb)
+      - [Initialization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/01/Initialization.ipynb)
+      - [Regularization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/02/Regularization.ipynb)
+      - [Gradient Checking](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/03/Gradient_Checking.ipynb)
+      - [Optimization methods](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/04/Optimization_methods.ipynb)
+      - [Tensorflow Tutorial](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/05/Tensorflow_Tutorial.ipynb)
     - Structuring Machine Learning Projects
     - Convolutional Neural Networks
     - Sequence Models
