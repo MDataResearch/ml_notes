@@ -36,7 +36,7 @@ Courses taken:
       - [Regularization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/02/Regularization.ipynb)
       - [Gradient Checking](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/03/Gradient_Checking.ipynb)
       - [Optimization methods](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/04/Optimization_methods.ipynb)
-      - [Tensorflow Tutorial](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/05/Tensorflow_Tutorial.ipynb)
+      - [Tensorflow tutorial](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning_Regularization_and_Optimization/05/Tensorflow_tutorial.ipynb)
     - Structuring Machine Learning Projects
     - Convolutional Neural Networks
     - Sequence Models
