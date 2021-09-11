@@ -18,7 +18,7 @@ Courses taken:
   - Exercises
     - [01 Linear Regression](./ml_course/exercises/01_Linear_Regression/ex_01.ipynb)
     - [02 Logistic Regression](./ml_course/exercises/02_Logistic_Regression/ex_02.ipynb)
-    - [03 Multi-class Classification and Neural Networks](./ml_course/exercises/03_Multi-class_Classification_and_Neural_Networks/ex_03.ipynb)
+    - [03 Multi-class Classification and Neural Networks](./ml_course/exercises/03_Multi_class_Classification_and_Neural_Networks/ex_03.ipynb)
     - [04 Neural Network Learning](./ml_course/exercises/04_Neural_Network_Learning/ex_04.ipynb)
     - [05 Regularized Linear Regression and Bias Variance](./ml_course/exercises/05_Regularized_Linear_Regression_and_Bias_Variance/ex_05.ipynb)
 - Deep Learning
