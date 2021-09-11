@@ -27,10 +27,10 @@ Courses taken:
     - [Latex source code](./dl_course/note/main.tex)
   - Exercises
     - Neural Networks and Deep Learning
-      - [Logistic Regression with a Neural Network mindset](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/01/01_Logistic_Regression_with_a_Neural_Network_mindset.ipynb)
-      - [Planar data classification with one hidden layer](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/02/02_Planar_data_classification_with_one_hidden_layer.ipynb)
-      - [Building your Deep Neural Network - Step by Step](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/03/03_Building_your_Deep_Neural_Network_-_Step_by_Step.ipynb)
-      - [Deep Neural Network - Application](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/04/04_Deep_Neural_Network_-_Application.ipynb)
+      - [Logistic Regression with a Neural Network mindset](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/01/Logistic_Regression_with_a_Neural_Network_mindset.ipynb)
+      - [Planar data classification with one hidden layer](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/02/Planar_data_classification_with_one_hidden_layer.ipynb)
+      - [Building your Deep Neural Network - Step by Step](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/03/Building_your_Deep_Neural_Network_Step_by_Step.ipynb)
+      - [Deep Neural Network - Application](./dl_course/exercises/01_Neural_Networks_and_Deep_Learning/04/Deep_Neural_Network_Application.ipynb)
     - Improving Deep Neural Networks Hyperparameter tuning, Regularization and Optimization
       - [Initialization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/01/01_Initialization.ipynb)
       - [Regularization](./dl_course/exercises/02_Improving_Deep_Neural_Networks_Hyperparameter_tuning,_Regularization_and_Optimization/02/02_Regularization.ipynb)
